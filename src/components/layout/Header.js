@@ -3,6 +3,7 @@ import styled from "styled-components";
 // footer link icon
 import logo from '../../assets/images/common/logo.png';
 import userDefault from '../../assets/images/common/user_img.png';
+import backArrow from '../../assets/images/common/back_arrow_icon.png';
 
 
 
@@ -73,9 +74,7 @@ const Login = styled.div`
         width: 38px;
         height: 38px;
     }
-`;  
-
-
+`;
 
 
 const HeaderTitle = styled.div`
@@ -86,6 +85,14 @@ const HeaderTitle = styled.div`
     }
 `;
 
+const HeaderBack = styled.div`
+    a {
+        img {
+            width: 36px;
+            height: 36px;
+        }
+    }
+`;
 
 
 
@@ -109,16 +116,28 @@ function Header() {
                 </HeaderUser>
             </HeaderContainer> */}
 
-            <HeaderContainer>
+            {/* <HeaderContainer>
                 <HeaderTitle>
                     <span>카테고리</span>
                 </HeaderTitle>
                 <Login>
                     <a href="#none"><img src={userDefault} /></a>
                 </Login>
-            </HeaderContainer>
+            </HeaderContainer> */}
 
-            {/* <HeaderContainer></HeaderContainer> */}
+            <HeaderContainer>
+                <HeaderBack>
+                    <a href="#none"><img src={backArrow} /></a>
+                </HeaderBack>
+
+                <HeaderTitle>
+                    <span>카테고리</span>
+                </HeaderTitle>
+
+                <Login>
+                    <a href="#none"><img src={userDefault} /></a>
+                </Login>
+            </HeaderContainer>
         </Wrapper>
     );
 }
