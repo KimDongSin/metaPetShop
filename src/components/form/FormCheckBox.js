@@ -15,6 +15,7 @@ const Wrap = styled.label`
     height: 14px;
     border: 1px solid #33c2ff;
     position: relative;
+    border-radius: 1px;
   }
 
   input[id="loginState"]:checked + label::after {
