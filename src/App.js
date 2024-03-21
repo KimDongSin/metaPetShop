@@ -9,7 +9,7 @@ import Header from './components/layout/Header';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header type="t4" />
       TITLE123
       <Join />
       <Footer />

@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 const HeaderContainer = styled.div`
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: ${(props) => (props.type === "t4" ? "center" : "space-between")};
     align-items: center;
 `;
 
@@ -45,8 +45,10 @@ const HeaderLogo = styled.div`
         justify-content: left;
         align-items: center;
         img {
-            width: 35px;
-            height: 32px;
+            /* width: 35px; */
+            width: ${(props) => (props.type === "t4" ? "30px" : " 35px")};
+            /* height: 32px; */
+            height: ${(props) => (props.type === "t4" ? "30px" : " 32px")};
             margin-right: 10px;
         }
     
@@ -97,7 +99,9 @@ const HeaderBack = styled.div`
 
 
 
-function Header() {
+function Header({ type }) {
+
+    console.log(type);
     return (
         <Wrapper>
             {/* <HeaderContainer>
@@ -125,7 +129,7 @@ function Header() {
                 </Login>
             </HeaderContainer> */}
 
-            <HeaderContainer>
+            {/* <HeaderContainer>
                 <HeaderBack>
                     <a href="#none"><img src={backArrow} /></a>
                 </HeaderBack>
@@ -137,6 +141,15 @@ function Header() {
                 <Login>
                     <a href="#none"><img src={userDefault} /></a>
                 </Login>
+            </HeaderContainer> */}
+
+            <HeaderContainer type={type}>
+                <HeaderLogo>
+                    <a href="#none">
+                        <img src={logo} />
+                        <span>Metapet</span>
+                    </a>
+                </HeaderLogo>
             </HeaderContainer>
         </Wrapper>
     );

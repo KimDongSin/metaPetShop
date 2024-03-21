@@ -44,8 +44,6 @@ const FooterLink = styled.div`
         align-items: center;
         font-size: 13px;
         font-weight: 400;
-        /* letter-spacing: -4%; */
-
     }
 `;
 
