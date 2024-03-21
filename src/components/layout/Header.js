@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 // footer link icon
 import logo from '../../assets/images/common/logo.png';
+import userDefault from '../../assets/images/common/user_img.png';
+
+
+
+
+
 import discord from '../../assets/images/footer/discord_icon.png';
 import instagram from '../../assets/images/footer/instagram_icon.png';
 import twitter from '../../assets/images/footer/twitter_icon.png';
@@ -20,11 +26,13 @@ import userOnproduct_icon from '../../assets/images/common/user_on_icon.png';
 
 const Wrapper = styled.div`
     height: 55px;
-    padding: 7px 17px 12px;
+    padding: 7px 17px 0px;
     background-color: #FFFFFF;
+    margin-bottom: 32px;
 `;
 
 const HeaderContainer = styled.div`
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,12 +68,23 @@ const Login = styled.div`
         font-size: bold;
         color: #33C2FF;
     }
+
+    img {
+        width: 38px;
+        height: 38px;
+    }
+`;  
+
+
+
+
+const HeaderTitle = styled.div`
+    span {
+        font-size: 22px;
+        font-weight: 700;
+        color: #333333;
+    }
 `;
-
-
-
-
-
 
 
 
@@ -74,7 +93,7 @@ const Login = styled.div`
 function Header() {
     return (
         <Wrapper>
-            <HeaderContainer>
+            {/* <HeaderContainer>
                 <HeaderLogo>
                     <a href="#none">
                         <img src={logo} />
@@ -88,11 +107,18 @@ function Header() {
                         <a href="#none">로그인</a>
                     </Login>
                 </HeaderUser>
+            </HeaderContainer> */}
+
+            <HeaderContainer>
+                <HeaderTitle>
+                    <span>카테고리</span>
+                </HeaderTitle>
+                <Login>
+                    <a href="#none"><img src={userDefault} /></a>
+                </Login>
             </HeaderContainer>
 
-            {/* <HeaderContainer></HeaderContainer>
-
-            <HeaderContainer></HeaderContainer> */}
+            {/* <HeaderContainer></HeaderContainer> */}
         </Wrapper>
     );
 }
