@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import FormInput from "../form/FormInput";
-import "../../global/font.css";
 
 const Wrap = styled.div`
 
@@ -9,8 +8,7 @@ const Wrap = styled.div`
 const Join = () => {
     return(
         <Wrap>
-            <FormInput />
-            asdada
+            <FormInput title="이메일" type="text" placeholder="아이디를 입력해주세요." />
         </Wrap>
     );
 }

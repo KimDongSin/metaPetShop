@@ -10,15 +10,18 @@ const Wrap = styled.div`
         color: #333333;
         font-size: 16px;
     }
+
+    input::placeholder{
+        color: #909090;
+        font-size: 16px;
+    }
 ` 
 
-
-
-const FormInput = () => {
+const FormInput = ({title, type, placeholder}) => {
     return(
         <Wrap>
-            <p>이메일</p>
-            <input type="text" placeholder="아이디를 입력해주세요." />
+            <p>{title}</p>
+            <input type={type} placeholder={placeholder} />
         </Wrap>
     );
 }
