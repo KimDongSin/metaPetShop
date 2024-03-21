@@ -144,7 +144,7 @@ function Header({ type }) {
             </HeaderContainer> */}
 
             <HeaderContainer type={type}>
-                <HeaderLogo>
+                <HeaderLogo type={type}>
                     <a href="#none">
                         <img src={logo} />
                         <span>Metapet</span>

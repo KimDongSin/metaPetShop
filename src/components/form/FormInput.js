@@ -7,7 +7,7 @@ const Wrap = styled.label`
     align-items: center;
 
   input {
-    width: 90%;
+    width: 100%;
     height: 57px;
     border-radius: 16px;
     border: 1px solid #dfdfdf;
@@ -30,7 +30,7 @@ const Wrap = styled.label`
     color: ${(props) => (props.isFocused ? "#33C2FF" : "#333333")};
     margin-bottom: 10px;
     font-size: 16px;
-    width: 90%;
+    width: 100%;
   }
 `;
 
