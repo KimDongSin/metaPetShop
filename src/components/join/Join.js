@@ -11,7 +11,8 @@ const Wrap = styled.div`
   margin: 0 auto;
 
   div {
-    width: 90%;
+    width: 100%;
+    padding: 0 28px;
   }
 
   & .user__input__wrapper:first-child {
