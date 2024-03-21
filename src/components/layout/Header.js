@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // footer link icon
-import telegram from '../../assets/images/footer/telegram_icon.png';
+import logo from '../../assets/images/common/logo.png';
 import discord from '../../assets/images/footer/discord_icon.png';
 import instagram from '../../assets/images/footer/instagram_icon.png';
 import twitter from '../../assets/images/footer/twitter_icon.png';
@@ -19,15 +19,80 @@ import cartOnproduct_icon from '../../assets/images/common/cart_on_icon.png';
 import userOnproduct_icon from '../../assets/images/common/user_on_icon.png';
 
 const Wrapper = styled.div`
-    padding: 22px 16px 60px;
-    background-color: #F5F5F5;
+    height: 55px;
+    padding: 7px 17px 12px;
+    background-color: #FFFFFF;
 `;
+
+const HeaderContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const HeaderLogo = styled.div`
+    a {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        img {
+            width: 35px;
+            height: 32px;
+            margin-right: 10px;
+        }
+    
+        span {
+            font-size: 23px;
+            font-weight: 500;
+            font-family: "Poppins", sans-serif !important;
+            color: #000;
+        }
+    }
+`;
+
+const HeaderUser = styled.div`
+
+`;
+
+const Login = styled.div`
+    a {
+        font-size: 16px;
+        font-size: bold;
+        color: #33C2FF;
+    }
+`;
+
+
+
+
+
+
+
+
 
 
 function Header() {
     return (
         <Wrapper>
-            111111111111
+            <HeaderContainer>
+                <HeaderLogo>
+                    <a href="#none">
+                        <img src={logo} />
+                        <span>Metapet</span>
+                    </a>
+                </HeaderLogo>
+
+
+                <HeaderUser>
+                    <Login>
+                        <a href="#none">로그인</a>
+                    </Login>
+                </HeaderUser>
+            </HeaderContainer>
+
+            {/* <HeaderContainer></HeaderContainer>
+
+            <HeaderContainer></HeaderContainer> */}
         </Wrapper>
     );
 }
