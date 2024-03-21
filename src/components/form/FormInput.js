@@ -1,7 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Wrap = styled.div`
+const Wrap = styled.label`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
   input {
     width: 90%;
     height: 57px;
@@ -25,16 +29,19 @@ const Wrap = styled.div`
   p {
     color: ${(props) => (props.isFocused ? "#33C2FF" : "#333333")};
     margin-bottom: 10px;
+    font-size: 16px;
+    width: 90%;
   }
 `;
 
-const FormInput = ({ title, type, placeholder }) => {
+const FormInput = ({ title, type, userInput, placeholder }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <Wrap isFocused={isFocused}>
+    <Wrap for={userInput} isFocused={isFocused}>
       <p>{title}</p>
       <input
+        id={userInput}
         type={type}
         placeholder={placeholder}
         onFocus={() => setIsFocused(true)}
