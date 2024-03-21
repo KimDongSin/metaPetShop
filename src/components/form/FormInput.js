@@ -9,7 +9,6 @@ const Wrap = styled.div`
         padding: 18px 23px;
         color: #333333;
         font-size: 16px;
-        font-family: "SUIT-Regular";
     }
 ` 
 
