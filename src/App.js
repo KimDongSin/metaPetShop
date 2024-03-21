@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Header type="t4" />
-      TITLE123
       <Join />
       <Footer />
     </div>
