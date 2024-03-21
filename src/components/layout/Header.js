@@ -97,15 +97,13 @@ const HeaderBack = styled.div`
 `;
 
 
-
-
 function Header({ type }) {
 
     console.log(type);
     return (
         <Wrapper>
             {/* <HeaderContainer>
-                <HeaderLogo>
+                <HeaderLogo type={type}>
                     <a href="#none">
                         <img src={logo} />
                         <span>Metapet</span>
