@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Title from "../../components/title/title";
 import More from "../../components/more/more";
-import CelebList from "./ui/celebList";
 import Collection from "./ui/collection";
+import Celeb from "./ui/celeb";
 
 
 const Wrapper = styled.div`
@@ -28,7 +28,7 @@ function Home() {
 
             <Section>
                 <More title="Top Celeb" />
-                <CelebList />
+                <Celeb />
             </Section>
         </Wrapper>
     )

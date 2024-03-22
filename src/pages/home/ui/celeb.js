@@ -1,32 +1,29 @@
 import styled from "styled-components";
-import imgSample from "../../../assets/images/common/user_img.png";
+import CelebList from "./celebList";
 
-
-
-const Item = styled.div`
-    display: flex;
-    justify-content: left;
-    align-items: center;
-
-    span {
-        font-size: 16px;
-        font-weight: 20px;
-        color: #333333;
-    }
-
-    img {
-        margin-right: 14px;
-        width: 46px;
-        height: 46px;
-    }
+const Wrapper = styled.div`
+    padding: 14px 12px;
+    background: #FFF;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px 0 #0000000F;
 `;
 
 function Celeb() {
     return (
-        <Item>
-            <img src={imgSample} />
-            <span>Metaverse Robot</span>
-        </Item>
+        <Wrapper>
+            <ul>
+                {/* <List />
+                <List />
+                <List />
+                <List />
+                <List /> */}
+                <CelebList />
+                <CelebList />
+                <CelebList />
+                <CelebList />
+                <CelebList />
+            </ul>
+        </Wrapper>
     )
 }
 

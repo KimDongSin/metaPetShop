@@ -1,24 +1,34 @@
 import styled from "styled-components";
-import List from "./list";
+import celebMore from "../../../assets/images/common/celebMore.png";
+import CelebInfo from "./celebInfo";
 
-const Wrapper = styled.div`
-    padding: 14px 12px;
-    background: #FFF;
-    border-radius: 14px;
-    box-shadow: 0 4px 10px 0 #0000000F;
+
+const Item = styled.li`
+    width: 100%;
+    height: 60px;
+
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & >img {
+            width: 28px;
+            height: 28px;
+        }
+    }
 `;
 
 function CelebList() {
     return (
-        <Wrapper>
-            <ul>
-                <List />
-                <List />
-                <List />
-                <List />
-                <List />
-            </ul>
-        </Wrapper>
+        <Item>
+            <a href="#none">
+                <CelebInfo />
+                <img src={celebMore} />
+            </a>
+        </Item>
     )
 }
 
