@@ -1,6 +1,6 @@
 import './App.css';
 import "./global/font.css";
-import Join from './components/join/Join';
+import Join from './pages/join/Join';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import Home from './pages/home/home';

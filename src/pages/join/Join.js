@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import FormInput from "../form/FormInput";
-import FormCheckBox from "../form/FormCheckBox";
+import FormInput from "../../components/form/FormInput";
+import FormCheckBox from "../../components/form/FormCheckBox";
 import { Link } from "react-router-dom";
 
 const Wrap = styled.div`
@@ -56,6 +56,10 @@ const Join = () => {
       <div className="user__check__box">
         <FormCheckBox />
         <UserInfoFind>아이디/비밀번호 찾기</UserInfoFind>
+      </div>
+
+      <div className="login__btn__wrap">
+        
       </div>
     </Wrap>
   );
