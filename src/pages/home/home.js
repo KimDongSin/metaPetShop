@@ -9,14 +9,20 @@ const Wrapper = styled.div`
     background: #F9FCFF;
 `;
 
+const Section = styled.div`
+    margin-bottom: 32px;
+`;
+
 function Home() {
     return (
         <Wrapper>
             <Title title="반려동물 NFT를 메타펫에서 만날 수 있습니다." sub="국내 최초 반려동물 전용 NFT 마켓플레이스, 메타펫" />
             <More title="인기있는 NFT" />
 
-            <More title="Top Celeb" />
-            <CelebList></CelebList>
+            <Section>
+                <More title="Top Celeb" />
+                <CelebList />
+            </Section>
         </Wrapper>
     )
 }
