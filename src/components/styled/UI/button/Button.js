@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-const ButtonType1 = () => {
-    return(
-
-    );
-}
-
-export default ButtonType1;
+export const ButtonType1 = styled.button`
+    
+`;
