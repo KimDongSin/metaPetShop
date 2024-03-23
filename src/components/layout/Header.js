@@ -101,7 +101,7 @@ function Header({ type }) {
 
         <HeaderUser>
           <Login>
-            <HeaderLoginLink>로그인</HeaderLoginLink>
+            <HeaderLoginLink to="/login">로그인</HeaderLoginLink>
           </Login>
         </HeaderUser>
       </HeaderContainer>
