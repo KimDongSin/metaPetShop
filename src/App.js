@@ -2,10 +2,8 @@ import './App.css';
 import "./global/font.css";
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
-import Home from './pages/home/home';
 import MainRouter from './common/routers';
 // import styled from 'styled-components';
-
 
 function App() {
   return (

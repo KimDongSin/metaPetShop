@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router";
-import Join from "../../pages/join/Join";
 import Home from "../../pages/home/home";
+import Join from "../../pages/join/Join";
 
 const MainRouter = () => {
     return(
