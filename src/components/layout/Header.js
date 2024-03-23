@@ -1,124 +1,116 @@
 import styled from "styled-components";
 
 // footer link icon
-import logo from '../../assets/images/common/logo.png';
-import userDefault from '../../assets/images/common/user_img.png';
-import backArrow from '../../assets/images/common/back_arrow_icon.png';
+import logo from "../../assets/images/common/logo.png";
+import userDefault from "../../assets/images/common/user_img.png";
+import backArrow from "../../assets/images/common/back_arrow_icon.png";
 
-
-
-
-
-import discord from '../../assets/images/footer/discord_icon.png';
-import instagram from '../../assets/images/footer/instagram_icon.png';
-import twitter from '../../assets/images/footer/twitter_icon.png';
-import kakao from '../../assets/images/footer/kakao_icon.png';
+import discord from "../../assets/images/footer/discord_icon.png";
+import instagram from "../../assets/images/footer/instagram_icon.png";
+import twitter from "../../assets/images/footer/twitter_icon.png";
+import kakao from "../../assets/images/footer/kakao_icon.png";
 
 // footer menu icon
-import home from '../../assets/images/common/home_icon.png';
-import product from '../../assets/images/common/product_icon.png';
-import cart from '../../assets/images/common/cart_icon.png';
-import user from '../../assets/images/common/user_icon.png';
+import home from "../../assets/images/common/home_icon.png";
+import product from "../../assets/images/common/product_icon.png";
+import cart from "../../assets/images/common/cart_icon.png";
+import user from "../../assets/images/common/user_icon.png";
 
-import homeOn from '../../assets/images/common/home_on_icon.png';
-import product_icon from '../../assets/images/common/product_on_icon.png';
-import cartOnproduct_icon from '../../assets/images/common/cart_on_icon.png';
-import userOnproduct_icon from '../../assets/images/common/user_on_icon.png';
+import homeOn from "../../assets/images/common/home_on_icon.png";
+import product_icon from "../../assets/images/common/product_on_icon.png";
+import cartOnproduct_icon from "../../assets/images/common/cart_on_icon.png";
+import userOnproduct_icon from "../../assets/images/common/user_on_icon.png";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
-    height: 55px;
-    padding: 7px 17px 0px;
-    background-color: #FFFFFF;
-    margin-bottom: 32px;
+  height: 55px;
+  padding: 7px 17px 0px;
+  background-color: #ffffff;
+  margin-bottom: 32px;
 `;
 
 const HeaderContainer = styled.div`
-    height: 100%;
-    display: flex;
-    justify-content: ${(props) => (props.type === "t4" ? "center" : "space-between")};
-    align-items: center;
+  height: 100%;
+  display: flex;
+  justify-content: ${(props) =>
+    props.type === "t4" ? "center" : "space-between"};
+  align-items: center;
 `;
 
 const HeaderLogo = styled.div`
-    a {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        img {
-            /* width: 35px; */
-            width: ${(props) => (props.type === "t4" ? "30px" : " 35px")};
-            /* height: 32px; */
-            height: ${(props) => (props.type === "t4" ? "30px" : " 32px")};
-            margin-right: 10px;
-        }
-    
-        span {
-            font-size: 23px;
-            font-weight: 500;
-            font-family: "Poppins", sans-serif !important;
-            color: #000;
-        }
+  a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    img {
+      /* width: 35px; */
+      width: ${(props) => (props.type === "t4" ? "30px" : " 35px")};
+      /* height: 32px; */
+      height: ${(props) => (props.type === "t4" ? "30px" : " 32px")};
+      margin-right: 10px;
     }
+
+    span {
+      font-size: 23px;
+      font-weight: 500;
+      font-family: "Poppins", sans-serif !important;
+      color: #000;
+    }
+  }
 `;
 
-const HeaderUser = styled.div`
-
-`;
+const HeaderUser = styled.div``;
 
 const Login = styled.div`
-    a {
-        font-size: 16px;
-        font-size: bold;
-        color: #33C2FF;
-    }
-
-    img {
-        width: 38px;
-        height: 38px;
-    }
+  img {
+    width: 38px;
+    height: 38px;
+  }
 `;
 
-
 const HeaderTitle = styled.div`
-    span {
-        font-size: 22px;
-        font-weight: 700;
-        color: #333333;
-    }
+  span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333333;
+  }
 `;
 
 const HeaderBack = styled.div`
-    a {
-        img {
-            width: 36px;
-            height: 36px;
-        }
+  a {
+    img {
+      width: 36px;
+      height: 36px;
     }
+  }
 `;
 
+const HeaderLoginLink = styled(Link)`
+  font-size: 16px;
+  font-size: bold;
+  color: #33c2ff;
+`;
 
 function Header({ type }) {
+  console.log(type);
+  return (
+    <Wrapper>
+      <HeaderContainer>
+        <HeaderLogo type={type}>
+          <a href="#none">
+            <img src={logo} />
+            <span>Metapet</span>
+          </a>
+        </HeaderLogo>
 
-    console.log(type);
-    return (
-        <Wrapper>
-            <HeaderContainer>
-                <HeaderLogo type={type}>
-                    <a href="#none">
-                        <img src={logo} />
-                        <span>Metapet</span>
-                    </a>
-                </HeaderLogo>
+        <HeaderUser>
+          <Login>
+            <HeaderLoginLink>로그인</HeaderLoginLink>
+          </Login>
+        </HeaderUser>
+      </HeaderContainer>
 
-
-                <HeaderUser>
-                    <Login>
-                        <a href="#none">로그인</a>
-                    </Login>
-                </HeaderUser>
-            </HeaderContainer>
-
-            {/* <HeaderContainer>
+      {/* <HeaderContainer>
                 <HeaderTitle>
                     <span>카테고리</span>
                 </HeaderTitle>
@@ -127,7 +119,7 @@ function Header({ type }) {
                 </Login>
             </HeaderContainer> */}
 
-            {/* <HeaderContainer>
+      {/* <HeaderContainer>
                 <HeaderBack>
                     <a href="#none"><img src={backArrow} /></a>
                 </HeaderBack>
@@ -141,7 +133,7 @@ function Header({ type }) {
                 </Login>
             </HeaderContainer> */}
 
-            {/* <HeaderContainer type={type}>
+      {/* <HeaderContainer type={type}>
                 <HeaderLogo type={type}>
                     <a href="#none">
                         <img src={logo} />
@@ -149,8 +141,8 @@ function Header({ type }) {
                     </a>
                 </HeaderLogo>
             </HeaderContainer> */}
-        </Wrapper>
-    );
+    </Wrapper>
+  );
 }
 
 export default Header;
