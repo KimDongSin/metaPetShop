@@ -94,7 +94,7 @@ function Header({ type }) {
   return (
     <Wrapper>
       <HeaderContainer>
-        <HeaderLogo type={type}>
+        <HeaderLogo type={type} to="/">
           <img src={logo} />
           <span>Metapet</span>
         </HeaderLogo>
