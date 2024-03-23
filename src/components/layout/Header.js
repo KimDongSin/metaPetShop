@@ -37,25 +37,23 @@ const HeaderContainer = styled.div`
   align-items: center;
 `;
 
-const HeaderLogo = styled.div`
-  a {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    img {
-      /* width: 35px; */
-      width: ${(props) => (props.type === "t4" ? "30px" : " 35px")};
-      /* height: 32px; */
-      height: ${(props) => (props.type === "t4" ? "30px" : " 32px")};
-      margin-right: 10px;
-    }
+const HeaderLogo = styled(Link)`
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  img {
+    /* width: 35px; */
+    width: ${(props) => (props.type === "t4" ? "30px" : " 35px")};
+    /* height: 32px; */
+    height: ${(props) => (props.type === "t4" ? "30px" : " 32px")};
+    margin-right: 10px;
+  }
 
-    span {
-      font-size: 23px;
-      font-weight: 500;
-      font-family: "Poppins", sans-serif !important;
-      color: #000;
-    }
+  span {
+    font-size: 23px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif !important;
+    color: #000;
   }
 `;
 
@@ -97,10 +95,8 @@ function Header({ type }) {
     <Wrapper>
       <HeaderContainer>
         <HeaderLogo type={type}>
-          <a href="#none">
-            <img src={logo} />
-            <span>Metapet</span>
-          </a>
+          <img src={logo} />
+          <span>Metapet</span>
         </HeaderLogo>
 
         <HeaderUser>
