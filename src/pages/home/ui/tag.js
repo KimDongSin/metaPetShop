@@ -12,6 +12,9 @@ const Wrapper = styled.div`
         line-height: 18px;
         border-radius: 6px;
 
+        margin-bottom: 5px;
+            
+
         &:first-child {
             color: #33C2FF;
             background: #EDF8FF;

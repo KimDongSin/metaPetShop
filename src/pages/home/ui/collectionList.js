@@ -5,7 +5,7 @@ import dog3 from "../../../assets/images/common/dog_sample3.png"
 import Tag from "./tag";
 
 
-const Wrapper = styled.div`
+const Wrapper = styled.li`
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -15,9 +15,10 @@ const Wrapper = styled.div`
     border-radius: 21px;
     background: #FFF;
     box-shadow: 0 4px 10px 0 #0000000F;
+    width: 49%;
 
     img {
-        width: 164px;
+        width: 100%;
         height: 164px;
         object-fit: cover;
         border-radius: 24px;

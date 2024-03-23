@@ -102,7 +102,7 @@ function Header({ type }) {
     console.log(type);
     return (
         <Wrapper>
-            {/* <HeaderContainer>
+            <HeaderContainer>
                 <HeaderLogo type={type}>
                     <a href="#none">
                         <img src={logo} />
@@ -116,7 +116,7 @@ function Header({ type }) {
                         <a href="#none">로그인</a>
                     </Login>
                 </HeaderUser>
-            </HeaderContainer> */}
+            </HeaderContainer>
 
             {/* <HeaderContainer>
                 <HeaderTitle>
@@ -141,14 +141,14 @@ function Header({ type }) {
                 </Login>
             </HeaderContainer> */}
 
-            <HeaderContainer type={type}>
+            {/* <HeaderContainer type={type}>
                 <HeaderLogo type={type}>
                     <a href="#none">
                         <img src={logo} />
                         <span>Metapet</span>
                     </a>
                 </HeaderLogo>
-            </HeaderContainer>
+            </HeaderContainer> */}
         </Wrapper>
     );
 }
