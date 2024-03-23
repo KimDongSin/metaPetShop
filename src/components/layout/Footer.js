@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // footer link icon
 import telegram from '../../assets/images/footer/telegram_icon.png';
@@ -32,19 +33,6 @@ const FooterLink = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 29px;
-
-    a {
-        width: 122px;
-        height: 46px;
-        border: 1px solid #0000001A;
-        border-radius: 11px;
-        display: flex;
-        margin: 0 4px;
-        justify-content: center;
-        align-items: center;
-        font-size: 13px;
-        font-weight: 400;
-    }
 `;
 
 const FooterIcon = styled.div`
@@ -92,7 +80,6 @@ const TermsList = styled.ul`
         }
 
         span {
-            /* display: block; */
 
             &:first-child {
                 flex-shrink: 0;
@@ -131,6 +118,7 @@ const FooterMenu = styled(FooterIcon)`
         height: 60px;
         justify-content: center;
         align-items: center;
+
         li {
             padding: 0 30px;
 
@@ -140,6 +128,22 @@ const FooterMenu = styled(FooterIcon)`
             }
         }
     }
+`;
+
+const LinkItem = styled(Link)`
+    width: 122px;
+    height: 46px;
+    border: 1px solid #0000001A;
+    border-radius: 11px;
+    display: flex;
+    margin: 0 4px;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 400;
+`;
+
+const LinkMenu = styled(Link)`
 
 `;
 
@@ -148,9 +152,9 @@ function Footer() {
         <Wrapper>
             <FooterInfo>
                 <FooterLink>
-                    <a href="#none">고객센터</a>
-                    <a href="#none">이용약관</a>
-                    <a href="#none">개인정보처리</a>
+                    <LinkItem to="/">고객센터</LinkItem>
+                    <LinkItem to="/">이용약관</LinkItem>
+                    <LinkItem to="/">개인정보처리</LinkItem>
                 </FooterLink>
                 <FooterTerms>
                     <span>메타펫</span>
@@ -211,16 +215,16 @@ function Footer() {
             <FooterMenu>
                 <ul>
                     <li>
-                        <a href="#none"><img src={home} /></a>
+                        <LinkMenu to="/"><img src={home} /></LinkMenu>
                     </li>
                     <li>
-                        <a href="#none"><img src={product} /></a>
+                        <LinkMenu to="/"><img src={product} /></LinkMenu>
                     </li>
                     <li>
-                        <a href="#none"><img src={cart} /></a>
+                        <LinkMenu to="/"><img src={cart} /></LinkMenu>
                     </li>
                     <li>
-                        <a href="#none"><img src={user} /></a>
+                        <LinkMenu to="/"><img src={user} /></LinkMenu>
                     </li>
                 </ul>
             </FooterMenu>
