@@ -3,6 +3,7 @@ import FormInput from "../../components/form/FormInput";
 import FormCheckBox from "../../components/form/FormCheckBox";
 import { Link } from "react-router-dom";
 import { LoginBtn, JoinBtn } from "../../components/styled/UI/button/Button";
+import SnsLogin from "./ui/SnsLogin";
 
 const Wrap = styled.div`
   display: flex;
@@ -66,6 +67,8 @@ const Login = () => {
         <LoginBtn>로그인</LoginBtn>
         <JoinBtn>회원가입</JoinBtn>
       </div>
+
+      <SnsLogin />
     </Wrap>
   );
 };

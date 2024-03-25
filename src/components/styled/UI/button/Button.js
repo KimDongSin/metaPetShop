@@ -10,6 +10,7 @@ const Btn = styled.button`
     border: none;
     font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
 `;
 
 export const LoginBtn = styled(Btn)`
