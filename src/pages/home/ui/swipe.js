@@ -58,6 +58,7 @@ const ItemImg = styled.div`
         border-radius: 100%;
         background: none;
         
+        
         & > img {
             width: 46px;
             height: 46px;
@@ -93,10 +94,14 @@ const ItemLike = styled.button`
     align-items: center;
     border-radius: 100%;
     background: none;
+    border: none;
 
     img {
         width: 56px;
         height: 56px;
+        border: 1px solid #0000000F;
+    border-radius: 100%;
+
     }
 `;
 
