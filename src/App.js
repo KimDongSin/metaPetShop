@@ -1,4 +1,4 @@
-import './App.css';
+import './global/reset.css';
 import "./global/font.css";
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
