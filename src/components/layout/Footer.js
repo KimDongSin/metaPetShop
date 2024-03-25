@@ -111,6 +111,7 @@ const FooterMenu = styled(FooterIcon)`
     height: 60px;
     background: #FFFFFF;
     position: fixed;
+    z-index: 10;
     left: 0;
     bottom: 0;
     
