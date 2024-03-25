@@ -134,7 +134,7 @@ function FavSwipe() {
                             </ItemTitle>
 
                             <ItemLike onClick={likeBtn}>
-                                <img src={likeOn} />
+                                <img src={likeOff} />
                             </ItemLike>
                         </ItemInfo>
                     </Link>
