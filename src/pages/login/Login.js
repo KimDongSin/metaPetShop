@@ -2,6 +2,8 @@ import styled from "styled-components";
 import FormInput from "../../components/form/FormInput";
 import FormCheckBox from "../../components/form/FormCheckBox";
 import { Link } from "react-router-dom";
+import { LoginBtn, JoinBtn } from "../../components/styled/UI/button/Button";
+import SnsLogin from "./ui/SnsLogin";
 
 const Wrap = styled.div`
   display: flex;
@@ -19,16 +21,20 @@ const Wrap = styled.div`
     margin-bottom: 20px;
   }
 
-  & .user__check__box{
+  & .user__check__box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 14px 0 36px;
   }
+
+  & .login__btn__wrap > button:first-child{
+    margin-bottom: 10px;
+  }
 `;
 
 const UserInfoFind = styled(Link)`
-    font-size: 14px;
+  font-size: 14px;
 `;
 
 const Login = () => {
@@ -58,8 +64,11 @@ const Login = () => {
       </div>
 
       <div className="login__btn__wrap">
-        
+        <LoginBtn>로그인</LoginBtn>
+        <JoinBtn>회원가입</JoinBtn>
       </div>
+
+      <SnsLogin />
     </Wrap>
   );
 };
