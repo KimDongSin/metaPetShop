@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
-export const ButtonType1 = styled.button`
+export const ButtonEnable = styled.button`
+    
+`;
+
+export const ButtonDisabled = styled.button`
     
 `;

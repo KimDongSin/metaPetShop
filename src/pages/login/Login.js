@@ -32,7 +32,7 @@ const UserInfoFind = styled(Link)`
     font-size: 14px;
 `;
 
-const Join = () => {
+const Login = () => {
   return (
     <Wrap>
       <div className="user__input__wrapper">
@@ -65,4 +65,4 @@ const Join = () => {
   );
 };
 
-export default Join;
+export default Login;
