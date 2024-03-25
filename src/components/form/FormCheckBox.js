@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import checkImg from "../../assets/images/join/check.png";
 
-const Wrap = styled.label`
+const Wrap = styled.div`
   display: flex;
   align-items: center;
 
@@ -10,12 +10,14 @@ const Wrap = styled.label`
   }
 
   input[type="checkbox"] + label {
-    display: inline-block;
+    display: flex;
     width: 14px;
     height: 14px;
     border: 1px solid #33c2ff;
     position: relative;
     border-radius: 1px;
+    white-space: nowrap;
+    align-items: center;
   }
 
   input[id="loginState"]:checked + label::after {
@@ -34,20 +36,24 @@ const Wrap = styled.label`
 
   span {
     font-size: 14px;
-    margin-left: 6px;
+    margin-left: 21px;
   }
 `;
 
 const FormCheckBox = () => {
   return (
-    <Wrap htmlForfor="loginState">
+    <Wrap>
       <input id="loginState" type="checkbox" />
       <label
         className="checkbox__label"
         img={checkImg}
         htmlFor="loginState"
-      ></label>
-      <span>로그인 상태 유지</span>
+      >
+        <span htmlFor="loginState">
+        로그인 상태 유지
+      </span>
+      </label>
+      
     </Wrap>
   );
 };

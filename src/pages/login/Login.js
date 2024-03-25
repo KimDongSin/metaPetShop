@@ -9,10 +9,10 @@ const Wrap = styled.div`
   align-items: center;
   width: 100%;
   margin: 0 auto;
+  padding: 0 28px;
 
-  div {
+  & > div {
     width: 100%;
-    padding: 0 28px;
   }
 
   & .user__input__wrapper:first-child {
@@ -26,7 +26,6 @@ const Wrap = styled.div`
     margin: 14px 0 36px;
   }
 `;
-
 
 const UserInfoFind = styled(Link)`
     font-size: 14px;
