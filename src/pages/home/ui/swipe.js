@@ -11,6 +11,7 @@ import Tag from "./tag";
 
 const SwiperWrap = styled(Swiper)`
         height: 450px;
+        overflow: visible;
 `;
 
 const SlideItem = styled(SwiperSlide)`
