@@ -4,6 +4,8 @@ import ItemThumbnail from "../../components/thumnail/thumnail";
 import sampleUser from '../../assets/images/common/user_img.png';
 import shareIcon from '../../assets/images/common/share_icon.png';
 import { Link } from "react-router-dom";
+import DetailTab from "./ui/detailTab";
+import DetailStory from "./ui/detailStory";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -67,6 +69,12 @@ function Detail() {
             <ItemDetail>
                 <ItemThumbnail size='large'></ItemThumbnail>
             </ItemDetail>
+
+
+
+
+            <DetailTab />
+            <DetailStory />
         </Wrapper>
     )
 }
