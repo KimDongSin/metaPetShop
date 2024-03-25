@@ -54,6 +54,7 @@ const ItemImg = styled.div`
         right: 20px;
         width: 46px;
         height: 46px;
+        border: 0;
         border-radius: 100%;
         background: none;
         

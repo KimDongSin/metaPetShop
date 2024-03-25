@@ -3,6 +3,7 @@ import dog1 from "../../../assets/images/common/dog_sample1.png"
 import dog2 from "../../../assets/images/common/dog_sample2.png"
 import dog3 from "../../../assets/images/common/dog_sample3.png"
 import Tag from "./tag";
+import { Link } from "react-router-dom";
 
 
 const Wrapper = styled.li`
@@ -11,11 +12,15 @@ const Wrapper = styled.li`
     align-items: flex-start;
     flex-direction: column;
     margin-bottom: 8px;
-    padding: 12px;
     border-radius: 21px;
     background: #FFF;
     box-shadow: 0 4px 10px 0 #0000000F;
     width: 49%;
+    overflow: hidden;
+`;
+
+const CollectionLink = styled(Link)`
+    padding: 12px;
 
     img {
         width: 100%;
@@ -36,9 +41,11 @@ const Wrapper = styled.li`
 function CollectionList() {
     return (
         <Wrapper>
-            <img src={dog2} />
-            <span>good monkey</span>
+            <CollectionLink to="/">
+                <img src={dog2} />
+                <span>good monkey</span>
             <Tag />
+            </CollectionLink>
         </Wrapper>
     )
 }
