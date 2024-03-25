@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import DetailTab from "./ui/detailTab";
 import DetailStory from "./ui/detailStory";
 import DetailInfo from "./ui/detailInfo";
+import DetailFollower from "./ui/detailFollower";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -75,6 +76,7 @@ function Detail() {
 
 
             <DetailTab />
+            <DetailFollower />
             <DetailInfo />
             <DetailStory />
         </Wrapper>
