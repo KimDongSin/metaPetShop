@@ -9,23 +9,17 @@ import 'swiper/css';
 import { Link } from "react-router-dom";
 import Tag from "./tag";
 
-const Wrapper = styled.div`
-    ul {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
+const SwiperWrap = styled(Swiper)`
+        height: 450px;
 `;
 
 const SlideItem = styled(SwiperSlide)`
     width: 80%;
-    background: gray;
     border-radius: 24px;
     overflow: hidden;
-
+    box-shadow: 0 4px 18px 0 #0000000F;
+    font-size: 0;
+    height: 434px;
 `;
 
 const ItemImg = styled.div`
@@ -74,38 +68,56 @@ const ItemImg = styled.div`
 
 const ItemInfo = styled.div`
     padding: 17px 22px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const ItemTitle = styled.div`
 
-`;
-const ItemLike = styled.div`
+    & > span {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 25px;
+        color: #333333;
+    }
 
 `;
+const ItemLike = styled.button`
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background: none;
 
-
-
-
-
-
-
-
-
-
-
+    img {
+        width: 56px;
+        height: 56px;
+    }
+`;
 
 
 
 function Swipe() {
 
     // Link 이동 방지
-    const handleClick = (e) => {
+    const shareBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
 
     };
+    // Link 이동 방지
+    const likeBtn = (e) => {
+        e.preventDefault(); // Link 이동 방지
+
+    };
+
+
+
     return (
         <>
-            <Swiper
+            <SwiperWrap
                 slidesPerView={'auto'}
                 spaceBetween={30}
                 className="mySwiper"
@@ -115,7 +127,7 @@ function Swipe() {
                         <ItemImg>
                             <img src={sampleImg} />
                             <span>3일 11시간 23분</span>
-                            <button onClick={handleClick}><img src={share} /></button>
+                            <button onClick={shareBtn}><img src={share} /></button>
                         </ItemImg>
 
                         <ItemInfo>
@@ -124,8 +136,8 @@ function Swipe() {
                                 <Tag />
                             </ItemTitle>
 
-                            <ItemLike>
-                                <img src={likeOn}/>
+                            <ItemLike onClick={shareBtn}>
+                                <img src={likeOn} />
                             </ItemLike>
                         </ItemInfo>
                     </Link>
@@ -136,15 +148,38 @@ function Swipe() {
                         <ItemImg>
                             <img src={sampleImg} />
                             <span>3일 11시간 23분</span>
-                            <button onClick={handleClick}><img src={share} /></button>
+                            <button onClick={shareBtn}><img src={share} /></button>
                         </ItemImg>
 
                         <ItemInfo>
                             <ItemTitle>
-
+                                <span>good monkey</span>
+                                <Tag />
                             </ItemTitle>
-                            <ItemLike>
 
+                            <ItemLike onClick={shareBtn}>
+                                <img src={likeOn} />
+                            </ItemLike>
+                        </ItemInfo>
+                    </Link>
+
+                </SlideItem>
+                <SlideItem>
+                    <Link to="/a">
+                        <ItemImg>
+                            <img src={sampleImg} />
+                            <span>3일 11시간 23분</span>
+                            <button onClick={shareBtn}><img src={share} /></button>
+                        </ItemImg>
+
+                        <ItemInfo>
+                            <ItemTitle>
+                                <span>good monkey</span>
+                                <Tag />
+                            </ItemTitle>
+
+                            <ItemLike onClick={shareBtn}>
+                                <img src={likeOn} />
                             </ItemLike>
                         </ItemInfo>
                     </Link>
@@ -160,7 +195,7 @@ function Swipe() {
                 <SlideItem>Slide 7</SlideItem>
                 <SlideItem>Slide 8</SlideItem>
                 <SlideItem>Slide 9</SlideItem>
-            </Swiper>
+            </SwiperWrap>
         </>
     )
 }

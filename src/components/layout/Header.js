@@ -90,7 +90,6 @@ const HeaderLoginLink = styled(Link)`
 `;
 
 function Header({ type }) {
-  console.log(type);
   return (
     <Wrapper>
       <HeaderContainer>

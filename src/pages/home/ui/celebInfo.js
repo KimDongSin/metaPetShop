@@ -3,7 +3,7 @@ import imgSample from "../../../assets/images/common/user_img.png";
 
 
 
-const Item = styled.li`
+const Item = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
