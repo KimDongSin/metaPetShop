@@ -12,11 +12,6 @@ function Celeb() {
     return (
         <Wrapper>
             <ul>
-                {/* <List />
-                <List />
-                <List />
-                <List />
-                <List /> */}
                 <CelebList />
                 <CelebList />
                 <CelebList />

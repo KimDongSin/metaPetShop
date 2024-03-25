@@ -4,14 +4,13 @@ import sampleImg from '../../../assets/images/common/dog_sample3.png';
 import share from '../../../assets/images/common/item_share_icon.png';
 import likeOn from '../../../assets/images/common/like_on.png';
 import likeOff from '../../../assets/images/common/like_off.png';
-
 import 'swiper/css';
 import { Link } from "react-router-dom";
 import Tag from "./tag";
 
 const SwiperWrap = styled(Swiper)`
-        height: 450px;
-        overflow: visible;
+    height: 450px;
+    overflow: visible;
 `;
 
 const SlideItem = styled(SwiperSlide)`
@@ -43,8 +42,6 @@ const ItemImg = styled.div`
         line-height: 20px;
         color: #FFFFFF;
         padding: 5px 10px;
-        
-        
     }
 
     button {
@@ -58,14 +55,11 @@ const ItemImg = styled.div`
         border-radius: 100%;
         background: none;
         
-        
         & > img {
             width: 46px;
             height: 46px;
-
         }
     }
-
 `;
 
 
@@ -106,20 +100,16 @@ const ItemLike = styled.button`
 `;
 
 
-
-function Swipe() {
+function FavSwipe() {
 
     // Link 이동 방지
     const shareBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
-
     };
     // Link 이동 방지
     const likeBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
-
     };
-
 
 
     return (
@@ -143,7 +133,7 @@ function Swipe() {
                                 <Tag />
                             </ItemTitle>
 
-                            <ItemLike onClick={shareBtn}>
+                            <ItemLike onClick={likeBtn}>
                                 <img src={likeOn} />
                             </ItemLike>
                         </ItemInfo>
@@ -164,7 +154,7 @@ function Swipe() {
                                 <Tag />
                             </ItemTitle>
 
-                            <ItemLike onClick={shareBtn}>
+                            <ItemLike onClick={likeBtn}>
                                 <img src={likeOn} />
                             </ItemLike>
                         </ItemInfo>
@@ -185,26 +175,16 @@ function Swipe() {
                                 <Tag />
                             </ItemTitle>
 
-                            <ItemLike onClick={shareBtn}>
+                            <ItemLike onClick={likeBtn}>
                                 <img src={likeOn} />
                             </ItemLike>
                         </ItemInfo>
                     </Link>
 
                 </SlideItem>
-
-
-                <SlideItem>Slide 2</SlideItem>
-                <SlideItem>Slide 3</SlideItem>
-                <SlideItem>Slide 4</SlideItem>
-                <SlideItem>Slide 5</SlideItem>
-                <SlideItem>Slide 6</SlideItem>
-                <SlideItem>Slide 7</SlideItem>
-                <SlideItem>Slide 8</SlideItem>
-                <SlideItem>Slide 9</SlideItem>
             </SwiperWrap>
         </>
     )
 }
 
-export default Swipe;
+export default FavSwipe;

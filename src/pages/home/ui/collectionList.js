@@ -20,6 +20,8 @@ const Wrapper = styled.li`
 `;
 
 const CollectionLink = styled(Link)`
+    width: 100%;
+    display: block;
     padding: 12px;
 
     img {

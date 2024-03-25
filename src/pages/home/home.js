@@ -3,7 +3,8 @@ import Title from "../../components/title/title";
 import More from "../../components/more/more";
 import Collection from "./ui/collection";
 import Celeb from "./ui/celeb";
-import Swipe from "./ui/swipe";
+import FavSwipe from "./ui/favswipe";
+import NewSwipe from "./ui/newswipe";
 
 
 const Wrapper = styled.div`
@@ -22,7 +23,12 @@ function Home() {
 
             <Section>
                 <More title="인기있는 NFT" />
-                <Swipe />
+                <FavSwipe />
+            </Section>
+
+            <Section>
+                <More title="New NFT" />
+                <NewSwipe />
             </Section>
 
 

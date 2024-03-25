@@ -7,7 +7,7 @@ const Wrapper = styled.div`
         display: inline-block;
         padding: 5px 7px;
         margin-right: 4px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 500;
         line-height: 18px;
         border-radius: 6px;
@@ -23,6 +23,7 @@ const Wrapper = styled.div`
         &:last-child {
             color: #FEC600;
             background: #FFF7DC;
+            margin-right: 0;
         }
     }
 `;
