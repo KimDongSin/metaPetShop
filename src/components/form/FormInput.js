@@ -5,6 +5,7 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: ${props => props.width || "100%"};
 
   input {
     width: 100%;
@@ -37,11 +38,11 @@ const Wrap = styled.div`
   }
 `;
 
-const FormInput = ({ title, type, userInput, placeholder }) => {
+const FormInput = ({ title, type, userInput, placeholder, width }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <Wrap isFocused={isFocused}>
+    <Wrap isFocused={isFocused} width={width}>
       <label htmlFor={userInput}>
         <p>{title}</p>
       </label>
