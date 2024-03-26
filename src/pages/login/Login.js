@@ -28,7 +28,7 @@ const Wrap = styled.div`
     margin: 14px 0 36px;
   }
 
-  & .login__btn__wrap > *:first-child {
+  & .login__btn__wrap button:first-child {
     margin-bottom: 10px;
   }
 `;
