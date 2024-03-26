@@ -5,6 +5,7 @@ import Login from "../../pages/login/Login";
 import Join from "../../pages/join/Join";
 import Detail from "../../pages/detail/detail";
 import NotFound from "../../components/layout/notFound";
+import JoinDone from "../../pages/join/JoinDone";
 
 const MainRouter = () => {
     return(
@@ -13,6 +14,7 @@ const MainRouter = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
+                <Route path="/join/joinDoen" element={<JoinDone />} />
                 <Route path="/detail" element={<Detail />} />
                 <Route path="/*" element={<NotFound />} />
             </Routes>
