@@ -28,7 +28,7 @@ const Wrap = styled.div`
     margin: 14px 0 36px;
   }
 
-  & .login__btn__wrap > button:first-child{
+  & .login__btn__wrap > *:first-child {
     margin-bottom: 10px;
   }
 `;
@@ -64,8 +64,13 @@ const Login = () => {
       </div>
 
       <div className="login__btn__wrap">
-        <LoginBtn>로그인</LoginBtn>
-        <JoinBtn>회원가입</JoinBtn>
+        <Link to="/login">
+          <LoginBtn>로그인</LoginBtn>
+        </Link>
+
+        <Link to="/join">
+          <JoinBtn>회원가입</JoinBtn>
+        </Link>
       </div>
 
       <SnsLogin />
