@@ -1,7 +1,6 @@
 import styled from "styled-components";
-// import sampleImg from '../../../assets/images/common/dog_sample3.png';
 import errorImg from '../../assets/images/common/notfound.png'
-import { Link } from "react-router-dom";
+import CustomeLink from "../Link/link";
 
 const Wrapper = styled.div`
     display: flex;
@@ -35,24 +34,6 @@ const Wrapper = styled.div`
     }
 `;
 
-const MainLink = styled(Link)`
-    display: block;
-    width: 100%;
-    height: 58px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #33C2FF;
-    border-radius: 16px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #FFFFFF;
-    margin-bottom: 100px;
-
-
-
-`;
-
 
 function NotFound() {
     return (
@@ -65,8 +46,7 @@ function NotFound() {
                 멍멍 준비중 입니다..!
             </p>
 
-            <MainLink to="/" >메인으로</MainLink>
-
+            <CustomeLink url="/" />
         </Wrapper>
     )
 }
