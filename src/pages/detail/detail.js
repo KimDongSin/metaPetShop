@@ -8,6 +8,7 @@ import DetailTab from "./ui/detailTab";
 import DetailStory from "./ui/detailStory";
 import DetailInfo from "./ui/detailInfo";
 import DetailFollower from "./ui/detailFollower";
+import DetailDelivery from "./ui/delivery";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -74,7 +75,7 @@ function Detail() {
 
 
 
-
+            <DetailDelivery />
             <DetailTab />
             <DetailFollower />
             <DetailInfo />
