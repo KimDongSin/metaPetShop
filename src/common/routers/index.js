@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router";
 import Home from "../../pages/home/home";
 import Login from "../../pages/login/Login";
 import Join from "../../pages/join/Join";
+import Detail from "../../pages/detail/detail";
+import NotFound from "../../components/layout/notFound";
 
 const MainRouter = () => {
     return(
@@ -11,6 +13,8 @@ const MainRouter = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
+                <Route path="/detail" element={<Detail />} />
+                <Route path="/*" element={<NotFound />} />
             </Routes>
         </Suspense>
     );

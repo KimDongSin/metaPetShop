@@ -4,6 +4,7 @@ import sampleImg from '../../../assets/images/common/dog_sample3.png';
 import 'swiper/css';
 import { Link } from "react-router-dom";
 import Tag from "./tag";
+import ItemThumbnail from "../../../components/thumnail/thumnail";
 
 const SwiperWrap = styled(Swiper)`
         overflow: visible;
@@ -66,16 +67,7 @@ function NewSwipe() {
         >
             <SlideItem>
                 <Link to="/a">
-                    <ItemImg>
-                        <img src={sampleImg} />
-                    </ItemImg>
-
-                    <ItemInfo>
-                        <ItemTitle>
-                            <span>good monkey</span>
-                            <Tag />
-                        </ItemTitle>
-                    </ItemInfo>
+                    <ItemThumbnail />
                 </Link>
 
             </SlideItem>
