@@ -8,6 +8,7 @@ import NotFound from "../../components/layout/notFound";
 import JoinDone from "../../pages/join/JoinDone";
 import InfoFind from "../../pages/InfoFind/InfoFind";
 import IdFind from "../../pages/InfoFind/IdFind";
+import PwdFind from "../../pages/InfoFind/PwdFind";
 
 const MainRouter = () => {
     return(
@@ -21,6 +22,7 @@ const MainRouter = () => {
                 <Route path="/*" element={<NotFound />} />
                 <Route path="/infoFind" element={<InfoFind />} />
                 <Route path="/idFind" element={<IdFind />} />
+                <Route path="/pwdFind" element={<PwdFind />} />
             </Routes>
         </Suspense>
     );
