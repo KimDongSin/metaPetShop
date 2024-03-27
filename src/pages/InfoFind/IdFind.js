@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import FormInput from "../../components/form/FormInput";
-import { JoinBtn, LoginBtn } from "../../components/styled/UI/button/Button";
+import { LoginBtn } from "../../components/styled/UI/button/Button";
 
 const Wrap = styled.div`
     padding: 19px 28px 46px;
