@@ -6,6 +6,8 @@ import Join from "../../pages/join/Join";
 import Detail from "../../pages/detail/detail";
 import NotFound from "../../components/layout/notFound";
 import JoinDone from "../../pages/join/JoinDone";
+import InfoFind from "../../pages/InfoFind/InfoFind";
+import IdFind from "../../pages/InfoFind/IdFind";
 
 const MainRouter = () => {
     return(
@@ -17,6 +19,8 @@ const MainRouter = () => {
                 <Route path="/join/joinDoen" element={<JoinDone />} />
                 <Route path="/detail" element={<Detail />} />
                 <Route path="/*" element={<NotFound />} />
+                <Route path="/infoFind" element={<InfoFind />} />
+                <Route path="/idFind" element={<IdFind />} />
             </Routes>
         </Suspense>
     );

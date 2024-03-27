@@ -22,3 +22,8 @@ export const JoinBtn = styled(Btn)`
     color: #33C2FF;
     background-color: #F8F8F8;
 `;
+
+export const InfoFindBtn = styled(Btn)`
+    font-weight: 500;
+    color: #6C6C6C;
+`;

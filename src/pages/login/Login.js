@@ -60,7 +60,7 @@ const Login = () => {
 
       <div className="user__check__box">
         <FormCheckBox />
-        <UserInfoFind>아이디/비밀번호 찾기</UserInfoFind>
+        <UserInfoFind to="/infoFind">아이디/비밀번호 찾기</UserInfoFind>
       </div>
 
       <div className="login__btn__wrap">
