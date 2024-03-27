@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { InfoFindBtn } from "../../components/styled/UI/button/Button";
-import { Link } from "react-router-dom";
+import { BtnLink, InfoFindBtn } from "../../components/styled/UI/button/Button";
 
 const Wrap = styled.div`
   padding: 142px 24px 0;
@@ -19,9 +18,7 @@ const Wrap = styled.div`
   }
 `;
 
-const BtnLink = styled(Link)`
-  width: 100%;
-`;
+
 
 const InfoFind = () => {
   return (

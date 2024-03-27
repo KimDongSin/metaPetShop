@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import JoinImg from "../../assets/images/join/JoinDone.png";
-import { LoginBtn } from "../../components/styled/UI/button/Button";
-import { Link } from "react-router-dom";
+import { BtnLink, LoginBtn } from "../../components/styled/UI/button/Button";
 
 const Wrap = styled.div`
   display: flex;
@@ -30,10 +29,6 @@ const Wrap = styled.div`
   }
 `;
 
-const JoinDoneLink = styled(Link)`
-    width: 100%;
-`;
-
 const JoinDone = () => {
   return (
     <Wrap>
@@ -41,9 +36,9 @@ const JoinDone = () => {
       <p>회원가입을 완료하였습니다.</p>
       <span>로그인 후 원활한 서비스를 이용해주세요.</span>
 
-      <JoinDoneLink to="/">
-        <LoginBtn className="join__done__loginbtn">회원가입 완료</LoginBtn>
-      </JoinDoneLink>
+      <BtnLink to="/" className="join__done__loginbtn">
+        <LoginBtn >회원가입 완료</LoginBtn>
+      </BtnLink>
     </Wrap>
   );
 };

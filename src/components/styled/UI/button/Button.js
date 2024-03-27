@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Btn = styled.button`
@@ -26,4 +27,8 @@ export const JoinBtn = styled(Btn)`
 export const InfoFindBtn = styled(Btn)`
     font-weight: 500;
     color: #6C6C6C;
+`;
+
+export const BtnLink = styled(Link)`
+  width: 100%;
 `;
