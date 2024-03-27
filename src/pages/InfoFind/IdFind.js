@@ -23,6 +23,10 @@ const Wrap = styled.div`
         font-size: 14px;
         line-height: 20px;
     }
+
+    & .idfind__step1__btn{
+        margin-top: 338px;
+    }
 `;
 
 const IdFind = () => {
@@ -43,7 +47,7 @@ const IdFind = () => {
             마이페이지 – 고객문의를 이용해주세요.
             </p>
 
-            <LoginBtn>아이디 찾기</LoginBtn>
+            <LoginBtn className="idfind__step1__btn">아이디 찾기</LoginBtn>
         </Wrap>
     );
 }
