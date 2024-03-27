@@ -32,7 +32,7 @@ const InfoFind = () => {
         <InfoFindBtn>아이디(이메일)을 잊어버렸습니다</InfoFindBtn>
       </BtnLink>
 
-      <BtnLink>
+      <BtnLink to="/pwdFind">
         <InfoFindBtn>비밀번호를 잊어버렸습니다.</InfoFindBtn>
       </BtnLink>
     </Wrap>
