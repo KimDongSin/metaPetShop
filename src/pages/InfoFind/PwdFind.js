@@ -8,6 +8,7 @@ const Wrap = styled.div`
         font-size: 20px;
         color: #333333;
         font-weight: 500;
+        line-height: 28px;
     }
 
     & .find__input__wrap{
