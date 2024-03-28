@@ -23,7 +23,7 @@ const Wrap = styled.div`
   }
 `;
 
-const JoinDonePopup = ({isOpen}) => {
+const IdFindPopup = ({isOpen}) => {
   return (
     <Modal>
       <Wrap>
@@ -39,4 +39,4 @@ const JoinDonePopup = ({isOpen}) => {
     </Modal>
   );
 };
-export default JoinDonePopup;
+export default IdFindPopup;

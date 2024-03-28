@@ -3,8 +3,7 @@ import FormInput from "../../components/form/FormInput";
 import { LoginBtn } from "../../components/styled/UI/button/Button";
 import { useState } from "react";
 import Overlay from "../../components/popup/Overlay";
-import Modal from "../../components/popup/Modal";
-import JoinDonePopup from "../../components/popup/JoinDonePopup";
+import IdFindPopup from "../../components/popup/IdFindPopup";
 
 const Wrap = styled.div`
   padding: 19px 28px 46px;
@@ -71,7 +70,7 @@ const IdFind = () => {
       {isOpen && (
         <>
           <Overlay>
-            <JoinDonePopup isOpen={modalToggleClickHandler} />
+            <IdFindPopup isOpen={modalToggleClickHandler} />
           </Overlay>
         </>
       )}
