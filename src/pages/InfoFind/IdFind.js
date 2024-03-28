@@ -4,6 +4,7 @@ import { LoginBtn } from "../../components/styled/UI/button/Button";
 import { useState } from "react";
 import Overlay from "../../components/popup/Overlay";
 import IdFindPopup from "../../components/popup/IdFindPopup";
+import ScrollToTop from "../../common/utils/ScrollToTop";
 
 const Wrap = styled.div`
   padding: 19px 28px 46px;
@@ -42,6 +43,7 @@ const IdFind = () => {
 
   return (
     <Wrap>
+      <ScrollToTop />
       <p className="id__find__title">
         가입시 등록하신 정보를
         <br />
