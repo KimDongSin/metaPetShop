@@ -13,7 +13,7 @@ const StepOneWrap = styled.div`
   }
 
   & .next__btn {
-    margin: 352px 0 46px;
+    margin: 316px 0 46px;
   }
 `;
 
