@@ -1,12 +1,19 @@
 import styled from "styled-components";
 import logo from "../../assets/images/leave/logo__img.png";
-import { BtnLink, LeaveBtn, LoginBtn } from "../../components/styled/UI/button/Button";
+import {
+  BtnLink,
+  LeaveBtn,
+  LoginBtn,
+} from "../../components/styled/UI/button/Button";
 import { useState } from "react";
 
-const StepOneWrap = styled.div`
+const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const StepOneWrap = styled(Wrap)`
   padding: 62px 24px 36px;
 
   & .leave__top__wrap > p {
@@ -33,31 +40,27 @@ const StepOneWrap = styled.div`
   }
 `;
 
-const StepTwoWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const StepTwoWrap = styled(Wrap)`
   padding: 78px 24px 36px;
 
-
-  & > img{
+  & > img {
     margin-bottom: 24px;
   }
 
-  & > p{
+  & > p {
     margin: 15px 0 266px;
   }
 `;
 
 const LeaveTitle = styled.span`
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 const LeaveDesc = styled.p`
-    text-align: center;
-    color: #565656;
-    line-height: 20px;
+  text-align: center;
+  color: #565656;
+  line-height: 20px;
 `;
 
 const Leave = () => {
@@ -111,7 +114,7 @@ const Leave = () => {
             </LeaveDesc>
 
             <BtnLink to="/">
-                <LoginBtn>메인으로</LoginBtn>
+              <LoginBtn>메인으로</LoginBtn>
             </BtnLink>
           </StepTwoWrap>
         </>

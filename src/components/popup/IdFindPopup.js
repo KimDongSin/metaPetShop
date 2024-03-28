@@ -7,8 +7,9 @@ const Wrap = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  padding-bottom: 20px;
 
   & .email {
     color: #1790ff;
@@ -23,7 +24,7 @@ const Wrap = styled.div`
   }
 `;
 
-const IdFindPopup = ({isOpen}) => {
+const IdFindPopup = ({ isOpen }) => {
   return (
     <Modal>
       <Wrap>
