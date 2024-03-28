@@ -32,3 +32,8 @@ export const InfoFindBtn = styled(Btn)`
 export const BtnLink = styled(Link)`
   width: 100%;
 `;
+
+export const PopupCloseBtn = styled(Btn)`
+    background-color: white;
+    color: #33C2FF;
+`;
