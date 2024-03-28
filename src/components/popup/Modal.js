@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ModalWrap = styled.div`
   background-color: white;
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 20px 0;
   position: fixed;
   top: 50%;
   left: 50%;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Modal from "./Modal";
 import { BtnLink, PopupCloseBtn } from "../styled/UI/button/Button";
-import { Link } from "react-router-dom";
 
 const Wrap = styled.div`
   width: 100%;
