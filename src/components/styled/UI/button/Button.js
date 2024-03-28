@@ -37,3 +37,9 @@ export const PopupCloseBtn = styled(Btn)`
     background-color: white;
     color: #33C2FF;
 `;
+
+export const LeaveBtn = styled(Btn)`
+    background-color: #ffffff;
+    color: #6C6C6C;
+    border: 1px solid #6C6C6C;
+`;
