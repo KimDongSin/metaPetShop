@@ -30,7 +30,7 @@ const Wrap = styled.div`
   label {
     width: 100%;
     p {
-      color: ${(props) => (props.isFocused ? "#33C2FF" : "#333333")};
+      color: ${(props) => (props.isfocused ? "#33C2FF" : "#333333")};
       margin-bottom: 10px;
       font-size: 16px;
       width: 100%;
@@ -42,7 +42,7 @@ const FormInput = ({ title, type, userInput, placeholder, width }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <Wrap isFocused={isFocused} width={width}>
+    <Wrap isfocused={isFocused ? "true":"false"} width={width}>
       <label htmlFor={userInput}>
         <p>{title}</p>
       </label>
