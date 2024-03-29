@@ -5,7 +5,7 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: ${props => props.width || "100%"};
+  width: ${(props) => props.width || "100%"};
 
   input {
     width: 100%;
@@ -30,7 +30,6 @@ const Wrap = styled.div`
   label {
     width: 100%;
     p {
-      color: ${(props) => (props.isfocused ? "#33C2FF" : "#333333")};
       margin-bottom: 10px;
       font-size: 16px;
       width: 100%;
@@ -41,10 +40,12 @@ const Wrap = styled.div`
 const FormInput = ({ title, type, userInput, placeholder, width }) => {
   const [isFocused, setIsFocused] = useState(false);
 
+  const pHelper = isFocused ? "#33C2FF" : "#333333";
+
   return (
-    <Wrap isfocused={isFocused ? "true":"false"} width={width}>
+    <Wrap width={width}>
       <label htmlFor={userInput}>
-        <p>{title}</p>
+        <p style={{ color: pHelper }}> {title}</p>
       </label>
       <input
         id={userInput}
