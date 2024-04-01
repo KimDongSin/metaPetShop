@@ -43,3 +43,20 @@ export const LeaveBtn = styled(Btn)`
     color: #6C6C6C;
     border: 1px solid #6C6C6C;
 `;
+
+export const BuyBtn = styled(Btn)`
+    color: #ffffff;
+    background-color: #33C2FF;
+    `;
+
+export const CartBtn = styled(Btn)`
+    width: 75px;
+    flex-shrink: 0;
+    margin-right: 15px;
+    background-color: #EDF8FF;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+`;
