@@ -1,20 +1,106 @@
 import styled from "styled-components";
 import { BuyBtn, CartBtn, PrepareBtn } from "../../../components/styled/UI/button/Button";
 import cart from "../../../assets/images/common/cart_on_icon.png";
+import likeOn from "../../../assets/images/common/like_on.png";
+import likeOff from "../../../assets/images/common/like_off.png";
+import CntInput from "./priceInput";
 
 const Wrapper = styled.div`
     margin-bottom: 18px;
 `;
 
 const ProductPrice = styled.div`
-
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
 `;
 
 const Like = styled.div`
+    width: 40%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    button {
+        margin-right: 14px;
+        padding: 0;
+        border: none;
+        background: none;
+        
+        img {
+            border-radius: 100%;
+            border: 1px solid #0000002E;
+            width: 50px;
+            height: 50px;
+        }
+    }
 
 `;
 
 const Sell = styled.ul`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        & > span {
+            display: block;
+            font-size: 20px;
+            font-weight: 500;
+            color: #333333;
+
+            &:first-child {
+                margin-bottom: 5px;
+            }
+
+            &:last-child {
+                font-size: 16px;
+                font-weight: 400;
+                color: #909090;
+            }
+        }
+    }
+`;
+
+const ProductBtn = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const BeforeProduct = styled.div`
+    font-size: 16px;
+    font-weight: bold;
+    font-weight: 400;
+    font-size: 13px;
+
+    & > span {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 16px;
+        border: none;
+        color: #ffffff;
+        background-color: #3F3F3F;
+
+        & > span {
+            display: block;
+            margin-left: 8px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
 
 `;
 
@@ -22,11 +108,16 @@ const ProductCnt = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 
-`;
-
-const BeforeProduct = styled.div`
-
+    span {
+        width: 100%;
+        display: block;
+        margin-right: 13px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #909090;
+    }
 `;
 
 
@@ -34,10 +125,12 @@ const BeforeProduct = styled.div`
 function Price() {
     return (
         <Wrapper>
-            
+
             <ProductPrice>
                 <Like>
-                    <img />
+                    <button>
+                        <img src={likeOn} />
+                    </button>
                     <span>1,345</span>
                 </Like>
 
@@ -51,19 +144,25 @@ function Price() {
                         <span>55,000 원</span>
                     </li>
                 </Sell>
-
             </ProductPrice>
 
-
             <ProductCnt>
+                <span>총 구매개수</span>
+                <CntInput>
+
+                </CntInput>
+
+            </ProductCnt>
+
+            <ProductBtn>
                 <CartBtn><img src={cart} /></CartBtn>
                 <BuyBtn>구매하기</BuyBtn>
-            </ProductCnt>
-            
+            </ProductBtn>
+
             <BeforeProduct>
-                <PrepareBtn>
+                <span>
                     아직 판매 전 입니다 <span>00:23:12:12</span>
-                </PrepareBtn>
+                </span>
             </BeforeProduct>
 
         </Wrapper>
