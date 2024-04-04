@@ -10,6 +10,7 @@ import DetailInfo from "./ui/detailInfo";
 import DetailFollower from "./ui/detailFollower";
 import DetailDelivery from "./ui/delivery";
 import Price from "./ui/price";
+import DetailRecommend from "./ui/detailRecommend";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -81,6 +82,7 @@ function Detail() {
             <DetailFollower />
             <DetailInfo />
             <DetailStory />
+            <DetailRecommend />
         </Wrapper>
     )
 }
