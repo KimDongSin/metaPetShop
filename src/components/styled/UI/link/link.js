@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-const CstLink = styled(Link)`
+const DefaultLink = styled(Link)`
     display: block;
     width: 100%;
     height: 58px;
@@ -16,10 +16,14 @@ const CstLink = styled(Link)`
     margin-bottom: 100px;
 `;
 
-function CustomeLink({url}) {
-    return (
-        <CstLink to={url} >메인으로</CstLink>
-    )
-}
+export const MainLink = styled(DefaultLink)`
+    background: #33C2FF;
+    color: #FFFFFF;
+`;
 
-export default CustomeLink;
+export const LoginLink = styled(DefaultLink)`
+    background: #F9FDFF;
+    color: #2EB4FF;
+    border: 1px solid #33C2FF;
+`;
+

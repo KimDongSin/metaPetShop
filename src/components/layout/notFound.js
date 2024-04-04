@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import errorImg from '../../assets/images/common/notfound.png'
-import CustomeLink from "../Link/link";
+import { MainLink } from "../styled/UI/link/link";
+// import CustomeLink from "../Link/link";
 
 const Wrapper = styled.div`
     display: flex;
@@ -46,7 +47,7 @@ function NotFound() {
                 멍멍 준비중 입니다..!
             </p>
 
-            <CustomeLink url="/" />
+            <MainLink url="/">메인으로</MainLink>
         </Wrapper>
     )
 }
