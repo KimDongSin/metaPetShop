@@ -22,8 +22,11 @@ export const MainLink = styled(DefaultLink)`
 `;
 
 export const LoginLink = styled(DefaultLink)`
+    height: 60px;
     background: #F9FDFF;
+    font-weight: 700;
     color: #2EB4FF;
     border: 1px solid #33C2FF;
+    margin-bottom: 20px;
 `;
 

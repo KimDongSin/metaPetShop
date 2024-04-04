@@ -148,9 +148,7 @@ function Price() {
 
             <ProductCnt>
                 <span>총 구매개수</span>
-                <CntInput>
-
-                </CntInput>
+                <CntInput />
 
             </ProductCnt>
 

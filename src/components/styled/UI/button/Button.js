@@ -60,3 +60,11 @@ export const CartBtn = styled(Btn)`
         height: 24px;
     }
 `;
+
+export const ReplyBtn = styled(Btn)`
+    width: 60px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2EB4FF;
+    background: none;
+`;
