@@ -18,6 +18,7 @@ const Wrapper = styled.div`
             border: 1px solid #F2F2F2;
             border-radius: 21px;
             margin-bottom: 13px;
+            box-shadow: 0 4px 10px 0 #0000000F;
         }
     }
 `;
