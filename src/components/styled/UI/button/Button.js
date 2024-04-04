@@ -60,3 +60,10 @@ export const CartBtn = styled(Btn)`
         height: 24px;
     }
 `;
+
+export const CommumityBtn = styled(Btn)`
+    color: #2EB4FF;
+    background-color: #F9FDFF;
+    border: 1px solid #33C2FF;
+`;
+
