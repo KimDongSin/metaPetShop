@@ -60,17 +60,3 @@ export const CartBtn = styled(Btn)`
         height: 24px;
     }
 `;
-
-export const PrepareBtn = styled(Btn)`
-    font-weight: 400;
-    font-size: 13px;
-    color: #ffffff;
-    background-color: #3F3F3F;
-
-    span {
-        display: block;
-        margin-left: 8px;
-        font-size: 18px;
-        font-weight: 700;
-    }
-`;
