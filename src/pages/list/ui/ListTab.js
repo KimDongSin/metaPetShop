@@ -50,13 +50,13 @@ const TabLink = styled(Link)`
 
 
 function ListTab() {
-    let type = 'star';
+    let type = 'follow';
 
 
     return (
         <Wrapper>
             <ul>
-                <li><TabLink><img src={type == 'star' ? starOn : starOff} /></TabLink></li>
+                <li><TabLink><img src={type == 'follow' ? starOn : starOff} /></TabLink></li>
                 <li><TabLink>Hot</TabLink></li>
                 <li><TabLink>New</TabLink></li>
                 <li><TabLink>Coll</TabLink></li>
