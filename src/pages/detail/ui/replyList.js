@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import sampleImg from "../../../assets/images/common/dog_sample1.png"
+import moreArrow from "../../../assets/images/detail/moreArrow.png"
+import replyArrow from "../../../assets/images/detail/replyArrow.png"
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
@@ -7,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const Comment = styled.li`
-
+    margin-bottom: 18px;
 
 `;
 
@@ -90,17 +92,86 @@ const CommentText = styled.div`
         margin-bottom: 10px;
     }
 
+    & > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 0;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+
+        & > img {
+            width: 3px;
+            height: 6px;
+            margin-left: 7px;
+        }
+    }
+
 
 
 `;
 
 const ReplyInput = styled.div`
+    width: 100%;
+    height: 48px;
+    background: #F9F9F9;
+    border-radius: 10px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    & > input {
+        width: 100%;
+        height: 100%;
+        padding: 14px;
+        border: none;
+        outline: none;
+    background: #F9F9F9;
+
+    }
+
+    & > button {
+        width: 72px;
+        height: 100%;
+        flex-shrink: 0;
+        border: none;
+        outline: none;
+        background: #F9F9F9;
+        padding: 0;
+    }
 
 
 `;
 
+const Replay = styled.ul`
+    margin-top: 10px;
+    margin-left: 30px;
 
+    & > li {
+        position: relative;
+
+        &::before {
+            width: 10px;
+            height: 10px;
+            object-fit: cover;
+            position: absolute;
+            top: 8px;
+            left: -25px;
+            content: "";
+            background: url(${replyArrow});
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    
+`;
 
 
 
@@ -128,7 +199,7 @@ function ReplyList() {
                             NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
                             NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
                         </p>
-                        <button> 더보기</button>
+                        <button> 더보기 <img src={moreArrow} /></button>
                     </CommentText>
 
                     <ReplyInput>
@@ -136,15 +207,38 @@ function ReplyList() {
                         <button>작성하기</button>
                     </ReplyInput>
 
+                    <Replay>
 
+                        <Comment>
+                            <User>
+                                <UserLink to="/" >
+                                    <img src={sampleImg} />
+                                    <span>good monkey</span>
+                                </UserLink>
+                                <span>NFT구매자</span>
+                            </User>
+
+                            <ReplyToggle>
+                                <span>4시간 전</span>
+                                <button>답글 숨기기</button>
+                            </ReplyToggle>
+
+                            <CommentText>
+                                <p>
+                                    NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
+                                    NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
+                                </p>
+                                <button> 더보기 <img src={moreArrow} /></button>
+                            </CommentText>
+
+                            <ReplyInput>
+                                <input type="text" placeholder="답글 작성하기" />
+                                <button>작성하기</button>
+                            </ReplyInput>
+                        </Comment>
+                    </Replay>
                 </Comment>
-
-
-
             </ul>
-
-
-
         </Wrapper>
     )
 }
