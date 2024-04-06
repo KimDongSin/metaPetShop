@@ -3,7 +3,6 @@ import { InfoBgBox } from "../../components/myPage/InfoBgBox";
 import listImg from "../../assets/images/myPage/purchaseList/list__img.png";
 import {
   CommentBtn,
-  MyPageBtn,
   PurchaseBtn,
   RefundBtn,
 } from "../../components/styled/UI/button/Button";
