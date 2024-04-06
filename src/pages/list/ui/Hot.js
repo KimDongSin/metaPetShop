@@ -1,66 +1,32 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
+import Title from "../../../components/title/title";
 
 const Wrapper = styled.div`
 
 `;
 
-const FollowList = styled.div`
+const HotList = styled.div`
     margin-bottom: 70px;
 `;
 
-const FollowNone = styled.div`
-    width: 100%;
-    height: 75vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #565656;
 
-    & > h1 {
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 13px;
-    }
-
-    & > span {
-        font-size: 14px;
-        font-weight: 600;
-    }
-`;
-
-const LoginAlert = styled(FollowNone)`
-    & > h1 {
-        margin-bottom: 30px;
-   }
-`;
-
-
-function Hot() {
+function ListHot() {
 
     return (
         <Wrapper>
 
-            {/* <FollowNone>
-                <h1>아직 팔로우가 없네요!</h1>
-                <span>관심있는 작가를 팔로우해볼까요?</span>
-            </FollowNone>
+            <Title title="인기있는 판매 NFT를 만나보세요" sub="최근 24시 동안 가장 많이 판매된 NFT 입니다"></Title>
 
-            <LoginAlert>
-                <h1>로그인 후 이용이 가능합니다.</h1>
-                <LoginLink>로그인</LoginLink>
-            </LoginAlert> */}
-
-            <FollowList>
+            <HotList>
                 <ul>
                     <ListItem></ListItem>
                     <ListItem></ListItem>
                     <ListItem></ListItem>
                 </ul>
-            </FollowList>
+            </HotList>
         </Wrapper>
     )
 }
 
-export default Hot;
+export default ListHot;
