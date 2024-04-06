@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import profile from "../../assets/images/myPage/profile.png";
+import arrow from "../../assets/images/myPage/arrow.png";
+import { Link } from "react-router-dom";
 
 const Wrap = styled.div`
   padding: 9px 16px 85px;
@@ -50,6 +52,20 @@ const Wrap = styled.div`
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
+  }
+
+  .page__list__wrap {
+    margin-top: 43px;
+    & > li:not(:first-child) {
+      margin-top: 40px;
+    }
+
+    & .page__list__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 20px;
+    }
   }
 `;
 
@@ -128,6 +144,62 @@ const MyPage = () => {
           </div>
         </InfoBgBox>
       </div>
+
+      <ul className="page__list__wrap">
+        <li>
+          <Link to="">
+            <div className="page__list__item">
+              <span>구매목록</span>
+              <img src={arrow} />
+            </div>
+          </Link>
+        </li>
+
+        <li>
+          <Link to="">
+            <div className="page__list__item">
+              <span>응원관리</span>
+              <img src={arrow} />
+            </div>
+          </Link>
+        </li>
+
+        <li>
+          <Link to="">
+            <div className="page__list__item">
+              <span>MET 충전</span>
+              <img src={arrow} />
+            </div>
+          </Link>
+        </li>
+
+        <li>
+          <Link to="">
+            <div className="page__list__item">
+              <span>배송지관리</span>
+              <img src={arrow} />
+            </div>
+          </Link>
+        </li>
+
+        <li>
+          <Link to="">
+            <div className="page__list__item">
+              <span>고객센터</span>
+              <img src={arrow} />
+            </div>
+          </Link>
+        </li>
+
+        <li>
+          <Link to="">
+            <div className="page__list__item">
+              <span>회사소개</span>
+              <img src={arrow} />
+            </div>
+          </Link>
+        </li>
+      </ul>
     </Wrap>
   );
 };
