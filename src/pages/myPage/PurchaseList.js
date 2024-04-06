@@ -83,6 +83,7 @@ const Wrap = styled.div`
     height: 42px;
     display: flex;
     justify-content: space-between;
+    margin-top: 6px;
 
     & button {
       width: 32%;
