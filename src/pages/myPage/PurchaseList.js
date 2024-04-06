@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { InfoBgBox } from "../../components/myPage/InfoBgBox";
 
 const Wrap = styled.div`
   .purchease__list__wrap {
@@ -28,12 +29,11 @@ const PurchaseList = () => {
       <div className="purchease__list__wrap">
         <p className="date__text">6월 20일</p>
 
-        <div className="list__wrap__item">
-          {/* bgbox */}
+        <InfoBgBox height="132px">
           <div className="list__itme__box"></div>
 
           <div className="list__btn__box"></div>
-        </div>
+        </InfoBgBox>
       </div>
     </Wrap>
   );
