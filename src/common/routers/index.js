@@ -12,6 +12,7 @@ import PwdFind from "../../pages/InfoFind/PwdFind";
 import Leave from "../../pages/leave/Leave";
 import Contact from "../../pages/contact/Contact";
 import MyPage from "../../pages/myPage/MyPage";
+import List from "../../pages/list/List";
 
 const MainRouter = () => {
   return (
@@ -30,6 +31,7 @@ const MainRouter = () => {
         <Route path="/leave" element={<Leave />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/myPage" element={<MyPage />} />
+        <Route path="/list" element={<List />} />
       </Routes>
     </Suspense>
   );
