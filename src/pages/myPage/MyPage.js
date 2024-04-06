@@ -2,6 +2,7 @@ import styled from "styled-components";
 import profile from "../../assets/images/myPage/profile.png";
 import arrow from "../../assets/images/myPage/arrow.png";
 import { Link } from "react-router-dom";
+import { InfoBgBox } from "../../components/myPage/InfoBgBox";
 
 const Wrap = styled.div`
   padding: 9px 16px 85px;
@@ -67,13 +68,6 @@ const Wrap = styled.div`
       height: 20px;
     }
   }
-`;
-
-const InfoBgBox = styled.div`
-  width: 100%;
-  height: ${(props) => props.height};
-  border-radius: 15px;
-  background-color: #f9f9f9;
 `;
 
 const InfoItem = styled.div`

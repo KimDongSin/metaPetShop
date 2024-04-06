@@ -8,6 +8,12 @@ const Wrap = styled.div`
       font-size: 14px;
       font-weight: 500;
       color: #909090;
+      margin-bottom: 8px;
+    }
+
+    .list__wrap__item {
+      background-color: #f9f9f9;
+      height: 132px;
     }
   }
 
@@ -23,6 +29,7 @@ const PurchaseList = () => {
         <p className="date__text">6월 20일</p>
 
         <div className="list__wrap__item">
+          {/* bgbox */}
           <div className="list__itme__box"></div>
 
           <div className="list__btn__box"></div>
