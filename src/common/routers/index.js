@@ -11,6 +11,7 @@ import IdFind from "../../pages/InfoFind/IdFind";
 import PwdFind from "../../pages/InfoFind/PwdFind";
 import Leave from "../../pages/leave/Leave";
 import Contact from "../../pages/contact/Contact";
+import MyPage from "../../pages/myPage/MyPage";
 
 const MainRouter = () => {
   return (
@@ -28,6 +29,7 @@ const MainRouter = () => {
         {/* 회원탈퇴 페이지 */}
         <Route path="/leave" element={<Leave />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/myPage" element={<MyPage />} />
       </Routes>
     </Suspense>
   );
