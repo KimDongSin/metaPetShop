@@ -6,6 +6,7 @@ import {
   PurchaseBtn,
   RefundBtn,
 } from "../../components/styled/UI/button/Button";
+import PurchaseItem from "../../components/myPage/purchaseList/PurchaseItme";
 
 const Wrap = styled.div`
   .purchease__list__wrap {
@@ -68,7 +69,11 @@ const Wrap = styled.div`
         margin-right: 4px;
       }
 
-      & .schedule__state {
+      & .schedule__state--true {
+        color: #33c2ff;
+      }
+
+      & .schedule__state--false {
         color: #33c2ff;
       }
 
@@ -92,37 +97,34 @@ const Wrap = styled.div`
 `;
 
 const PurchaseList = () => {
+  const dateData = [
+    {
+      date: "04.06 22:51:16",
+      product: {
+        title: "metapet",
+        point: 500,
+        quantity: 1,
+        send_state: false,
+        expectedDate: "04.06 22:51:16",
+      },
+    },
+    {
+      date: "04.06 22:51:16",
+      product: {
+        title: "metapet2",
+        point: 1000,
+        quantity: 2,
+        send_state: true,
+        expectedDate: "04.06 22:51:16",
+      },
+    },
+  ];
+
   return (
     <Wrap>
-      <div className="purchease__list__wrap">
-        <p className="date__text">6월 20일</p>
-
-        <InfoBgBox height="132px">
-          <div className="list__item__box">
-            <img src={listImg} />
-
-            <div className="item__product__info">
-              <span className="product__info__title">metapet</span>
-              <p className="product__info__wrap">
-                <span>500 MET</span>
-                <div></div>
-                <span>1개</span>
-              </p>
-
-              <div className="produce__info__schedule">
-                <span className="schedule__state">전송대기</span>
-                <span className="schedule__date">6월 22일 전송예정</span>
-              </div>
-            </div>
-          </div>
-        </InfoBgBox>
-
-        <div className="list__btn__box">
-          <RefundBtn>환불신청</RefundBtn>
-          <PurchaseBtn>구매확정</PurchaseBtn>
-          <CommentBtn>댓글작성</CommentBtn>
-        </div>
-      </div>
+      {dateData.map((v, i) => (
+        <PurchaseItem key={i} data={v} />
+      ))}
     </Wrap>
   );
 };
