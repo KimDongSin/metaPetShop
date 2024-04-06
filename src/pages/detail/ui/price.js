@@ -104,6 +104,12 @@ const BeforeProduct = styled.div`
 
 `;
 
+const AfterProduct = styled(BeforeProduct)`
+    & > span {
+        background-color: #D9D9D9;
+    }
+`;
+
 const ProductCnt = styled.div`
     display: flex;
     justify-content: center;
@@ -123,6 +129,8 @@ const ProductCnt = styled.div`
 
 
 function Price() {
+    let finish = 3;
+
     return (
         <Wrapper>
 
@@ -162,6 +170,12 @@ function Price() {
                     아직 판매 전 입니다 <span>00:23:12:12</span>
                 </span>
             </BeforeProduct>
+
+            <AfterProduct>
+                <span>
+                    판매가 종료된 NFT 입니다.
+                </span>
+            </AfterProduct>
 
         </Wrapper>
     )
