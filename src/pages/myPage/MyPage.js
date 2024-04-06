@@ -42,6 +42,7 @@ const Wrap = styled.div`
   .mypage__activity__title {
     font-weight: 500;
     font-size: 16px;
+    margin: 25px 0 12px;
   }
 
   .activity__items__wrap {
