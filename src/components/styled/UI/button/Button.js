@@ -14,6 +14,28 @@ const Btn = styled.button`
   cursor: pointer;
 `;
 
+const MyPageBtn = styled(Btn)`
+  border-radius: 10px;
+  font-size: 14px;
+  height: 42px;
+`;
+
+export const RefundBtn = styled(MyPageBtn)`
+  color: #565656;
+  background-color: #f9f9f9;
+`;
+
+export const PurchaseBtn = styled(MyPageBtn)`
+  color: #33c2ff;
+  border: 1px solid #33c2ff;
+  background-color: #ffffff;
+`;
+
+export const CommentBtn = styled(MyPageBtn)`
+  background-color: #33c2ff;
+  color: #ffffff;
+`;
+
 export const LoginBtn = styled(Btn)`
   color: #ffffff;
   background-color: #33c2ff;
