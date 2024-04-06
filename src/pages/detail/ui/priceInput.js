@@ -44,7 +44,7 @@ function CntInput() {
     return (
         <Wrapper>
             <button><img src={minus} /></button>
-            <input type="text"/>
+            <input type="number" defaultValue={1} />
             <button><img src={plus} /></button>
         </Wrapper>
     )
