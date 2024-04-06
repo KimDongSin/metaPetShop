@@ -147,7 +147,7 @@ const MyPage = () => {
 
       <ul className="page__list__wrap">
         <li>
-          <Link to="">
+          <Link to="/myPage/purchaseList">
             <div className="page__list__item">
               <span>구매목록</span>
               <img src={arrow} />

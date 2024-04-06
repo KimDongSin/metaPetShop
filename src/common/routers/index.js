@@ -13,6 +13,7 @@ import Leave from "../../pages/leave/Leave";
 import Contact from "../../pages/contact/Contact";
 import MyPage from "../../pages/myPage/MyPage";
 import List from "../../pages/list/List";
+import PurchaseList from "../../pages/myPage/PurchaseList";
 
 const MainRouter = () => {
   return (
@@ -30,8 +31,10 @@ const MainRouter = () => {
         {/* 회원탈퇴 페이지 */}
         <Route path="/leave" element={<Leave />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/myPage" element={<MyPage />} />
         <Route path="/list" element={<List />} />
+        {/* 마이페이지 */}
+        <Route path="/myPage" element={<MyPage />} />
+        <Route path="/myPage/purchaseList" element={<PurchaseList />} />
       </Routes>
     </Suspense>
   );
