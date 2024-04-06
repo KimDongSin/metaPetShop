@@ -38,6 +38,18 @@ const Wrap = styled.div`
       border-radius: 100%;
     }
   }
+
+  .mypage__activity__title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .activity__items__wrap {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+  }
 `;
 
 const InfoBgBox = styled.div`
@@ -47,7 +59,43 @@ const InfoBgBox = styled.div`
   background-color: #f9f9f9;
 `;
 
+const InfoItem = styled.div`
+  text-align: center;
+
+  .info__item__title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .info__item__number {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+`;
+
 const MyPage = () => {
+  const infoTitleText = [
+    {
+      title: "좋아요",
+      number: 48,
+    },
+
+    {
+      title: "응원한",
+      number: 3,
+    },
+
+    {
+      title: "최근 본",
+      number: 23,
+    },
+
+    {
+      title: "보유한",
+      number: 265,
+    },
+  ];
+
   return (
     <Wrap>
       <InfoBgBox height="123px">
@@ -64,6 +112,21 @@ const MyPage = () => {
           <img className="profile__img" src={profile} />
         </div>
       </InfoBgBox>
+
+      <div className="mypage__activity__wrap">
+        <p className="mypage__activity__title">나의 활동내역</p>
+
+        <InfoBgBox height="79px">
+          <div className="activity__items__wrap">
+            {infoTitleText.map((v, i) => (
+              <InfoItem key={i}>
+                <span className="info__item__title">{v.number}</span>
+                <p className="info__item__number">{v.title}</p>
+              </InfoItem>
+            ))}
+          </div>
+        </InfoBgBox>
+      </div>
     </Wrap>
   );
 };
