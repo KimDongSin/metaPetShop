@@ -92,6 +92,11 @@ const Wrap = styled.div`
 `;
 
 const PurchaseItem = ({ data }) => {
+  const newData =
+    data.date.substring(2, 10).replace(".", "년 ").replace("-", "월 ") + "일";
+
+  console.log(newData);
+
   return (
     <Wrap>
       <div className="purchease__list__wrap">
@@ -103,20 +108,20 @@ const PurchaseItem = ({ data }) => {
 
             <div className="item__product__info">
               <span className="product__info__title">{data.product.title}</span>
-              <p className="product__info__wrap">
+              <div className="product__info__wrap">
                 <span>{data.product.point + "MET"}</span>
                 <div></div>
                 <span>{data.product.quantity + "개"}</span>
-              </p>
+              </div>
 
               <div className="produce__info__schedule">
                 {data.product.send_state ? (
                   <>
-                    <span className="schedule__state">전송완료</span>
+                    <span className="schedule__state--true">전송완료</span>
                   </>
                 ) : (
                   <>
-                    <span className="schedule__state">전송대기</span>
+                    <span className="schedule__state--false">전송대기</span>
                   </>
                 )}
                 <span className="schedule__date">
