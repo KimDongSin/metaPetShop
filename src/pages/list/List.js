@@ -21,7 +21,7 @@ function List() {
 
             {/* <ListNew></ListNew> */}
 
-            <Collection></Collection>
+            {/* <Collection></Collection> */}
 
 
         </Wrapper>
