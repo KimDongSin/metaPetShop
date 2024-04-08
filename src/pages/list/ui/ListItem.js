@@ -151,7 +151,7 @@ function ListItem() {
             <Link to="/a">
                 <ItemImg>
                     <img src={sampleImg} />
-                    <button onClick={shareBtn}><img src={share} /></button>
+                    <button onClick={shareBtn} className="shareBtn"><img src={share} /></button>
                 </ItemImg>
 
                 <ItemInfo>
@@ -160,7 +160,7 @@ function ListItem() {
                         <Tag />
                     </ItemTitle>
 
-                    <ItemLike onClick={likeBtn}>
+                    <ItemLike onClick={likeBtn} className="likeBtn">
                         <img src={likeOff} />
                     </ItemLike>
                 </ItemInfo>
