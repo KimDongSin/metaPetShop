@@ -4,7 +4,7 @@ import { LoginBtn } from "../../components/styled/UI/button/Button";
 import { useState } from "react";
 import Overlay from "../../components/popup/Overlay";
 import IdFindPopup from "../../components/popup/IdFindPopup";
-import ScrollToTop from "../../common/utils/ScrollToTop";
+import ScrollToTop from "../../common/utils/scrollToTop";
 
 const Wrap = styled.div`
   padding: 19px 28px 46px;
@@ -65,7 +65,10 @@ const IdFind = () => {
         마이페이지 – 고객문의를 이용해주세요.
       </p>
 
-      <LoginBtn className="idfind__step1__btn" onClick={modalToggleClickHandler}>
+      <LoginBtn
+        className="idfind__step1__btn"
+        onClick={modalToggleClickHandler}
+      >
         아이디 찾기
       </LoginBtn>
 

@@ -4,7 +4,7 @@ import { LoginBtn } from "../../components/styled/UI/button/Button";
 import { useState } from "react";
 import JoinTerms from "./ui/JoinTerms";
 import { Link } from "react-router-dom";
-import ScrollToTop from "../../common/utils/ScrollToTop";
+import ScrollToTop from "../../common/utils/scrollToTop";
 
 const StepOneWrap = styled.div`
   padding: 0 28px;
@@ -47,7 +47,7 @@ const Join = () => {
       {step ? (
         <StepOneWrap>
           <ScrollToTop />
-          
+
           <FormInput title="이메일" placeholder="이메일을 입력해주세요">
             이메일
           </FormInput>

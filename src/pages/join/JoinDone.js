@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import JoinImg from "../../assets/images/join/JoinDone.png";
 import { BtnLink, LoginBtn } from "../../components/styled/UI/button/Button";
-import ScrollToTop from "../../common/utils/ScrollToTop";
+import ScrollToTop from "../../common/utils/scrollToTop";
 
 const Wrap = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ const JoinDone = () => {
       <span>로그인 후 원활한 서비스를 이용해주세요.</span>
 
       <BtnLink to="/" className="join__done__loginbtn">
-        <LoginBtn >회원가입 완료</LoginBtn>
+        <LoginBtn>회원가입 완료</LoginBtn>
       </BtnLink>
     </Wrap>
   );

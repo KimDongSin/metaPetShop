@@ -6,6 +6,7 @@ import {
   PurchaseBtn,
   RefundBtn,
 } from "../../styled/UI/button/Button";
+import { formatDate } from "../../../common/utils/formatDate";
 
 const Wrap = styled.div`
   .purchease__list__wrap {
@@ -92,15 +93,12 @@ const Wrap = styled.div`
 `;
 
 const PurchaseItem = ({ data }) => {
-  let monthAndDay = data?.date.substring(0, 5);
-  let month = parseInt(monthAndDay.substring(0, 2));
-  let day = parseInt(monthAndDay.substring(3));
-  let dateStr = month + "월 " + day + "일";
+  let formattedData = formatDate(data.date);
 
   return (
     <Wrap>
       <div className="purchease__list__wrap">
-        <p className="date__text">{dateStr}</p>
+        <p className="date__text">{formattedData}</p>
 
         <InfoBgBox height="132px">
           <div className="list__item__box">
