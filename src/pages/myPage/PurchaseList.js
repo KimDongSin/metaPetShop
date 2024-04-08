@@ -99,23 +99,23 @@ const Wrap = styled.div`
 const PurchaseList = () => {
   const dateData = [
     {
-      date: "04.06 22:51:16",
+      date: "06.18 22:51:16",
       product: {
         title: "metapet",
         point: 500,
         quantity: 1,
         send_state: false,
-        expectedDate: "04.06 22:51:16",
+        expectedDate: "06.22 22:51:16",
       },
     },
     {
-      date: "04.06 22:51:16",
+      date: "04.20 22:51:16",
       product: {
         title: "metapet2",
         point: 1000,
         quantity: 2,
         send_state: true,
-        expectedDate: "04.06 22:51:16",
+        expectedDate: "06.22 22:51:16",
       },
     },
   ];

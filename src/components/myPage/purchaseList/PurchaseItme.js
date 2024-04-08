@@ -94,6 +94,7 @@ const Wrap = styled.div`
 
 const PurchaseItem = ({ data }) => {
   let formattedData = formatDate(data.date);
+  let formattedTransferDate = formatDate(data.product.expectedDate);
 
   return (
     <Wrap>
@@ -123,7 +124,7 @@ const PurchaseItem = ({ data }) => {
                   </>
                 )}
                 <span className="schedule__date">
-                  {data.product.expectedDate} 전송예정
+                  {formattedTransferDate} 전송예정
                 </span>
               </div>
             </div>
