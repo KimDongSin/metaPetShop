@@ -3,6 +3,7 @@ import ListTab from "./ui/ListTab";
 import ListFollow from "./ui/Follow";
 import ListHot from "./ui/Hot";
 import ListNew from "./ui/New";
+import Collection from "./ui/Collection";
 
 const Wrapper = styled.div`
     padding: 0 16px;
@@ -18,7 +19,9 @@ function List() {
             
             {/* <ListHot></ListHot> */}
 
-            <ListNew></ListNew>
+            {/* <ListNew></ListNew> */}
+
+            <Collection></Collection>
 
 
         </Wrapper>
