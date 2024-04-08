@@ -92,15 +92,15 @@ const Wrap = styled.div`
 `;
 
 const PurchaseItem = ({ data }) => {
-  let dateStr = data?.date.substring(0, 5).replace(".", "월 ") + "일";
-  let newDateStr = dateStr[0] == 0 ? dateStr.substring(1, 15) : dateStr;
-
-  console.log(newDateStr);
+  let monthAndDay = data?.date.substring(0, 5);
+  let month = parseInt(monthAndDay.substring(0, 2));
+  let day = parseInt(monthAndDay.substring(3));
+  let dateStr = month + "월 " + day + "일";
 
   return (
     <Wrap>
       <div className="purchease__list__wrap">
-        <p className="date__text">{newDateStr}</p>
+        <p className="date__text">{dateStr}</p>
 
         <InfoBgBox height="132px">
           <div className="list__item__box">
