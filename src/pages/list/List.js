@@ -4,6 +4,7 @@ import ListFollow from "./ui/Follow";
 import ListHot from "./ui/Hot";
 import ListNew from "./ui/New";
 import Collection from "./ui/Collection";
+import ListCeleb from "./ui/ListCeleb";
 
 const Wrapper = styled.div`
     padding: 0 16px;
@@ -23,6 +24,8 @@ function List() {
 
             {/* <Collection></Collection> */}
 
+
+            <ListCeleb></ListCeleb>
 
         </Wrapper>
     )

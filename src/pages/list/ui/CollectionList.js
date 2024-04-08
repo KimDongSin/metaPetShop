@@ -1,29 +1,11 @@
 import styled from "styled-components";
-import Title from "../../../components/title/title";
-import ListSearch from "./ListSearch";
 import likeOn from '../../../assets/images/common/like_on.png';
 import likeOff from '../../../assets/images/common/like_off.png';
 import sampleImg from '../../../assets/images/common/dog_sample2.png';
 import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link } from "react-router-dom";
-import CollectionItem from "./CollectionList";
 
-const Wrapper = styled.div`
-`;
-
-const CollectionList = styled.div`
-    width: 100%;
-    
-    & > ul {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-    }
-
-`;
 
 
 const CollItem = styled.li`
@@ -143,60 +125,45 @@ const GroupImg = styled.div`
 `;
 
 
-function Collection() {
+function CollectionItem() {
 
     return (
-        <Wrapper>
+        <CollItem>
+            <UserInfo>
+                <div>
+                    <ImgLink >
+                        <img src={sampleImg} />
+                    </ImgLink>
 
-            <Title title="다양한 NFT컬렉션을 만나보세요" sub="컬렉션 수집은 NFT가 주는 즐거움이 배가 됩니다"></Title>
-
-
-            <ListSearch />
-
-            <CollectionList>
-                <ul>
-                    <CollItem>
-                        <UserInfo>
-                            <div>
-                                <ImgLink >
-                                    <img src={sampleImg} />
-                                </ImgLink>
-
-                                <UserLink>
-                                    <span>Metaverse Robot</span>
-                                    <span>created by gogogo</span>
-                                </UserLink>
-                            </div>
+                    <UserLink>
+                        <span>Metaverse Robot</span>
+                        <span>created by gogogo</span>
+                    </UserLink>
+                </div>
 
 
-                            <CollLike>
-                                <button><img src={likeOff} /></button>
-                            </CollLike>
+                <CollLike>
+                    <button><img src={likeOff} /></button>
+                </CollLike>
 
-                        </UserInfo>
+            </UserInfo>
 
 
 
-                        <CollImg>
-                            <SoloImg>
-                                <img src={sampleImg2} />
-                            </SoloImg>
-                            <GroupImg>
-                                <img src={sampleImg2} />
-                                <img src={sampleImg2} />
-                                <img src={sampleImg2} />
-                                <img src={sampleImg2} />
-                            </GroupImg>
+            <CollImg>
+                <SoloImg>
+                    <img src={sampleImg2} />
+                </SoloImg>
+                <GroupImg>
+                    <img src={sampleImg2} />
+                    <img src={sampleImg2} />
+                    <img src={sampleImg2} />
+                    <img src={sampleImg2} />
+                </GroupImg>
 
-                        </CollImg>
-                    </CollItem>
-
-
-                    <CollectionItem></CollectionItem>
-                </ul>
-            </CollectionList>
-        </Wrapper>
+            </CollImg>
+        </CollItem>
     )
 }
 
-export default Collection;
+export default CollectionItem;
