@@ -21,18 +21,16 @@ export let { headerChange } = headerType.actions;
 const menuType = createSlice({
     name: 'menuType',
     initialState: {
-        type: 'home',
+        type: '',
     },
     reducers: {
         menuChange(state, action) {
-            state.type = action.payload.type;
+            state.type = action.payload;
         }
     }
 });
 
-
 export let { menuChange } = menuType.actions;
-
 
 export default configureStore({
     reducer: {

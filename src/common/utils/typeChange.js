@@ -14,11 +14,9 @@ export function HeaderChange(type, title = '') {
 
 export function MenuChange(menu) {
     const dispatch = useDispatch();
-    let temp = {
-        type: menu,
-    }
+    let temp = menu
 
-    dispatch(menuChange(menu));
+    dispatch(menuChange(temp));
 }
 
 export function init(head, menu, title) {

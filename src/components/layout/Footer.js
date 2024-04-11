@@ -15,9 +15,11 @@ import cart from "../../assets/images/common/cart_icon.png";
 import user from "../../assets/images/common/user_icon.png";
 
 import homeOn from "../../assets/images/common/home_on_icon.png";
-import product_icon from "../../assets/images/common/product_on_icon.png";
-import cartOnproduct_icon from "../../assets/images/common/cart_on_icon.png";
-import userOnproduct_icon from "../../assets/images/common/user_on_icon.png";
+import productOn from "../../assets/images/common/product_on_icon.png";
+import cartOn from "../../assets/images/common/cart_on_icon.png";
+import userOn from "../../assets/images/common/user_on_icon.png";
+
+import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
   padding: 22px 16px 60px;
@@ -146,6 +148,9 @@ const LinkItem = styled(Link)`
 const LinkMenu = styled(Link)``;
 
 function Footer() {
+  const menu = useSelector((state) => state.menuType.type);
+  console.log(menu);
+
   return (
     <Wrapper>
       <FooterInfo>
@@ -222,22 +227,22 @@ function Footer() {
         <ul>
           <li>
             <LinkMenu to="/">
-              <img src={home} />
+              <img src={menu == 'home' ? homeOn : home} />
             </LinkMenu>
           </li>
           <li>
             <LinkMenu to="/">
-              <img src={product} />
+              <img src={menu == 'product' ? productOn : product} />
             </LinkMenu>
           </li>
           <li>
             <LinkMenu to="/">
-              <img src={cart} />
+              <img src={menu == 'cart' ? cartOn : cart} />
             </LinkMenu>
           </li>
           <li>
             <LinkMenu to="/myPage">
-              <img src={user} />
+              <img src={menu == 'user' ? userOn : user} />
             </LinkMenu>
           </li>
         </ul>
