@@ -37,10 +37,10 @@ const MainRouter = () => {
         {/* 마이페이지 */}
         <Route path="/myPage" element={<MyPage />} />
         <Route path="/myPage/purchaseList" element={<PurchaseList />} />
+        {/* 마이페이지-배송지페이지 */}
+        <Route path="/myPage/deliveryAddress" element={<DeliveryAddress />} />
         {/* 장바구니 */}
         <Route path="/basket" element={<Basket />} />
-        {/* 배송지페이지 */}
-        <Route path="/deliveryAddress" element={<DeliveryAddress />} />
       </Routes>
     </Suspense>
   );
