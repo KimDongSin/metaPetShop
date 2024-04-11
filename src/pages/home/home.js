@@ -6,7 +6,7 @@ import Celeb from "./ui/celeb";
 import FavSwipe from "./ui/favswipe";
 import NewSwipe from "./ui/newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
-import { HdChange } from "../../common/utils/typeChange";
+import { HdChange, init } from "../../common/utils/typeChange";
 
 const Wrapper = styled.div`
   padding: 20px 16px;
@@ -18,7 +18,7 @@ const Section = styled.div`
 `;
 
 function Home() {
-  HdChange('t1');
+  init('t1', 'home');
 
   return (
     <Wrapper>

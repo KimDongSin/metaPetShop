@@ -16,7 +16,7 @@ import DetailCommunity from "./ui/detailCommunity";
 import { useDispatch } from 'react-redux';
 import { useEffect } from "react";
 import { headerChange } from "../../store/store";
-import { HdChange } from "../../common/utils/typeChange";
+import { HdChange, init } from "../../common/utils/typeChange";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -65,7 +65,7 @@ const ItemDetail = styled.div`
 `;
 
 function Detail() {
-    HdChange('t3', '구매하기');
+    init('t3', 'product','구매하기');
 
     return (
         <Wrapper>

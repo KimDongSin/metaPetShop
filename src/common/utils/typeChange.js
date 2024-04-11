@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { headerChange } from "../../store/store";
+import { headerChange, menuChange } from "../../store/store";
 
-export function HdChange(type, title = '') {
+export function HeaderChange(type, title = '') {
     const dispatch = useDispatch();
     let temp = {
         type: type,
@@ -9,4 +9,19 @@ export function HdChange(type, title = '') {
     }
 
     dispatch(headerChange(temp));
+}
+
+
+export function MenuChange(menu) {
+    const dispatch = useDispatch();
+    let temp = {
+        type: menu,
+    }
+
+    dispatch(menuChange(menu));
+}
+
+export function init(head, menu, title) {
+    HeaderChange(head, title);
+    MenuChange(menu);
 }
