@@ -6,7 +6,8 @@ import ListNew from "./ui/New";
 import Collection from "./ui/Collection";
 import ListCeleb from "./ui/ListCeleb";
 import CollectionDetail from "./ui/CollectionDetail";
-import CelebDetail from "./ui/ㅊCelebDetail";
+import CelebDetail from "./ui/CelebDetail";
+import { useState } from "react";
 
 const Wrapper = styled.div`
     padding: 0 16px;
@@ -15,11 +16,21 @@ const Wrapper = styled.div`
 
 
 function List() {
+    const [type, setType] = useState('follow');
+
     return (
         <Wrapper>
-            <ListTab></ListTab>
-            {/* <ListFollow></ListFollow> */}
-            
+            <ListTab type={type} setType={setType}></ListTab>
+
+            {
+                type === "follow" ? <ListFollow />
+                    : type === "hot" ? <ListHot></ListHot>
+                        : type === "new" ? <ListNew></ListNew>
+                            : type === "coll" ? <Collection></Collection>
+                                : type === "celeb" ? <ListCeleb></ListCeleb>
+                                    : ""
+            }
+
             {/* <ListHot></ListHot> */}
 
             {/* <ListNew></ListNew> */}
@@ -31,7 +42,7 @@ function List() {
 
             {/* <CollectionDetail></CollectionDetail> */}
 
-            <CelebDetail></CelebDetail>
+            {/* <CelebDetail></CelebDetail> */}
 
         </Wrapper>
     )

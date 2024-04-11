@@ -55,8 +55,8 @@ const TabLink = styled(Link)`
 `;
 
 
-function ListTab() {
-    const [type, setType] = useState('follow');
+function ListTab({type, setType}) {
+    // const [type, setType] = useState('follow');
 
     return (
         <Wrapper>

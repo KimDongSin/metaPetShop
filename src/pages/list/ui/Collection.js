@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import CollectionItem from "./CollectionList";
 
 const Wrapper = styled.div`
+    margin-bottom: 70px;
 `;
 
 const CollectionList = styled.div`

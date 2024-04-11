@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import CelebItem from "./CelebItem";
 
 const Wrapper = styled.div`
-
+    margin-bottom: 70px;
 `;
 
 const CelobList = styled.div`
