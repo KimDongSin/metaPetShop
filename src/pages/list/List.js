@@ -7,7 +7,8 @@ import Collection from "./ui/Collection";
 import ListCeleb from "./ui/ListCeleb";
 import CollectionDetail from "./ui/CollectionDetail";
 import CelebDetail from "./ui/CelebDetail";
-import { useState } from "react";
+import { useSelector } from 'react-redux';
+
 
 const Wrapper = styled.div`
     padding: 0 16px;
@@ -16,11 +17,11 @@ const Wrapper = styled.div`
 
 
 function List() {
-    const [type, setType] = useState('follow');
+    const type = useSelector((state) => state.listTabType.type);
 
     return (
         <Wrapper>
-            <ListTab type={type} setType={setType}></ListTab>
+            <ListTab type={type}></ListTab>
 
             {
                 type === "follow" ? <ListFollow />

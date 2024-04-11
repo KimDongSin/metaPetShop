@@ -149,7 +149,6 @@ const LinkMenu = styled(Link)``;
 
 function Footer() {
   const menu = useSelector((state) => state.menuType.type);
-  console.log(menu);
 
   return (
     <Wrapper>

@@ -30,22 +30,22 @@ function Home() {
       />
 
       <Section>
-        <More title="인기있는 NFT" />
+        <More title="인기있는 NFT" type="hot"/>
         <FavSwipe />
       </Section>
 
       <Section>
-        <More title="New NFT" />
+        <More title="New NFT" type="new" />
         <NewSwipe />
       </Section>
 
       <Section>
-        <More title="Top Collections" />
+        <More title="Top Collections" type="coll" />
         <Collection />
       </Section>
 
       <Section>
-        <More title="Top Celeb" />
+        <More title="Top Celeb" type="celeb" />
         <Celeb />
       </Section>
     </Wrapper>

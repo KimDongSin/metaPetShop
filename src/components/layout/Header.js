@@ -93,7 +93,6 @@ const HeaderLoginLink = styled(Link)`
 
 function Header() {
   const header = useSelector((state) => state.headerType);
-  console.log(header);
 
   return (
     <Wrapper>

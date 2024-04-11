@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import moreArrow from "../../assets/images/common/more_icon.png";
+import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { listTabChange } from "../../store/store";
 
 const Wrapper = styled.div`
     display: flex;
@@ -21,11 +24,13 @@ const Wrapper = styled.div`
 `;
 
 
-function More({ title }) {
+function More({ title, type }) {
+    const dispatch = useDispatch();
+
     return (
         <Wrapper>
             <span>{title}</span>
-            <a href="#"><img src={moreArrow} /></a>
+            <Link to="/list" onClick={() => { dispatch(listTabChange(type))}}><img src={moreArrow} /></Link>
         </Wrapper>
     )
 }

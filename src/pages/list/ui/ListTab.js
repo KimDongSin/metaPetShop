@@ -2,7 +2,8 @@ import styled from "styled-components";
 import starOn from "../../../assets/images/common/star_on.png";
 import starOff from "../../../assets/images/common/star_off.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { listTabChange } from "../../../store/store";
 
 const Wrapper = styled.div`
     margin-bottom: 28px;
@@ -56,16 +57,16 @@ const TabLink = styled(Link)`
 
 
 function ListTab({type, setType}) {
-    // const [type, setType] = useState('follow');
+    const dispatch = useDispatch();
 
     return (
         <Wrapper>
             <ul>
-                <li onClick={()=>{setType('follow')}}><TabLink className={type == 'follow' ? 'active' : ''}><img src={type == 'follow' ? starOn : starOff} /></TabLink></li>
-                <li onClick={()=>{setType('hot')}}><TabLink className={type == 'hot' ? 'active' : ''}>Hot</TabLink></li>
-                <li onClick={()=>{setType('new')}}><TabLink className={type == 'new' ? 'active' : ''}>New</TabLink></li>
-                <li onClick={()=>{setType('coll')}}><TabLink className={type == 'coll' ? 'active' : ''}>Coll</TabLink></li>
-                <li onClick={()=>{setType('celeb')}}><TabLink className={type == 'celeb' ? 'active' : ''}>Celeb</TabLink></li>
+                <li onClick={()=>{dispatch(listTabChange('follow'))}}><TabLink className={type == 'follow' ? 'active' : ''}><img src={type == 'follow' ? starOn : starOff} /></TabLink></li>
+                <li onClick={()=>{dispatch(listTabChange('hot'))}}><TabLink className={type == 'hot' ? 'active' : ''}>Hot</TabLink></li>
+                <li onClick={()=>{dispatch(listTabChange('new'))}}><TabLink className={type == 'new' ? 'active' : ''}>New</TabLink></li>
+                <li onClick={()=>{dispatch(listTabChange('coll'))}}><TabLink className={type == 'coll' ? 'active' : ''}>Coll</TabLink></li>
+                <li onClick={()=>{dispatch(listTabChange('celeb'))}}><TabLink className={type == 'celeb' ? 'active' : ''}>Celeb</TabLink></li>
             </ul>
         </Wrapper>
     )
