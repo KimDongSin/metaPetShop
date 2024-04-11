@@ -29,14 +29,14 @@ const Wrapper = styled.div`
     }
 `;
 
-function DetailTab() {
+function DetailTab({setType, type}) {
     return (
         <Wrapper>
             <ul>
-                <li className="on">스토리</li>
-                <li>정보</li>
-                <li>커뮤니티</li>
-                <li>팔로워</li>
+                <li onClick={()=>{setType('story')}} className={type === 'story' ? "on" : ''}>스토리</li>
+                <li onClick={()=>{setType('info')}} className={type === 'info' ? "on" : ''}>정보</li>
+                <li onClick={()=>{setType('community')}} className={type === 'community' ? "on" : ''}>커뮤니티</li>
+                <li onClick={()=>{setType('follower')}} className={type === 'follower' ? "on" : ''}>팔로워</li>
             </ul>
         </Wrapper>
     )
