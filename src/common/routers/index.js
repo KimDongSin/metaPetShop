@@ -40,7 +40,7 @@ const MainRouter = () => {
         {/* 장바구니 */}
         <Route path="/basket" element={<Basket />} />
         {/* 배송지페이지 */}
-        <Route path="/deliveryAddress" element={<DeliveryAddress />} />
+        <Route path="/myPage/deliveryAddress" element={<DeliveryAddress />} />
       </Routes>
     </Suspense>
   );
