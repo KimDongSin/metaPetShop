@@ -22,6 +22,8 @@ import cartOnproduct_icon from "../../assets/images/common/cart_on_icon.png";
 import userOnproduct_icon from "../../assets/images/common/user_on_icon.png";
 import { Link } from "react-router-dom";
 
+import { useSelector } from 'react-redux';
+
 const Wrapper = styled.div`
   height: 55px;
   padding: 7px 17px 0px;
@@ -89,11 +91,70 @@ const HeaderLoginLink = styled(Link)`
   color: #33c2ff;
 `;
 
-function Header({ type }) {
+function Header() {
+  const header = useSelector((state) => state.headerType);
+  console.log(header);
+
+
+
   return (
     <Wrapper>
-      <HeaderContainer>
-        <HeaderLogo type={type} to="/">
+
+      {
+        header.type === 't1' ?
+          <HeaderContainer>
+            <HeaderLogo type={header.type} to="/">
+              <img src={logo} />
+              <span>Metapet</span>
+            </HeaderLogo>
+
+            <HeaderUser>
+              <Login>
+                <HeaderLoginLink to="/login">로그인</HeaderLoginLink>
+              </Login>
+            </HeaderUser>
+          </HeaderContainer>
+
+          : header.type === 't2' ?
+            <HeaderContainer>
+              <HeaderTitle>
+                <span>{header.title}</span>
+              </HeaderTitle>
+              <Login>
+                <a href="#none"><img src={userDefault} /></a>
+              </Login>
+            </HeaderContainer>
+
+            : header.type === 't3' ?
+              <HeaderContainer>
+                <HeaderBack>
+                  <a href="#none"><img src={backArrow} /></a>
+                </HeaderBack>
+
+                <HeaderTitle>
+                  <span>{header.title}</span>
+                </HeaderTitle>
+
+                <Login>
+                  <a href="#none"><img src={userDefault} /></a>
+                </Login>
+              </HeaderContainer>
+
+              :
+              <HeaderContainer type={header.type}>
+                <HeaderLogo type={header.type}>
+                  <a href="#none">
+                    <img src={logo} />
+                    <span>Metapet</span>
+                  </a>
+                </HeaderLogo>
+              </HeaderContainer>
+
+
+      }
+
+      {/* <HeaderContainer>
+        <HeaderLogo type={header.type} to="/">
           <img src={logo} />
           <span>Metapet</span>
         </HeaderLogo>
@@ -103,7 +164,7 @@ function Header({ type }) {
             <HeaderLoginLink to="/login">로그인</HeaderLoginLink>
           </Login>
         </HeaderUser>
-      </HeaderContainer>
+      </HeaderContainer> */}
 
       {/* <HeaderContainer>
                 <HeaderTitle>
