@@ -6,6 +6,7 @@ import ListNew from "./ui/New";
 import Collection from "./ui/Collection";
 import ListCeleb from "./ui/ListCeleb";
 import CollectionDetail from "./ui/CollectionDetail";
+import CelebDetail from "./ui/ㅊCelebDetail";
 
 const Wrapper = styled.div`
     padding: 0 16px;
@@ -28,7 +29,9 @@ function List() {
 
             {/* <ListCeleb></ListCeleb> */}
 
-            <CollectionDetail></CollectionDetail>
+            {/* <CollectionDetail></CollectionDetail> */}
+
+            <CelebDetail></CelebDetail>
 
         </Wrapper>
     )
