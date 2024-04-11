@@ -8,6 +8,7 @@ import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link } from "react-router-dom";
 import CollectionItem from "./CollectionList";
+import { init } from "../../../common/utils/typeChange";
 
 const Wrapper = styled.div`
     margin-bottom: 70px;
@@ -145,6 +146,7 @@ const GroupImg = styled.div`
 
 
 function Collection() {
+    init('t2', 'product', 'Collection');
 
     return (
         <Wrapper>

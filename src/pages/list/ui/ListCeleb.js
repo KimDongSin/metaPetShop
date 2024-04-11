@@ -8,6 +8,7 @@ import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link } from "react-router-dom";
 import CelebItem from "./CelebItem";
+import { init } from "../../../common/utils/typeChange";
 
 const Wrapper = styled.div`
     margin-bottom: 70px;
@@ -28,6 +29,7 @@ const CelobList = styled.div`
 
 
 function ListCeleb() {
+    init('t2', 'product', 'Celeb');
 
     return (
         <Wrapper>
