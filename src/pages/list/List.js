@@ -8,6 +8,7 @@ import ListCeleb from "./ui/ListCeleb";
 import CollectionDetail from "./ui/CollectionDetail";
 import CelebDetail from "./ui/CelebDetail";
 import { useSelector } from 'react-redux';
+import { init } from "../../common/utils/typeChange";
 
 
 const Wrapper = styled.div`

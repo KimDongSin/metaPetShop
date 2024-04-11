@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
 import Title from "../../../components/title/title";
+import { init } from "../../../common/utils/typeChange";
 
 const Wrapper = styled.div`
 
@@ -12,6 +13,7 @@ const HotList = styled.div`
 
 
 function ListHot() {
+    init('t2', 'product', 'Hot');
 
     return (
         <Wrapper>

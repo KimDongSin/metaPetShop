@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ListItem from "./ListItem";
 import Title from "../../../components/title/title";
 import ListSearch from "./ListSearch";
+import { init } from "../../../common/utils/typeChange";
 
 const Wrapper = styled.div`
 
@@ -50,6 +51,7 @@ const NewList = styled.div`
 
 
 function ListNew() {
+    init('t2', 'product', 'New');
 
     return (
         <Wrapper>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
+import { init } from "../../../common/utils/typeChange";
 
 const Wrapper = styled.div`
 
@@ -38,6 +39,7 @@ const LoginAlert = styled(FollowNone)`
 
 
 function ListFollow() {
+    init('t2', 'product', 'Follow');
 
     return (
         <Wrapper>
