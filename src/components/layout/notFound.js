@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import errorImg from '../../assets/images/common/notfound.png'
 import { MainLink } from "../styled/UI/link/link";
+import { init } from "../../common/utils/typeChange";
 // import CustomeLink from "../Link/link";
 
 const Wrapper = styled.div`
@@ -37,6 +38,7 @@ const Wrapper = styled.div`
 
 
 function NotFound() {
+    init('t4', 'home');
     return (
         <Wrapper>
             <img src={errorImg} />
@@ -47,7 +49,7 @@ function NotFound() {
                 멍멍 준비중 입니다..!
             </p>
 
-            <MainLink url="/">메인으로</MainLink>
+            <MainLink to="/">메인으로</MainLink>
         </Wrapper>
     )
 }
