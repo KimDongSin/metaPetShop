@@ -15,6 +15,7 @@ import MyPage from "../../pages/myPage/MyPage";
 import List from "../../pages/list/List";
 import PurchaseList from "../../pages/myPage/PurchaseList";
 import Basket from "../../pages/basket/Basket";
+import DeliveryAddress from "../../pages/deliveryAddress/DeliveryAddress";
 
 const MainRouter = () => {
   return (
@@ -38,6 +39,8 @@ const MainRouter = () => {
         <Route path="/myPage/purchaseList" element={<PurchaseList />} />
         {/* 장바구니 */}
         <Route path="/basket" element={<Basket />} />
+        {/* 배송지페이지 */}
+        <Route path="/deliveryAddress" element={<DeliveryAddress />} />
       </Routes>
     </Suspense>
   );
