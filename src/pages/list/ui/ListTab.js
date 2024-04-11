@@ -2,6 +2,7 @@ import styled from "styled-components";
 import starOn from "../../../assets/images/common/star_on.png";
 import starOff from "../../../assets/images/common/star_off.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Wrapper = styled.div`
     margin-bottom: 28px;
@@ -32,7 +33,12 @@ const TabLink = styled(Link)`
     font-weight: 400;
     color: #333333;
 
-    &::after {
+    &.active {
+        font-weight: 700;
+        color: #33C2FF;
+    }
+
+    &.active::after {
         width: 100%;
         height: 2px;
         background-color: #33C2FF;
@@ -50,17 +56,16 @@ const TabLink = styled(Link)`
 
 
 function ListTab() {
-    let type = 'follow';
-
+    const [type, setType] = useState('follow');
 
     return (
         <Wrapper>
             <ul>
-                <li><TabLink><img src={type == 'follow' ? starOn : starOff} /></TabLink></li>
-                <li><TabLink>Hot</TabLink></li>
-                <li><TabLink>New</TabLink></li>
-                <li><TabLink>Coll</TabLink></li>
-                <li><TabLink>Celeb</TabLink></li>
+                <li onClick={()=>{setType('follow')}}><TabLink className={type == 'follow' ? 'active' : ''}><img src={type == 'follow' ? starOn : starOff} /></TabLink></li>
+                <li onClick={()=>{setType('hot')}}><TabLink className={type == 'hot' ? 'active' : ''}>Hot</TabLink></li>
+                <li onClick={()=>{setType('new')}}><TabLink className={type == 'new' ? 'active' : ''}>New</TabLink></li>
+                <li onClick={()=>{setType('coll')}}><TabLink className={type == 'coll' ? 'active' : ''}>Coll</TabLink></li>
+                <li onClick={()=>{setType('celeb')}}><TabLink className={type == 'celeb' ? 'active' : ''}>Celeb</TabLink></li>
             </ul>
         </Wrapper>
     )
