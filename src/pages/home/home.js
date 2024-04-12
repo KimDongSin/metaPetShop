@@ -8,6 +8,10 @@ import NewSwipe from "./ui/newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
 import { HdChange, init } from "../../common/utils/typeChange";
 
+import { ref, child, get } from "firebase/database";
+import { db } from "../../common/api/firebase";
+
+
 const Wrapper = styled.div`
   padding: 20px 16px;
   background: #f9fcff;
@@ -20,6 +24,28 @@ const Section = styled.div`
 function Home() {
   init('t1', 'home');
 
+
+
+
+  const readOne = () => {
+    const dbRef = ref(db);
+    get(child(dbRef, "/product"))
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+
+
+  readOne();
+
   return (
     <Wrapper>
       <ScrollToTop />
@@ -30,7 +56,7 @@ function Home() {
       />
 
       <Section>
-        <More title="인기있는 NFT" type="hot"/>
+        <More title="인기있는 NFT" type="hot" />
         <FavSwipe />
       </Section>
 
