@@ -12,8 +12,10 @@ import DetailDelivery from "./ui/delivery";
 import Price from "./ui/price";
 import DetailRecommend from "./ui/detailRecommend";
 import DetailCommunity from "./ui/detailCommunity";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { init } from "../../common/utils/typeChange";
+import { useDispatch } from "react-redux";
+import { menuChange } from "../../store/store";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -62,7 +64,10 @@ const ItemDetail = styled.div`
 `;
 
 function Detail() {
-    // init('t3', 'product', '구매하기');
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(menuChange('product'));
+    }, [])
 
     const [type, setType] = useState('story');
 
@@ -82,8 +87,8 @@ function Detail() {
                 <ItemThumbnail size='large'></ItemThumbnail>
             </ItemDetail>
             <Price />
-            <DetailDelivery/>
-            <DetailTab setType={setType} type={type}/>
+            <DetailDelivery />
+            <DetailTab setType={setType} type={type} />
             {
                 type === 'story' ?
                     <DetailStory />
