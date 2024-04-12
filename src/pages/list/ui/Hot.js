@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
 import Title from "../../../components/title/title";
-import { init } from "../../../common/utils/typeChange";
+import { headerChange, listTabChange, menuChange } from "../../../store/store";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
 
@@ -13,7 +15,15 @@ const HotList = styled.div`
 
 
 function ListHot() {
-    init('t2', 'product', 'Hot');
+    // init('t2', 'product', 'Hot');
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(headerChange({
+            type: 't2',
+            title: 'Hot',
+        }));
+    }, []);
 
     return (
         <Wrapper>

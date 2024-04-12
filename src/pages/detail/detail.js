@@ -62,7 +62,7 @@ const ItemDetail = styled.div`
 `;
 
 function Detail() {
-    init('t3', 'product', '구매하기');
+    // init('t3', 'product', '구매하기');
 
     const [type, setType] = useState('story');
 

@@ -118,7 +118,7 @@ function Header() {
                 <span>{header.title}</span>
               </HeaderTitle>
               <Login>
-                <a href="#none"><img src={userDefault} /></a>
+                <Link to="/"><img src={userDefault} /></Link>
               </Login>
             </HeaderContainer>
 
@@ -139,11 +139,9 @@ function Header() {
 
               :
               <HeaderContainer type={header.type}>
-                <HeaderLogo type={header.type}>
-                  <a href="#none">
-                    <img src={logo} />
-                    <span>Metapet</span>
-                  </a>
+                <HeaderLogo to="/" type={header.type}>
+                  <img src={logo} />
+                  <span>Metapet</span>
                 </HeaderLogo>
               </HeaderContainer>
 

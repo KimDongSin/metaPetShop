@@ -7,8 +7,10 @@ import Collection from "./ui/Collection";
 import ListCeleb from "./ui/ListCeleb";
 import CollectionDetail from "./ui/CollectionDetail";
 import CelebDetail from "./ui/CelebDetail";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { init } from "../../common/utils/typeChange";
+import { menuChange } from "../../store/store";
+import { useEffect } from "react";
 
 
 const Wrapper = styled.div`
@@ -19,7 +21,10 @@ const Wrapper = styled.div`
 
 function List() {
     const type = useSelector((state) => state.listTabType.type);
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(menuChange('product'));
+    }, [])
     return (
         <Wrapper>
             <ListTab type={type}></ListTab>

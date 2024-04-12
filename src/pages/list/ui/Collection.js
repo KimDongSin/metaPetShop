@@ -9,6 +9,9 @@ import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 import { Link } from "react-router-dom";
 import CollectionItem from "./CollectionList";
 import { init } from "../../../common/utils/typeChange";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { headerChange } from "../../../store/store";
 
 const Wrapper = styled.div`
     margin-bottom: 70px;
@@ -146,7 +149,14 @@ const GroupImg = styled.div`
 
 
 function Collection() {
-    init('t2', 'product', 'Collection');
+    // init('t2', 'product', 'Collection');
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(headerChange({
+            type: 't2',
+            title: 'Collection',
+        }));
+    }, []);
 
     return (
         <Wrapper>

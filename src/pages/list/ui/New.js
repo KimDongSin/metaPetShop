@@ -3,6 +3,9 @@ import ListItem from "./ListItem";
 import Title from "../../../components/title/title";
 import ListSearch from "./ListSearch";
 import { init } from "../../../common/utils/typeChange";
+import { useEffect } from "react";
+import { headerChange } from "../../../store/store";
+import { useDispatch } from "react-redux";
 
 const Wrapper = styled.div`
 
@@ -51,7 +54,14 @@ const NewList = styled.div`
 
 
 function ListNew() {
-    init('t2', 'product', 'New');
+    
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(headerChange({
+            type: 't2',
+            title: 'New',
+        }));
+    }, []);
 
     return (
         <Wrapper>

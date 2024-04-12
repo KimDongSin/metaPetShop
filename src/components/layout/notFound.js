@@ -2,6 +2,9 @@ import styled from "styled-components";
 import errorImg from '../../assets/images/common/notfound.png'
 import { MainLink } from "../styled/UI/link/link";
 import { init } from "../../common/utils/typeChange";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { headerChange, menuChange } from "../../store/store";
 // import CustomeLink from "../Link/link";
 
 const Wrapper = styled.div`
@@ -38,7 +41,15 @@ const Wrapper = styled.div`
 
 
 function NotFound() {
-    init('t4', 'home');
+    // init('t4', 'home');
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(headerChange({
+            type: 't4',
+            // title: 'hot',
+        }));
+        dispatch(menuChange('home'));
+    }, []);
     return (
         <Wrapper>
             <img src={errorImg} />

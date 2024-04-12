@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
 import { init } from "../../../common/utils/typeChange";
+import { useDispatch } from "react-redux";
+import { headerChange } from "../../../store/store";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
 
@@ -39,7 +42,15 @@ const LoginAlert = styled(FollowNone)`
 
 
 function ListFollow() {
-    init('t2', 'product', 'Follow');
+    // init('t2', 'product', 'Follow');
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(headerChange({
+            type: 't2',
+            title: 'Follow',
+        }));
+    }, [])
+    
 
     return (
         <Wrapper>

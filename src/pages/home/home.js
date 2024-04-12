@@ -8,8 +8,11 @@ import NewSwipe from "./ui/newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
 import { HdChange, init } from "../../common/utils/typeChange";
 
-import { ref, child, get } from "firebase/database";
+import { ref, child, get, update } from "firebase/database";
 import { db } from "../../common/api/firebase";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { headerChange, menuChange } from "../../store/store";
 
 
 const Wrapper = styled.div`
@@ -22,9 +25,16 @@ const Section = styled.div`
 `;
 
 function Home() {
-  init('t1', 'home');
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(headerChange({
+      type: 't1',
+      title: 'home',
+    }))
+    dispatch(menuChange('home'));
+  }, [])
 
-
+  // init('t1', 'home');
 
 
   const readOne = () => {
@@ -45,6 +55,23 @@ function Home() {
 
 
   readOne();
+
+  const updateData = () => {
+    const temp = {
+      amount: 10000
+    };
+
+    return update(
+      ref(db, "/product/0"), temp);
+  };
+
+  updateData();
+
+
+
+
+
+
 
   return (
     <Wrapper>

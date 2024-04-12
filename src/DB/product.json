@@ -1,7 +1,7 @@
 {
     "product": [
         {
-            "index": 1,
+            "index": 0,
             "ownerIdx": 1,
             "productTitle": "제품 제목",
             "price": "550",
@@ -10,6 +10,25 @@
             ],
             "amount": 100,
             "startDate": "2024-04-12 12:34:56",
+            "endDate": "2024-04-21 23:59:59",
+            "productTag": [
+                "태그1",
+                "태그2"
+            ],
+            "community": [
+                    
+            ]
+        },
+        {
+            "index": 1,
+            "ownerIdx": 1,
+            "productTitle": "제품 제목2",
+            "price": "400",
+            "like": [
+                1
+            ],
+            "amount": 50,
+            "startDate": "2024-04-13 12:34:56",
             "endDate": "2024-04-21 23:59:59",
             "productTag": [
                 "태그1",
