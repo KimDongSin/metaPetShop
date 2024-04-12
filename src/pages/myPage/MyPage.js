@@ -168,7 +168,7 @@ const MyPage = () => {
         </li>
 
         <li>
-          <Link to="">
+          <Link to="/myPage/deliveryAddress">
             <div className="page__list__item">
               <span>배송지관리</span>
               <img src={arrow} />
