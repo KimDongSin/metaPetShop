@@ -16,7 +16,7 @@ const firebaseConfig = {
   messagingSenderId: "159096077738",
   appId: "1:159096077738:web:825b39b1b2492d9b917fd3",
   measurementId: "G-YTQLFZFS0L",
-  databaseURL: "https://metapet-a77a3-default-rtdb.firebaseio.com/"
+  databaseURL: "https://metapet-a77a3-default-rtdb.firebaseio.com/",
 };
 
 // Initialize Firebase
