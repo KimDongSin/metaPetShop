@@ -230,7 +230,7 @@ function Footer() {
             </LinkMenu>
           </li>
           <li>
-            <LinkMenu to="/">
+            <LinkMenu to="/list">
               <img src={menu == 'product' ? productOn : product} />
             </LinkMenu>
           </li>
