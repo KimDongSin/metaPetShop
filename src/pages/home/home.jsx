@@ -59,7 +59,7 @@ function Home() {
   // New 정렬
   useEffect(() => {
     if (product != null) {
-      let result = product.sort((a, b) => a.startDate.toLowerCase() < b.startDate.toLowerCase() ? -1 : 1);
+      let result = product.sort((a, b) => a.startDate.toLowerCase() > b.startDate.toLowerCase() ? -1 : 1);
       setNewProduct(result);
     }
 
