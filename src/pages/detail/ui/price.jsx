@@ -3,7 +3,7 @@ import { BuyBtn, CartBtn, PrepareBtn } from "../../../components/styled/UI/butto
 import cart from "../../../assets/images/common/cart_on_icon.png";
 import likeOn from "../../../assets/images/common/like_on.png";
 import likeOff from "../../../assets/images/common/like_off.png";
-import CntInput from "./priceInput";
+import CntInput from "./PriceInput";
 
 const Wrapper = styled.div`
     margin-bottom: 18px;

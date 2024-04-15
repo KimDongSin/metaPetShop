@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { LoginLink } from "../../../components/styled/UI/link/Link";
-import CommunityReply from "./communityReply";
-import ReplyList from "./replyList";
+import CommunityReply from "./CommunityReply";
+import ReplyList from "./ReplyList";
 
 const Wrapper = styled.div`
     margin-bottom: 24px;

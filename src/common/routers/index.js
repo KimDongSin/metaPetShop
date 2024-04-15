@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router";
-import Home from "../../pages/home/home";
 import Login from "../../pages/login/Login";
 import Join from "../../pages/join/Join";
 import Detail from "../../pages/detail/Detail";
@@ -16,6 +15,7 @@ import List from "../../pages/list/List";
 import PurchaseList from "../../pages/myPage/PurchaseList";
 import Basket from "../../pages/basket/Basket";
 import DeliveryAddress from "../../pages/myPage/DeliveryAddress";
+import Home from "../../pages/home/Home";
 
 const MainRouter = () => {
   return (
