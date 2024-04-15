@@ -150,3 +150,19 @@ li {
 #root{
   overflow: hidden;
 }
+
+
+/* 모바일 최적화 */
+@media (min-width: 768px) {
+  html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0000001A;
+  }
+  
+  body {
+    width: 414px;
+    background: #fff;
+  }
+}
