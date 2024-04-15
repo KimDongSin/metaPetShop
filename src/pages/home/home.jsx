@@ -117,14 +117,6 @@ function Home() {
 
 
 
-// session으로 로그인 상태 확인
-  useEffect(() => {
-    const session = sessionStorage.key(0);
-    dispatch(loginStateChange({ value: session }));
-
-  }, [])
-
-
 
 
 
