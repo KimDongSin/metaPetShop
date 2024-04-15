@@ -65,6 +65,8 @@ function Home() {
 
   }, [product])
 
+  console.log(newProduct);
+
 
 
   // product.sort();
@@ -107,7 +109,7 @@ function Home() {
 
       <Section>
         <More title="New NFT" type="new" />
-        <NewSwipe newProduct={newProduct} />
+        <NewSwipe product={newProduct} />
       </Section>
 
       <Section>
