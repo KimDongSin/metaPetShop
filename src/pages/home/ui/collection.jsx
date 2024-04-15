@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CollectionList from "./collectionList";
+import CollectionList from "./CollectionList";
 
 const Wrapper = styled.div`
     ul {

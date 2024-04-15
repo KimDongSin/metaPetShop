@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 import Home from "../../pages/home/home";
 import Login from "../../pages/login/Login";
 import Join from "../../pages/join/Join";
-import Detail from "../../pages/detail/detail";
+import Detail from "../../pages/detail/Detail";
 import NotFound from "../../components/layout/NotFound";
 import JoinDone from "../../pages/join/JoinDone";
 import InfoFind from "../../pages/InfoFind/InfoFind";

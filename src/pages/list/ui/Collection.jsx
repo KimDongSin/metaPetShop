@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Title from "../../../components/title/title";
+import Title from "../../../components/title/Title";
 import ListSearch from "./ListSearch";
 import likeOn from '../../../assets/images/common/like_on.png';
 import likeOff from '../../../assets/images/common/like_off.png';

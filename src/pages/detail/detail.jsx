@@ -1,6 +1,6 @@
 import styled from "styled-components";
 // import sampleImg from '../../../assets/images/common/dog_sample3.png';
-import ItemThumbnail from "../../components/thumnail/thumnail";
+import ItemThumbnail from "../../components/thumnail/Thumnail";
 import sampleUser from '../../assets/images/common/user_img.png';
 import shareIcon from '../../assets/images/common/share_icon.png';
 import { Link } from "react-router-dom";

@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { LoginLink } from "../../../components/styled/UI/link/link";
+import { LoginLink } from "../../../components/styled/UI/link/Link";
 import likeOn from '../../../assets/images/common/like_on.png';
 import likeOff from '../../../assets/images/common/like_off.png';
 import share from '../../../assets/images/common/item_share_icon.png';
 import sampleImg from '../../../assets/images/common/dog_sample3.png';
-import Tag from "../../home/ui/tag";
+import Tag from "../../home/ui/Tag";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`

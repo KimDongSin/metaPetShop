@@ -2,7 +2,7 @@ import styled from "styled-components";
 import dog1 from "../../../assets/images/common/dog_sample1.png"
 import dog2 from "../../../assets/images/common/dog_sample2.png"
 import dog3 from "../../../assets/images/common/dog_sample3.png"
-import Tag from "./tag";
+import Tag from "./Tag";
 import { Link } from "react-router-dom";
 
 

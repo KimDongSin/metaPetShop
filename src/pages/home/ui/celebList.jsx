@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import celebMore from "../../../assets/images/common/celebMore.png";
-import CelebInfo from "./celebInfo";
+import CelebInfo from "./CelebInfo";
 
 
 const Item = styled.li`

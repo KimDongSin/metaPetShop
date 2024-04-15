@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import errorImg from "../../assets/images/common/notfound.png";
-import { MainLink } from "../styled/UI/link/link";
+import { MainLink } from "../styled/UI/link/Link";
 import { init } from "../../common/utils/typeChange";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";

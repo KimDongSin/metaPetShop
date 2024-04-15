@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ItemThumbnail from "../../../components/thumnail/thumnail";
-import Product from "../../../components/product/product";
+import ItemThumbnail from "../../../components/thumnail/Thumnail";
+import Product from "../../../components/product/Product";
 
 const Wrapper = styled.div`
     margin-bottom: 30px;

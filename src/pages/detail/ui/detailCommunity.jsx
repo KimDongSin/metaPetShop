@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { LoginLink } from "../../../components/styled/UI/link/link";
+import { LoginLink } from "../../../components/styled/UI/link/Link";
 import CommunityReply from "./communityReply";
 import ReplyList from "./replyList";
 

@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import Title from "../../components/title/title";
-import More from "../../components/more/more";
-import Collection from "./ui/collection";
-import Celeb from "./ui/celeb";
-import FavSwipe from "./ui/favswipe";
-import NewSwipe from "./ui/newswipe";
+import Title from "../../components/title/Title";
+import More from "../../components/more/More";
+import Collection from "./ui/Collection";
+import Celeb from "./ui/Celeb";
+import FavSwipe from "./ui/Favswipe";
+import NewSwipe from "./ui/Newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
 import { HdChange, init } from "../../common/utils/typeChange";
 

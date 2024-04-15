@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CelebList from "./celebList";
+import CelebList from "./CelebList";
 
 const Wrapper = styled.div`
     padding: 14px 12px;

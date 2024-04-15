@@ -4,7 +4,7 @@ import instagram from '../../../assets/images/common/instagram_icon.png';
 import youtube from '../../../assets/images/common/youtube_icon.png';
 
 import { Link } from "react-router-dom";
-import Product from "../../../components/product/product";
+import Product from "../../../components/product/Product";
 
 const Wrapper = styled.div`
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import sampleImg from '../../../assets/images/common/dog_sample1.png';
 
 import { Link } from "react-router-dom";
-import Product from "../../../components/product/product";
+import Product from "../../../components/product/Product";
 
 const Wrapper = styled.div`
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import sampleImg from '../../assets/images/common/dog_sample3.png';
 import like from '../../assets/images/common/like_on.png';
-import Tag from "../../pages/home/ui/tag";
+import Tag from "../../pages/home/ui/Tag";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`

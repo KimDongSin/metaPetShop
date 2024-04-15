@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
-import Title from "../../../components/title/title";
+import Title from "../../../components/title/Title";
 import { headerChange, listTabChange, menuChange } from "../../../store/store";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";

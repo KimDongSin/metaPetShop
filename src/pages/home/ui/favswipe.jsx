@@ -6,7 +6,7 @@ import likeOn from '../../../assets/images/common/like_on.png';
 import likeOff from '../../../assets/images/common/like_off.png';
 import 'swiper/css';
 import { Link } from "react-router-dom";
-import Tag from "./tag";
+import Tag from "./Tag";
 
 const SwiperWrap = styled(Swiper)`
     height: 450px;
