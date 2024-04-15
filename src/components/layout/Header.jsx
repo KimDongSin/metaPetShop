@@ -93,6 +93,7 @@ const HeaderLoginLink = styled(Link)`
 
 function Header() {
   const header = useSelector((state) => state.headerType);
+  const loginState = useSelector((state) => state.loginState);
 
   return (
     <Wrapper>
@@ -107,7 +108,11 @@ function Header() {
 
             <HeaderUser>
               <Login>
-                <HeaderLoginLink to="/login">로그인</HeaderLoginLink>
+                {
+                  loginState.value ?
+                    <Link to="/myPage"><img src={userDefault} /></Link>
+                    : <HeaderLoginLink to="/login">로그인</HeaderLoginLink>
+                }
               </Login>
             </HeaderUser>
           </HeaderContainer>
@@ -118,7 +123,7 @@ function Header() {
                 <span>{header.title}</span>
               </HeaderTitle>
               <Login>
-                <Link to="/"><img src={userDefault} /></Link>
+                <Link to="/myPage"><img src={userDefault} /></Link>
               </Login>
             </HeaderContainer>
 

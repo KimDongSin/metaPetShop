@@ -46,10 +46,23 @@ const listTabType = createSlice({
 
 export let { listTabChange } = listTabType.actions;
 
+const loginState = createSlice({
+    name: 'loginState',
+    initialState: { value: null },
+    reducers: {
+        loginStateChange(state, action) {
+            state.value = action.payload.value;
+        }
+    }
+});
+
+export let { loginStateChange } = loginState.actions;
+
 export default configureStore({
     reducer: {
         headerType: headerType.reducer,
         menuType: menuType.reducer,
         listTabType: listTabType.reducer,
+        loginState: loginState.reducer,
     }
 });

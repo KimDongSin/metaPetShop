@@ -68,6 +68,9 @@ const Join = () => {
     image: "https://firebasestorage.googleapis.com/v0/b/metapet-a77a3.appspot.com/o/user_img.png?alt=media&token=a936a3e5-8b8d-4d5e-91db-94dc80b3cf31"
   });
 
+  console.log(sign);
+
+
   const Signup = () => {
     async function register(email, password) {
       try {

@@ -7,13 +7,12 @@ import FavSwipe from "./ui/Favswipe";
 import NewSwipe from "./ui/Newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
 import { ref, child, get, update } from "firebase/database";
-import { db } from "../../common/api/firebase";
+import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { headerChange, menuChange } from "../../store/store";
+import { headerChange, loginStateChange, menuChange } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
-
-
+import firebase from "firebase/compat/app";
 
 
 const Wrapper = styled.div`
@@ -118,13 +117,12 @@ function Home() {
 
 
 
+// session으로 로그인 상태 확인
+  useEffect(() => {
+    const session = sessionStorage.key(0);
+    dispatch(loginStateChange({ value: session }));
 
-
-
-
-
-
-
+  }, [])
 
 
 
