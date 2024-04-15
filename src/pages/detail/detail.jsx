@@ -11,10 +11,10 @@ import DetailFollower from "./ui/DetailFollower";
 import DetailDelivery from "./ui/Delivery";
 import Price from "./ui/Price";
 import DetailRecommend from "./ui/DetailRecommend";
-import DetailCommunity from "./ui/DetailCommunity";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { menuChange } from "../../store/store";
+import DetailCommunity from "./ui/detailCommunity";
 
 const Wrapper = styled.div`
     padding: 0px 16px;

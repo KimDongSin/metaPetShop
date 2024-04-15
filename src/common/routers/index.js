@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { Route, Routes } from "react-router";
 import Login from "../../pages/login/Login";
 import Join from "../../pages/join/Join";
-import Detail from "../../pages/detail/Detail";
 import NotFound from "../../components/layout/NotFound";
 import JoinDone from "../../pages/join/JoinDone";
 import InfoFind from "../../pages/InfoFind/InfoFind";
@@ -16,6 +15,7 @@ import PurchaseList from "../../pages/myPage/PurchaseList";
 import Basket from "../../pages/basket/Basket";
 import DeliveryAddress from "../../pages/myPage/DeliveryAddress";
 import Home from "../../pages/home/Home";
+import Detail from "../../pages/detail/detail";
 
 const MainRouter = () => {
   return (
