@@ -11,6 +11,10 @@ import { db } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { headerChange, menuChange } from "../../store/store";
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
+
+
+
 
 const Wrapper = styled.div`
   padding: 20px 16px;
@@ -87,6 +91,39 @@ function Home() {
   // };
 
   // updateData();
+
+
+  // -**************-
+
+
+  // const Signup = () => {
+  //   async function register(email, password) {
+  //     try {
+  //       const auth = getAuth();
+  //       console.log(auth);
+  //       const user = await createUserWithEmailAndPassword(auth, 'rladudwn0215@naver.com', 'dudwnekt93');
+  //       console.log(user);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //     }
+  //   }
+  //   register();
+  // }
+
+
+  // Signup();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -37,11 +37,33 @@ const Wrap = styled.div`
   }
 `;
 
-const FormInput = ({ title, type, userInput, placeholder, width }) => {
+const FormInput = ({ title, type, userInput, placeholder, width, setSign }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const pHelper = isFocused ? "#33C2FF" : "#333333";
 
+  function dataInsert(e) {
+    if (type == "email") {
+      setSign((prev) => ({ ...prev, email: e.target.value }))
+    }
+    if (type == "password") {
+      setSign((prev) => ({ ...prev, password: e.target.value }))
+    }
+    if (type == "lastName") {
+      setSign((prev) => ({ ...prev, lastName: e.target.value }))
+    }
+    if (type == "firstName") {
+      setSign((prev) => ({ ...prev, firstName: e.target.value }))
+    }
+    if (type == "nickName") {
+      setSign((prev) => ({ ...prev, nickName: e.target.value }))
+    }
+    if (type == "phone") {
+      setSign((prev) => ({ ...prev, phone: e.target.value }))
+    }
+  }
+
+  console.log(type);
   return (
     <Wrap width={width}>
       <label htmlFor={userInput}>
@@ -53,6 +75,11 @@ const FormInput = ({ title, type, userInput, placeholder, width }) => {
         placeholder={placeholder}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        onChange={(e) => {
+          dataInsert(e);;
+          // type == "email" ? setSign((prev) => ({ ...prev, email: e.target.value }))
+          //   :  setSign((prev) => ({ ...prev, password: e.target.value }))
+        }}
       />
     </Wrap>
   );

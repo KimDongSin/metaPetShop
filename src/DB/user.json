@@ -1,31 +1,33 @@
 {
     "user": [
         {
-            "index": 1,
-            "id": "test1@naver.com",
+            "uuid": "3cd336066bd",
+            "email": "test1@naver.com",
             "password": "test1234",
-            "active": "Y",
+            "active": true,
             "firstName": "길동",
             "lastName": "홍",
             "nickName": "Hong",
             "phone": "01012341234",
-            "cash": 1000000,
+            "cash": 0,
             "productCnt": 1,
             "product": [
                 {
-                    "index": 14,
+                    "uuid": "uuid",
                     "cnt": 1
                 }
             ],
             "collectionGroup": [
                 {
-                    "index": 1,
+                    "uuid": 1,
                     "title": "컬렉션 설명"
                 }
             ],
             "follower": 0,
             "following": 0,
-            "bio": "셀럽소개"
+            "bio": "셀럽소개",
+            "like": [],
+            "image": ""
         }
     ]
 }
