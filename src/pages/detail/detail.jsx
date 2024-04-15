@@ -90,7 +90,7 @@ function Detail() {
                 <ItemThumbnail product={product} size='large'></ItemThumbnail>
             </ItemDetail>
             <Price product={product} />
-            <DetailDelivery />
+            {/* <DetailDelivery product={product} /> */}
             <DetailTab setType={setType} type={type} />
             {
                 type === 'story' ?

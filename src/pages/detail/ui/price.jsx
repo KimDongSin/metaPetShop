@@ -4,6 +4,7 @@ import cart from "../../../assets/images/common/cart_on_icon.png";
 import likeOn from "../../../assets/images/common/like_on.png";
 import likeOff from "../../../assets/images/common/like_off.png";
 import CntInput from "./PriceInput";
+import { useState } from "react";
 
 const Wrapper = styled.div`
     margin-bottom: 18px;
@@ -128,12 +129,64 @@ const ProductCnt = styled.div`
 
 
 
-function Price({product}) {
-    let finish = 3;
+function Price({ product }) {
+
+    const [dayCnt, setDayCnt] = useState("");
+
+    // 현재 날짜 변경
+    let date = new Date();
+    function dateFormat(date) {
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+
+        month = month >= 10 ? month : '0' + month;
+        day = day >= 10 ? day : '0' + day;
+        hour = hour >= 10 ? hour : '0' + hour;
+        minute = minute >= 10 ? minute : '0' + minute;
+        second = second >= 10 ? second : '0' + second;
+
+        return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+    }
+
+    // 컴포넌트 
+    const isSameDateAndTime = (end, now) => {
+        const endDate = new Date(end);
+        const nowDate = new Date(now);
+        return endDate.getTime() > nowDate.getTime();
+    }
+
+
+
+    // ------------------
+    // D-day 카운트다운
+    function find_day() {
+        const christmas = new Date(product.endDate);
+        const today = new Date();
+
+        let day_gap = christmas - today;
+
+        const day = Math.floor(day_gap / (1000 * 60 * 60 * 24));
+        const hour = Math.floor(day_gap / (1000 * 60 * 60) % 24);
+        const min = Math.floor(day_gap / (1000 * 60) % 60);
+        const sec = Math.floor(day_gap / 1000 % 60);
+
+        setDayCnt(`${day}일 ${hour}시간 ${min}분 ${sec}초`);
+    }
+    setInterval(find_day, 1000);  //초마다 디데이 기능 실행
+
+
+
+
+
+
+
+
 
     return (
         <Wrapper>
-
             <ProductPrice>
                 <Like>
                     <button>
@@ -141,7 +194,6 @@ function Price({product}) {
                     </button>
                     <span>{product.like.length}</span>
                 </Like>
-
                 <Sell>
                     <li>
                         <span>판매가</span>
@@ -154,20 +206,28 @@ function Price({product}) {
                 </Sell>
             </ProductPrice>
 
-            <ProductCnt>
+            {
+                (isSameDateAndTime(dateFormat(date), product.startDate)) === true && isSameDateAndTime(product.endDate, dateFormat(date)) === true ?
+                    <ProductCnt>
+                        <span>총 구매개수</span>
+                        <CntInput />
+                    </ProductCnt>
+                    : null
+            }
+
+            {/* <ProductCnt>
                 <span>총 구매개수</span>
                 <CntInput />
+            </ProductCnt> */}
 
-            </ProductCnt>
-
-            <ProductBtn>
+            {/* <ProductBtn>
                 <CartBtn><img src={cart} /></CartBtn>
                 <BuyBtn>구매하기</BuyBtn>
             </ProductBtn>
 
             <BeforeProduct>
                 <span>
-                    아직 판매 전 입니다 <span>00:23:12:12</span>
+                    아직 판매 전 입니다 <span>{dayCnt}</span>
                 </span>
             </BeforeProduct>
 
@@ -175,9 +235,32 @@ function Price({product}) {
                 <span>
                     판매가 종료된 NFT 입니다.
                 </span>
-            </AfterProduct>
+            </AfterProduct> */}
 
-        </Wrapper>
+
+            {
+                (isSameDateAndTime(dateFormat(date), product.startDate)) === true && isSameDateAndTime(product.endDate, dateFormat(date)) === true ?
+                    <ProductBtn>
+                        <CartBtn><img src={cart} /></CartBtn>
+                        <BuyBtn>구매하기</BuyBtn>
+                    </ProductBtn>
+                    : (isSameDateAndTime(dateFormat(date), product.startDate)) === true && isSameDateAndTime(product.endDate, dateFormat(date) === false) ?
+                        <AfterProduct>
+                            <span>
+                                판매가 종료된 NFT 입니다.
+                            </span>
+                        </AfterProduct>
+
+                        : (isSameDateAndTime(dateFormat(date), product.startDate)) === false && isSameDateAndTime(product.endDate, dateFormat(date) === false) ?
+                            <BeforeProduct>
+                                <span>
+                                    아직 판매 전 입니다 <span>{dayCnt}</span>
+                                </span>
+                            </BeforeProduct>
+                            : null
+            }
+
+        </Wrapper >
     )
 }
 

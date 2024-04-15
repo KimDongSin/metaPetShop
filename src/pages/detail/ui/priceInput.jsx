@@ -20,6 +20,7 @@ const Wrapper = styled.div`
         flex-shrink: 0;
         background: none;
         border: none;
+        cursor: pointer;
 
         img {
             width: 18px;
@@ -36,7 +37,6 @@ const Wrapper = styled.div`
         color: #333333;
         outline: none;
     }
-
 `;
 
 

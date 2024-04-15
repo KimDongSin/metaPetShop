@@ -59,19 +59,20 @@ const Wrapper = styled.div`
     }
 `;
 
-function DetailDelivery() {
+function DetailDelivery({product}) {
     return (
         <Wrapper>
             <ul>
                 <li>
                     <img src={calender} />
                     <span>판매종료일</span>
-                    <span>22. 05. 31</span>
+                    <span>{product.endDate.substr(0,10).replaceAll('-', '. ')}</span>
+                    {/* <span>22. 05. 31</span> */}
                 </li>
                 <li>
                     <img src={card} />
                     <span>구매 확인일</span>
-                    <span>22. 06. 01</span>
+                    <span>{product.endDate.substr(0,10).replaceAll('-', '. ')}</span>
                 </li>
                 <li>
                     <img src={gift} />
