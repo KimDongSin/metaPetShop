@@ -128,7 +128,7 @@ const ProductCnt = styled.div`
 
 
 
-function Price() {
+function Price({product}) {
     let finish = 3;
 
     return (
@@ -139,7 +139,7 @@ function Price() {
                     <button>
                         <img src={likeOn} />
                     </button>
-                    <span>1,345</span>
+                    <span>{product.like.length}</span>
                 </Like>
 
                 <Sell>
@@ -148,8 +148,8 @@ function Price() {
                         <span>KRW</span>
                     </li>
                     <li>
-                        <span>550 MET</span>
-                        <span>55,000 원</span>
+                        <span>{product.price} MET</span>
+                        <span>{product.price * 100} 원</span>
                     </li>
                 </Sell>
             </ProductPrice>

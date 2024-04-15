@@ -17,8 +17,7 @@ const SlideItem = styled(SwiperSlide)`
     height: 277px;
 `;
 
-function NewSwipe({ newProduct }) {
-
+function NewSwipe({ product }) {
     return (
         <SwiperWrap
             slidesPerView={'auto'}
@@ -26,12 +25,12 @@ function NewSwipe({ newProduct }) {
             className="mySwiper"
         >
             {
-                newProduct !== undefined ?
-                    newProduct.map((item, idx) => {
+                product !== undefined ?
+                    product.map((item, idx) => {
                         return (
                             <SlideItem key={idx}>
-                                <Link to="/detail">
-                                    <ItemThumbnail newProduct={item} />
+                                <Link to={"/detail/" + item.uuid} state={item} >
+                                    <ItemThumbnail product={item} />
                                 </Link>
                             </SlideItem>
                         )

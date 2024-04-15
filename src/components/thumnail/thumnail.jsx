@@ -47,20 +47,28 @@ const ItemTitle = styled.div`
     }
 `;
 
-function ItemThumbnail({ size, newProduct }) {
+function ItemThumbnail({ size, product }) {
     return (
         <Wrapper>
             <ItemImg size={size}>
-                <img src={newProduct.image} />
+                {
+                    product !== undefined ?
+                        <img src={product.image} />
+                        : null
+                }
             </ItemImg>
 
             <ItemInfo>
                 <ItemTitle>
-                    <span>{newProduct.productTitle}</span>
-                    <Tag tag={newProduct.productTag} />
-                    <p>
-                        good monkeygood monkeygood monkeygood monkeygood monkey
-                    </p>
+                    {
+                        product !== undefined ?
+                            <>
+                                <span>{product.productTitle}</span>
+                                <Tag tag={product.productTag} />
+                                <p>{product.description}</p>
+                            </>
+                            : null
+                    }
                 </ItemTitle>
             </ItemInfo>
         </Wrapper>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ItemThumbnail from "../../components/thumnail/Thumnail";
 import sampleUser from '../../assets/images/common/user_img.png';
 import shareIcon from '../../assets/images/common/share_icon.png';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import DetailTab from "./ui/DetailTab";
 import DetailStory from "./ui/DetailStory";
 import DetailInfo from "./ui/DetailInfo";
@@ -63,6 +63,10 @@ const ItemDetail = styled.div`
 `;
 
 function Detail() {
+    const location = useLocation();
+    let product = location.state;
+    console.log(product);
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(menuChange('product'));
@@ -83,9 +87,9 @@ function Detail() {
             </User>
 
             <ItemDetail>
-                <ItemThumbnail size='large'></ItemThumbnail>
+                <ItemThumbnail product={product} size='large'></ItemThumbnail>
             </ItemDetail>
-            <Price />
+            <Price product={product} />
             <DetailDelivery />
             <DetailTab setType={setType} type={type} />
             {
