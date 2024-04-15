@@ -94,9 +94,9 @@ function Detail() {
             <DetailTab setType={setType} type={type} />
             {
                 type === 'story' ?
-                    <DetailStory />
+                    <DetailStory image={product.storyImage} />
                     : type === 'info' ?
-                        <DetailInfo />
+                        <DetailInfo product={product}  />
                         : type === 'community' ?
                             <DetailCommunity />
                             : <DetailFollower />

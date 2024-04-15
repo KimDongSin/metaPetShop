@@ -40,25 +40,25 @@ const Wrapper = styled.div`
     }
 `;
 
-function DetailInfo() {
+function DetailInfo({product}) {
     return (
         <Wrapper>
             <ul>
                 <li>
                     <span>contract address</span>
-                    <span>contract address</span>
+                    <span>{product.contactAddr}</span>
                 </li>
                 <li>
                     <span>token standard</span>
-                    <span>ERC-721</span>
+                    <span>{product.tokenStandard}</span>
                 </li>
                 <li>
                     <span>Blockchain</span>
-                    <span>Ethereum</span>
+                    <span>{product.blockchain}</span>
                 </li>
                 <li>
                     <span>Creator Fees address</span>
-                    <span>10%</span>
+                    <span>{product.fees}%</span>
                 </li>
             </ul>
 

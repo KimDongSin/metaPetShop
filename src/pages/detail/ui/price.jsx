@@ -137,7 +137,7 @@ function Price({product}) {
             <ProductPrice>
                 <Like>
                     <button>
-                        <img src={likeOn} />
+                        <img src={likeOff} />
                     </button>
                     <span>{product.like.length}</span>
                 </Like>

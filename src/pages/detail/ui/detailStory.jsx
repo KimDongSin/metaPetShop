@@ -13,12 +13,17 @@ const Wrapper = styled.div`
     }
 `;
 
-function DetailStory() {
+function DetailStory({ image }) {
+    console.log(image);
     return (
         <Wrapper>
-            <img src={sample1} />
-            <img src={sample2} />
-            <img src={sample3} />
+            {
+                image.map((v, i) => {
+                    return (<img src={v} key={i} alt="storyImage" />)
+                })
+            }
+            {/* <img src={sample2} /> */}
+            {/* <img src={sample3} /> */}
         </Wrapper>
     )
 }
