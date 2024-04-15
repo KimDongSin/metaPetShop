@@ -15,7 +15,7 @@ import PurchaseList from "../../pages/myPage/PurchaseList";
 import Basket from "../../pages/basket/Basket";
 import DeliveryAddress from "../../pages/myPage/DeliveryAddress";
 import Home from "../../pages/home/Home";
-import Detail from "../../pages/detail/detail";
+import Detail from "../../pages/detail/Detail";
 
 const MainRouter = () => {
   return (

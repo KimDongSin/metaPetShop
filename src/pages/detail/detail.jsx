@@ -14,7 +14,7 @@ import DetailRecommend from "./ui/DetailRecommend";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { menuChange } from "../../store/store";
-import DetailCommunity from "./ui/detailCommunity";
+import DetailCommunity from "./ui/DetailCommunity";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
