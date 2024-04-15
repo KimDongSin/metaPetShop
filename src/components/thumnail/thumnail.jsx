@@ -47,18 +47,17 @@ const ItemTitle = styled.div`
     }
 `;
 
-function ItemThumbnail({ size }) {
-
+function ItemThumbnail({ size, newProduct }) {
     return (
         <Wrapper>
             <ItemImg size={size}>
-                <img src={sampleImg} />
+                <img src={newProduct.image} />
             </ItemImg>
 
             <ItemInfo>
                 <ItemTitle>
-                    <span>good monkey</span>
-                    <Tag />
+                    <span>{newProduct.productTitle}</span>
+                    <Tag tag={newProduct.productTag} />
                     <p>
                         good monkeygood monkeygood monkeygood monkeygood monkey
                     </p>

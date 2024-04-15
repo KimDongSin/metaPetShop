@@ -6,14 +6,11 @@ import Celeb from "./ui/Celeb";
 import FavSwipe from "./ui/Favswipe";
 import NewSwipe from "./ui/Newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
-import { HdChange, init } from "../../common/utils/typeChange";
-
 import { ref, child, get, update } from "firebase/database";
 import { db } from "../../common/api/firebase";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { headerChange, menuChange } from "../../store/store";
-
 
 const Wrapper = styled.div`
   padding: 20px 16px;
@@ -34,39 +31,60 @@ function Home() {
     dispatch(menuChange('home'));
   }, [])
 
-  // init('t1', 'home');
+  // --------------------------------------------------------------------------------------
+
+  let [product, setProduct] = useState();
+  let [newProduct, setNewProduct] = useState();
+
+  useEffect(() => {
+    async function getProduct() {
+      const dbRef = ref(db);
+      await get(child(dbRef, "/product"))
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            setProduct(snapshot.val());
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+    getProduct();
+  }, []);
 
 
-  const readOne = () => {
-    const dbRef = ref(db);
-    get(child(dbRef, "/product"))
-      .then(snapshot => {
-        if (snapshot.exists()) {
-          console.log(snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+
+  // New 정렬
+  useEffect(() => {
+    if (product != null) {
+      let result = product.sort((a, b) => a.startDate.toLowerCase() < b.startDate.toLowerCase() ? -1 : 1);
+      setNewProduct(result);
+    }
+
+  }, [product])
 
 
 
-  readOne();
+  // product.sort();
 
-  const updateData = () => {
-    const temp = {
-      amount: 10000
-    };
+  // let result = product.sort((a, b) => a.startDate.toLowerCase() < b.startDate.toLowerCase() ? -1 : 1);
+  // console.log(result);
 
-    return update(
-      ref(db, "/product/0"), temp);
-  };
 
-  updateData();
+  // console.log(product);
 
+  // const updateData = () => {
+  //   const temp = {
+  //     amount: 10000
+  //   };
+
+  //   return update(
+  //     ref(db, "/product/0"), temp);
+  // };
+
+  // updateData();
 
 
 
@@ -89,7 +107,7 @@ function Home() {
 
       <Section>
         <More title="New NFT" type="new" />
-        <NewSwipe />
+        <NewSwipe newProduct={newProduct} />
       </Section>
 
       <Section>

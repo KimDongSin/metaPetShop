@@ -28,11 +28,18 @@ const Wrapper = styled.div`
     }
 `;
 
-function Tag() {
+function Tag({tag}) {
     return (
         <Wrapper>
-            <span>550MET</span>
-            <span>current Bid</span>
+            {
+                tag !== undefined ?
+                tag.map((val, idx)=>{
+                    return(
+                        <span key={idx}>{val}</span>
+                    )
+                })
+                : null
+            }
         </Wrapper>
     )
 }

@@ -120,7 +120,7 @@ function FavSwipe() {
                 className="mySwiper"
             >
                 <SlideItem>
-                    <Link to="/a">
+                    <Link to="/detail/">
                         <ItemImg>
                             <img src={sampleImg} />
                             <span>3일 11시간 23분</span>
