@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import plus from "../../../assets/images/detail/plus.png";
 import minus from "../../../assets/images/detail/minus.png";
+import { useState } from "react";
 
 
 const Wrapper = styled.div`
@@ -40,12 +41,15 @@ const Wrapper = styled.div`
 `;
 
 
-function CntInput() {
+function CntInput({product}) {
+    console.log(product.amount);
+    const [value, setValue] = useState(1);
+
     return (
         <Wrapper>
-            <button><img src={minus} /></button>
-            <input type="number" defaultValue={1} />
-            <button><img src={plus} /></button>
+            <button onClick={()=> {setValue((prev)=>(prev >1 ? value - 1 : null))}}><img src={minus} /></button>
+            <input type="number" defaultValue={1} max="10" value={value} />
+            <button onClick={()=> {setValue((prev)=>(prev < product.amount  ? value + 1 : product.amount))}}><img src={plus} /></button>
         </Wrapper>
     )
 }

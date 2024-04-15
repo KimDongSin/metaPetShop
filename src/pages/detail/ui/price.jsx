@@ -184,7 +184,6 @@ function Price({ product }) {
 
 
 
-
     return (
         <Wrapper>
             <ProductPrice>
@@ -200,8 +199,8 @@ function Price({ product }) {
                         <span>KRW</span>
                     </li>
                     <li>
-                        <span>{product.price} MET</span>
-                        <span>{product.price * 100} 원</span>
+                        <span>{product.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} MET</span>
+                        <span>{(product.price * 100 + "").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} 원</span>
                     </li>
                 </Sell>
             </ProductPrice>
@@ -210,7 +209,7 @@ function Price({ product }) {
                 (isSameDateAndTime(dateFormat(date), product.startDate)) === true && isSameDateAndTime(product.endDate, dateFormat(date)) === true ?
                     <ProductCnt>
                         <span>총 구매개수</span>
-                        <CntInput />
+                        <CntInput product={product} />
                     </ProductCnt>
                     : null
             }
