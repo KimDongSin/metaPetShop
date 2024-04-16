@@ -38,8 +38,11 @@ function Home() {
 
   let [product, setProduct] = useState();
   let [newProduct, setNewProduct] = useState();
+  let [user, setUser] = useState([]);
+  let [loginUser, setLoginUser] = useState();
 
   useEffect(() => {
+    // 제품 데이터
     async function getProduct() {
       const dbRef = ref(db);
       await get(child(dbRef, "/product"))
@@ -55,9 +58,47 @@ function Home() {
         });
     }
     getProduct();
+
+    // 유저 데이터
+    async function getUser() {
+      const dbRef = ref(db);
+      await get(child(dbRef, "/user"))
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            let temp = [];
+            for (let objKey in snapshot.val()) {
+              if (snapshot.val().hasOwnProperty(objKey)) {
+                temp.push(snapshot.val()[objKey]);
+              }
+            }
+
+            setUser(temp);
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+    getUser();
+
+
   }, []);
 
 
+
+  // function getLoginUser() {
+  //   let a = [];
+  //   for (let objKey in user) {
+  //     if (user.hasOwnProperty(objKey)) {
+  //       a.push(user[objKey]);
+  //     }
+  //   }
+  //   console.log(a);
+
+  // }
+  // getLoginUser();
 
   // New 정렬
   useEffect(() => {
@@ -69,6 +110,7 @@ function Home() {
   }, [product])
 
   console.log(newProduct);
+  console.log(user);
 
 
 
