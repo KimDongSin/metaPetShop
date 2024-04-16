@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { menuChange } from "../../store/store";
 import DetailCommunity from "./ui/DetailCommunity";
+import NotFound from "../../components/layout/NotFound";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -75,34 +76,38 @@ function Detail() {
     const [type, setType] = useState('story');
 
     return (
-        <Wrapper>
-            <User>
-                <UserInfo>
-                    <img src={sampleUser} />
-                    <span>good monkey</span>
-                </UserInfo>
-                <Share>
-                    <button><img src={shareIcon} /></button>
-                </Share>
-            </User>
+        <>
+            {product ?
+                <Wrapper>
+                    <User>
+                        <UserInfo>
+                            <img src={sampleUser} />
+                            <span>good monkey</span>
+                        </UserInfo>
+                        <Share>
+                            <button><img src={shareIcon} /></button>
+                        </Share>
+                    </User>
 
-            <ItemDetail>
-                <ItemThumbnail product={product} size='large'></ItemThumbnail>
-            </ItemDetail>
-            <Price product={product} />
-            {/* <DetailDelivery product={product} /> */}
-            <DetailTab setType={setType} type={type} />
-            {
-                type === 'story' ?
-                    <DetailStory image={product.storyImage} />
-                    : type === 'info' ?
-                        <DetailInfo product={product}  />
-                        : type === 'community' ?
-                            <DetailCommunity />
-                            : <DetailFollower />
-            }
-            <DetailRecommend />
-        </Wrapper>
+                    <ItemDetail>
+                        <ItemThumbnail product={product} size='large'></ItemThumbnail>
+                    </ItemDetail>
+                    <Price product={product} />
+                    {/* <DetailDelivery product={product} /> */}
+                    <DetailTab setType={setType} type={type} />
+                    {
+                        type === 'story' ?
+                            <DetailStory image={product.storyImage} />
+                            : type === 'info' ?
+                                <DetailInfo product={product} />
+                                : type === 'community' ?
+                                    <DetailCommunity />
+                                    : <DetailFollower />
+                    }
+                    <DetailRecommend />
+                </Wrapper>
+                : <NotFound />}
+        </>
     )
 }
 
