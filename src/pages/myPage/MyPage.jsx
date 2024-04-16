@@ -3,6 +3,9 @@ import profile from "../../assets/images/myPage/profile.png";
 import arrow from "../../assets/images/myPage/arrow.png";
 import { Link } from "react-router-dom";
 import { InfoBgBox } from "../../components/myPage/InfoBgBox";
+import { useDispatch } from "react-redux";
+import { headerChange, menuChange } from "../../store/store";
+import { useEffect } from "react";
 
 const Wrap = styled.div`
   padding: 9px 16px 85px;
@@ -106,6 +109,16 @@ const MyPage = () => {
       number: 265,
     },
   ];
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(headerChange({
+      type: 't1',
+      title: 'home',
+    }))
+    dispatch(menuChange('user'));
+  }, []);
+  
 
   return (
     <Wrap>
