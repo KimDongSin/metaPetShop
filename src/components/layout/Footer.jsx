@@ -149,6 +149,8 @@ const LinkMenu = styled(Link)``;
 
 function Footer() {
   const menu = useSelector((state) => state.menuType.value);
+  const loginState = useSelector((state) => state.loginState);
+
 
   return (
     <Wrapper>
@@ -240,13 +242,13 @@ function Footer() {
             </LinkMenu>
           </li>
           <li>
-            <LinkMenu to="/myPage">
+            <LinkMenu to={loginState.value ? "/myPage" : "/login"}>
               <img src={menu == 'user' ? userOn : user} />
             </LinkMenu>
           </li>
         </ul>
       </FooterMenu>
-    </Wrapper>
+    </Wrapper >
   );
 }
 
