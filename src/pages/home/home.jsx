@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Title from "../../components/title/Title";
 import More from "../../components/more/More";
 import Collection from "./ui/Collection";
-import Celeb from "./ui/Celeb";
 import FavSwipe from "./ui/Favswipe";
 import NewSwipe from "./ui/Newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
@@ -14,6 +13,7 @@ import { headerChange, loginStateChange, loginUserSet, menuChange } from "../../
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
+import Celeb from "./ui/Celeb";
 
 
 const Wrapper = styled.div`

@@ -11,14 +11,11 @@ const Wrapper = styled.div`
 `;
 
 function Celeb({ user }) {
-    console.log(user);
     let userArr = followerArrFn(user);
     const [celeb, setCeleb] = useState();
-    // followerArrFn(userArr);
-    console.log(userArr);
 
-
-  // New 정렬
+    console.log();
+    // follower 정렬
     useEffect(() => {
         if (userArr != null) {
             let result = userArr.sort((a, b) => a.follower.length > b.follower.length ? -1 : 1);
@@ -29,70 +26,17 @@ function Celeb({ user }) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // follwer 배열변경
-    // function followerArrFn(item){
-    // }
-
-    // function objToArr(item){
-    //     let temp = [];
-    //     for (let objKey in item) {
-    //         if (item.hasOwnProperty(objKey)) {
-    //             temp.push(item[objKey]);
-    //         }
-    //     }
-    //     return temp;
-    // }
-
-
-    // console.log(celeb[0]);
-    // for (let i = 0; i < celeb.length; i++) {
-    //     console.log(celeb[i]);
-    // }
-    // console.log(celeb);
-
-    // useEffect(() => {
-
-    // }, [user])
-
-    console.log(celeb);
-
-    // New 정렬
-    // useEffect(() => {
-    //     if (celeb != null) {
-    //         let result = celeb.sort((a, b) => a.startDate.toLowerCase() > b.startDate.toLowerCase() ? -1 : 1);
-    //         setNewProduct(result);
-    //     }
-    // }, [celeb])
-
-
     return (
         <Wrapper>
             <ul>
                 {
                     celeb &&
-                    celeb.map((item, idx)=> {
-                        return(
+                    celeb.map((item, idx) => {
+                        return (
                             <CelebList celeb={item} key={idx} />
                         )
                     })
                 }
-
-                {/* <CelebList />
-                <CelebList />
-                <CelebList />
-                <CelebList />
-                <CelebList /> */}
             </ul>
         </Wrapper>
     )
