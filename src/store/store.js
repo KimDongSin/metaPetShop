@@ -58,11 +58,25 @@ const loginState = createSlice({
 
 export let { loginStateChange } = loginState.actions;
 
+const loginUser = createSlice({
+    name: 'loginUser',
+    initialState: { user: null },
+    reducers: {
+        loginUserSet(state, action) {
+            state.user = action.payload;
+        }
+    }
+});
+
+export let { loginUserSet } = loginUser.actions;
+
+
 export default configureStore({
     reducer: {
         headerType: headerType.reducer,
         menuType: menuType.reducer,
         listTabType: listTabType.reducer,
         loginState: loginState.reducer,
+        loginUser: loginUser.reducer,
     }
 });

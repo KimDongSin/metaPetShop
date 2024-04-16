@@ -9,8 +9,8 @@ import ScrollToTop from "../../common/utils/scrollToTop";
 import { ref, child, get, update } from "firebase/database";
 import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { headerChange, loginStateChange, menuChange } from "../../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { headerChange, loginStateChange, loginUserSet, menuChange } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 
@@ -26,6 +26,16 @@ const Section = styled.div`
 
 function Home() {
   const dispatch = useDispatch();
+
+  const [product, setProduct] = useState();
+  const [newProduct, setNewProduct] = useState();
+  const [user, setUser] = useState([]);
+  const loginState = useSelector((state) => state.loginState);
+
+  // --------------------------------------------------------------------------------------
+
+
+  // 헤더설정
   useEffect(() => {
     dispatch(headerChange({
       type: 't1',
@@ -34,12 +44,6 @@ function Home() {
     dispatch(menuChange('home'));
   }, [])
 
-  // --------------------------------------------------------------------------------------
-
-  let [product, setProduct] = useState();
-  let [newProduct, setNewProduct] = useState();
-  let [user, setUser] = useState([]);
-  let [loginUser, setLoginUser] = useState();
 
   useEffect(() => {
     // 제품 데이터
@@ -65,6 +69,7 @@ function Home() {
       await get(child(dbRef, "/user"))
         .then(snapshot => {
           if (snapshot.exists()) {
+            // 배열로 반환
             let temp = [];
             for (let objKey in snapshot.val()) {
               if (snapshot.val().hasOwnProperty(objKey)) {
@@ -86,20 +91,6 @@ function Home() {
 
   }, []);
 
-
-
-  // function getLoginUser() {
-  //   let a = [];
-  //   for (let objKey in user) {
-  //     if (user.hasOwnProperty(objKey)) {
-  //       a.push(user[objKey]);
-  //     }
-  //   }
-  //   console.log(a);
-
-  // }
-  // getLoginUser();
-
   // New 정렬
   useEffect(() => {
     if (product != null) {
@@ -109,10 +100,12 @@ function Home() {
 
   }, [product])
 
-  console.log(newProduct);
-  console.log(user);
-
-
+  // 로그인 유저 찾기
+  useEffect(() => {
+    let result = user.filter(e => e.email === loginState.value);
+    dispatch(loginUserSet(result[0]));
+  }, [user])
+  // console.log(loginUser);
 
   // product.sort();
 

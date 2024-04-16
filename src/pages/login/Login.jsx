@@ -83,8 +83,7 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            dispatch(loginStateChange({value: user}));
-            console.log(user);
+            dispatch(loginStateChange({value: user.email}));
             navigate("/");
           })
           .catch((error) => {

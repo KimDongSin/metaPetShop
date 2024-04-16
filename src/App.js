@@ -14,9 +14,8 @@ function App() {
 
   // session으로 로그인 상태 확인
   useEffect(() => {
-    const session = sessionStorage.key(0);
-    dispatch(loginStateChange({ value: session }));
-
+    // const session = sessionStorage.key(0);
+    dispatch(loginStateChange({ value: JSON.parse(sessionStorage.getItem(sessionStorage.key(0)))?.email }));
   }, [])
 
   return (
