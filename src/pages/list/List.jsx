@@ -8,7 +8,6 @@ import ListCeleb from "./ui/ListCeleb";
 import CollectionDetail from "./ui/CollectionDetail";
 import CelebDetail from "./ui/CelebDetail";
 import { useDispatch, useSelector } from 'react-redux';
-import { init } from "../../common/utils/typeChange";
 import { menuChange } from "../../store/store";
 import { useEffect } from "react";
 

@@ -8,7 +8,6 @@ import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link } from "react-router-dom";
 import CelebItem from "./CelebItem";
-import { init } from "../../../common/utils/typeChange";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { headerChange } from "../../../store/store";

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
-import { init } from "../../../common/utils/typeChange";
 import { useDispatch } from "react-redux";
 import { headerChange } from "../../../store/store";
 import { useEffect } from "react";

@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { headerChange, loginStateChange, loginUserSet, menuChange } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
+import { objToArr } from "../../common/utils/objToArr";
 
 
 const Wrapper = styled.div`
@@ -70,13 +71,7 @@ function Home() {
         .then(snapshot => {
           if (snapshot.exists()) {
             // 배열로 반환
-            let temp = [];
-            for (let objKey in snapshot.val()) {
-              if (snapshot.val().hasOwnProperty(objKey)) {
-                temp.push(snapshot.val()[objKey]);
-              }
-            }
-
+            let temp = objToArr(snapshot.val())
             setUser(temp);
           } else {
             console.log("No data available");
@@ -87,9 +82,8 @@ function Home() {
         });
     }
     getUser();
-
-
   }, []);
+
 
   // New 정렬
   useEffect(() => {
@@ -181,7 +175,7 @@ function Home() {
 
       <Section>
         <More title="Top Celeb" type="celeb" />
-        <Celeb />
+        <Celeb user={user} />
       </Section>
     </Wrapper>
   );

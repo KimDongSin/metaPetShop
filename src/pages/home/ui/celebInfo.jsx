@@ -21,11 +21,11 @@ const Item = styled.div`
     }
 `;
 
-function CelebInfo() {
+function CelebInfo({celeb}) {
     return (
         <Item>
-            <img src={imgSample} />
-            <span>Metaverse Robot</span>
+            <img src={celeb.image} />
+            <span>{celeb.nickName}</span>
         </Item>
     )
 }

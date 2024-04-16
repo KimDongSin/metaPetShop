@@ -21,11 +21,11 @@ const Item = styled.li`
     }
 `;
 
-function CelebList() {
+function CelebList({celeb}) {
     return (
         <Item>
             <a href="#none">
-                <CelebInfo />
+                <CelebInfo celeb={celeb} />
                 <img src={celebMore} />
             </a>
         </Item>
