@@ -11,7 +11,9 @@ export function objToArr(item) {
 export function followerArrFn(item) {
     let temp = item;
     for (let i = 0; i < item.length; i++) {
-        item[i].follower = objToArr(item[i].follower)
+        if (Array.isArray(item[i])) {
+            item[i].follower = objToArr(item[i].follower)
+        }
     }
     return temp;
 }
