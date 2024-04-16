@@ -12,7 +12,7 @@ import DetailDelivery from "./ui/Delivery";
 import Price from "./ui/Price";
 import DetailRecommend from "./ui/DetailRecommend";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { menuChange } from "../../store/store";
 import DetailCommunity from "./ui/DetailCommunity";
 import NotFound from "../../components/layout/NotFound";
@@ -65,6 +65,8 @@ const ItemDetail = styled.div`
 
 function Detail() {
     const location = useLocation();
+    const loginUser = useSelector((state) => state.loginUser.user);
+
     let product = location.state;
     console.log(product);
 
@@ -92,7 +94,7 @@ function Detail() {
                     <ItemDetail>
                         <ItemThumbnail product={product} size='large'></ItemThumbnail>
                     </ItemDetail>
-                    <Price product={product} />
+                    <Price product={product} loginUser={loginUser} />
                     {/* <DetailDelivery product={product} /> */}
                     <DetailTab setType={setType} type={type} />
                     {

@@ -17,3 +17,11 @@ export function followerArrFn(item) {
     }
     return temp;
 }
+
+export function arrToObj(item){
+    let temp = {};
+    item.forEach((e, i) => {
+        temp[e] = e;
+      });
+      return temp;
+}

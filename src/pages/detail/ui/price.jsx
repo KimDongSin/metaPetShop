@@ -5,6 +5,11 @@ import likeOn from "../../../assets/images/common/like_on.png";
 import likeOff from "../../../assets/images/common/like_off.png";
 import CntInput from "./PriceInput";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { arrToObj, objToArr } from "../../../common/utils/objToArr";
+import { ref, remove, update } from "firebase/database";
+import { db } from "../../../common/api/firebase";
+import { loginStateChange } from "../../../store/store";
 
 const Wrapper = styled.div`
     margin-bottom: 18px;
@@ -30,6 +35,7 @@ const Like = styled.div`
         padding: 0;
         border: none;
         background: none;
+        cursor: pointer;
         
         img {
             border-radius: 100%;
@@ -130,8 +136,8 @@ const ProductCnt = styled.div`
 
 
 function Price({ product }) {
-
     const [dayCnt, setDayCnt] = useState("");
+    const loginUser = useSelector((state) => state.loginUser.user);
 
     // 현재 날짜 변경
     let date = new Date();
@@ -178,20 +184,53 @@ function Price({ product }) {
     setInterval(find_day, 1000);  //초마다 디데이 기능 실행
 
 
+    const [userLike, setUserLike] = useState(objToArr(loginUser?.like));
+    const [productLike, setProductLike] = useState(objToArr(product?.like));
 
 
 
+    function likeToggleFn(e) {
+        if (userLike.filter((e) => e == product?.uuid).length > 0) {
+            remove(ref(db, "/user/" + loginUser.uuid + "/like/" + product.uuid));
+            remove(ref(db, "/product/" + product.uuid + "/like/" + loginUser.uuid));
 
+            setProductLike(removeArr(productLike, loginUser.uuid));
+            setUserLike(removeArr(userLike, product.uuid));
+        } else {
+            const userToggle = () => {
+                const temp = { [product.uuid]: product.uuid };
+                return update(ref(db, "/user/" + loginUser.uuid + "/like"), temp)
+            };
 
+            const productToggle = () => {
+                const temp = { [loginUser.uuid]: loginUser.uuid };
+                return update(ref(db, "/product/" + product.uuid + "/like"), temp)
+            };
+            userToggle();
+            productToggle();
+            setUserLike(prev => [...prev, product.uuid]);
+            setProductLike(prev => [...prev, loginUser.uuid]);
+        }
+    }
+
+    function removeArr(arr, val) {
+        let temp = arr;
+        for (let i = 0; i < temp.length; i++) {
+            if (temp[i] === val) {
+                temp.splice(i, 1);
+            }
+        }
+        return temp;
+    }
 
     return (
         <Wrapper>
             <ProductPrice>
                 <Like>
-                    <button>
-                        <img src={likeOff} />
+                    <button onClick={(e) => { likeToggleFn(e) }}>
+                        <img src={(userLike.filter((e) => e == product?.uuid).length > 0) ? likeOn : likeOff} />
                     </button>
-                    <span>{product.like.length}</span>
+                    <span>{productLike.length}</span>
                 </Like>
                 <Sell>
                     <li>

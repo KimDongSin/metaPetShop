@@ -9,7 +9,7 @@ import { ref, child, get, update } from "firebase/database";
 import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { headerChange, loginStateChange, loginUserSet, menuChange } from "../../store/store";
+import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
@@ -36,6 +36,8 @@ function Home() {
   // --------------------------------------------------------------------------------------
 
 
+
+
   // 헤더설정
   useEffect(() => {
     dispatch(headerChange({
@@ -53,7 +55,8 @@ function Home() {
       await get(child(dbRef, "/product"))
         .then(snapshot => {
           if (snapshot.exists()) {
-            setProduct(snapshot.val());
+            let temp = objToArr(snapshot.val())
+            setProduct(temp);
           } else {
             console.log("No data available");
           }
@@ -97,8 +100,22 @@ function Home() {
   // 로그인 유저 찾기
   useEffect(() => {
     let result = user.filter(e => e.email === loginState.value);
+    let likeTemp = objToArr(result[0]?.like);
+    
+    let productTemp = objToArr(result[0]?.product);
+    let followTemp = objToArr(result[0]?.follow);
+    let followingTemp = objToArr(result[0]?.following);
+    
     dispatch(loginUserSet(result[0]));
+    dispatch(likeToggle(likeTemp));
+
+    console.log(result[0]);
+    // objToArr(result[0].like)
+
+    console.log(likeTemp);
   }, [user])
+
+
   // console.log(loginUser);
 
   // product.sort();
