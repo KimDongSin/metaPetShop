@@ -102,6 +102,7 @@ function Product({ product, userLike, productAll }) {
     }
     collectionItem = filterCollection();
 
+
     return (
         <Wrapper>
             <ul>
@@ -121,7 +122,7 @@ function Product({ product, userLike, productAll }) {
                                     <ItemInfo>
                                         <ItemTitle>
                                             <span>{item.productTitle}</span>
-                                            <Tag />
+                                            <Tag tag={item.productTag} />
                                         </ItemTitle>
                                     </ItemInfo>
                                 </Item>
