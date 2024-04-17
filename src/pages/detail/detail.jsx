@@ -70,9 +70,8 @@ function Detail() {
     const product = location.state.item;
     const randomProduct = location.state.randomProduct;
     const dispatch = useDispatch();
-    console.log(loginUser);
 
-
+    
     useEffect(() => {
         dispatch(menuChange('product'));
     }, [])

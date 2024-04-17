@@ -83,9 +83,6 @@ function Product({ product, userLike, productAll, randomProduct }) {
     let collectionItem = [];
     let temp = randomProduct?.slice(0, 4);
 
-    console.log(randomProduct);
-    console.log(collectionItem);
-    console.log(userLike);
     // Link 이동 방지
     const likeBtn = (e) => {
         e.preventDefault(); // Link 이동 방지

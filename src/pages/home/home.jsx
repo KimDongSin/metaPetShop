@@ -39,7 +39,15 @@ function Home() {
   const [randomProduct, setRandomProduct] = useState();
 
   // --------------------------------------------------------------------------------------
-
+  
+  // 헤더설정
+  useEffect(() => {
+    dispatch(headerChange({
+      type: 't1',
+      title: 'home',
+    }))
+    dispatch(menuChange('home'));
+  }, [])
 
 
   // 데이터 랜덤셔플
@@ -55,27 +63,6 @@ function Home() {
       return array;
     }
   }
-  // randomProduct = shuffle(product)
-  // randomProduct = shuffle(product)
-
-  console.log(shuffleArray());
-  // 헤더설정
-  useEffect(() => {
-    dispatch(headerChange({
-      type: 't1',
-      title: 'home',
-    }))
-    dispatch(menuChange('home'));
-  }, [])
-
-  // function shuffle(array) {
-  //   let temp = [];
-  //   if (array == null) {
-  //     array.sort(() => Math.random() - 0.5);
-
-  //   }
-  // }
-
 
   useEffect(() => {
     // 제품 데이터
@@ -137,8 +124,6 @@ function Home() {
     getCollection();
   }, []);
 
-  console.log(coll);
-  console.log(uid());
 
 
   // New 정렬 & hot 정렬
@@ -147,7 +132,6 @@ function Home() {
       console.log(product);
       let resultNew = product.sort((a, b) => a.startDate.toLowerCase() > b.startDate.toLowerCase() ? -1 : 1);
       let resultHot = product.sort((a, b) => objToArr(a.like).length > objToArr(b.like).length ? -1 : 1);
-      console.log(resultHot);
       setNewProduct(resultNew);
       setHotProduct(resultHot);
     }
@@ -176,7 +160,6 @@ function Home() {
     dispatch(loginUserSet(result[0]));
     dispatch(likeToggle(likeTemp));
 
-    console.log(result[0]);
     // objToArr(result[0].like)
 
     // console.log(likeTemp);
@@ -225,7 +208,6 @@ function Home() {
   // Signup();
 
 
-  console.log(randomProduct);
 
 
 
