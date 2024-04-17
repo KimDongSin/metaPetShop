@@ -54,7 +54,8 @@ const ItemImg = styled.div`
         border: 0;
         border-radius: 100%;
         background: none;
-        
+        cursor: pointer;
+
         & > img {
             width: 46px;
             height: 46px;
@@ -89,6 +90,7 @@ const ItemLike = styled.button`
     border-radius: 100%;
     background: none;
     border: none;
+    cursor: pointer;
 
     img {
         width: 56px;
@@ -107,10 +109,10 @@ function FavSwipe({ product, userLike}) {
     const shareBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
     };
-    // Link 이동 방지
-    const likeBtn = (e) => {
-        e.preventDefault(); // Link 이동 방지
-    };
+    // // Link 이동 방지
+    // const likeBtn = (e) => {
+    //     e.preventDefault(); // Link 이동 방지
+    // };
 
     return (
         <>
@@ -138,7 +140,8 @@ function FavSwipe({ product, userLike}) {
                                                 <Tag />
                                             </ItemTitle>
 
-                                            <ItemLike onClick={likeBtn}>
+                                            <ItemLike>
+                                            {/* <ItemLike onClick={likeBtn}> */}
                                                 <img src={(userLike.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
                                             </ItemLike>
                                         </ItemInfo>

@@ -95,7 +95,8 @@ function Home() {
     if (product != null) {
       console.log(product);
       let resultNew = product.sort((a, b) => a.startDate.toLowerCase() > b.startDate.toLowerCase() ? -1 : 1);
-      let resultHot = product.sort((a, b) => objToArr(a.like) < objToArr(b.like) ? -1 : 1);
+      let resultHot = product.sort((a, b) => objToArr(a.like).length > objToArr(b.like).length ? -1 : 1);
+      console.log(resultHot);
       setNewProduct(resultNew);
       setHotProduct(resultHot);
     }
