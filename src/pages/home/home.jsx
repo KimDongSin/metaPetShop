@@ -14,6 +14,7 @@ import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
 import Celeb from "./ui/Celeb";
+import { uid } from "uid";
 
 
 const Wrapper = styled.div`
@@ -34,6 +35,7 @@ function Home() {
   const [user, setUser] = useState([]);
   const loginState = useSelector((state) => state.loginState);
   const [userLike, setUserLike] = useState();
+  const [coll, setColl] = useState();
 
   // --------------------------------------------------------------------------------------
 
@@ -87,7 +89,30 @@ function Home() {
         });
     }
     getUser();
+
+
+    // 컬렉션 데이터
+    async function getCollection() {
+      const dbRef = ref(db);
+      await get(child(dbRef, "/collection"))
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            // 배열로 반환
+            let temp = objToArr(snapshot.val())
+            setColl(temp);
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+    getCollection();
   }, []);
+
+  console.log(coll);
+  console.log(uid());
 
 
   // New 정렬 & hot 정렬
@@ -100,7 +125,7 @@ function Home() {
       setNewProduct(resultNew);
       setHotProduct(resultHot);
     }
-  }, [product])
+  }, [product, coll, user])
 
 
 
@@ -109,19 +134,19 @@ function Home() {
 
 
 
-  
-  
 
 
 
-  
-  
+
+
+
+
   // 로그인 유저 찾기
   useEffect(() => {
     let result = user.filter(e => e.email === loginState.value);
     let likeTemp = objToArr(result[0]?.like);
     setUserLike(likeTemp);
-    
+
     let productTemp = objToArr(result[0]?.product);
     let followTemp = objToArr(result[0]?.follow);
     let followingTemp = objToArr(result[0]?.following);
@@ -205,7 +230,7 @@ function Home() {
 
       <Section>
         <More title="Top Collections" type="coll" />
-        <Collection />
+        <Collection product={coll} />
       </Section>
 
       <Section>

@@ -40,12 +40,12 @@ const CollectionLink = styled(Link)`
     }
 `;
 
-function CollectionList() {
+function CollectionList({product}) {
     return (
         <Wrapper>
             <CollectionLink to="/">
-                <img src={dog2} />
-                <span>good monkey</span>
+                <img src={product.image} />
+                <span>{product.title}</span>
             <Tag />
             </CollectionLink>
         </Wrapper>

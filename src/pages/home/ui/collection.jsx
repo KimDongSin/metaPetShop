@@ -12,14 +12,24 @@ const Wrapper = styled.div`
     }
 `;
 
-function Collection() {
+function Collection({ product }) {
+    let temp = product?.slice(0, 5);
+
     return (
         <Wrapper>
             <ul>
+                {
+                    temp !== undefined ?
+                        temp.map((item, idx) => {
+                            return (
+                                <CollectionList product={item} key={idx} />
+                            )
+                        })
+                        : null
+                }
+                {/* <CollectionList />
                 <CollectionList />
-                <CollectionList />
-                <CollectionList />
-                <CollectionList />
+                <CollectionList /> */}
             </ul>
 
         </Wrapper>
