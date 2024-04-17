@@ -76,7 +76,7 @@ function CollectionDetail() {
             <CollInfo>
                 <img src={product.image} />
                 <span> {product.title}</span>
-                <UserLink>created by gogogo</UserLink>
+                <UserLink>created by {product.userNickname}</UserLink>
 
                 <p>
                     {product.bio}
