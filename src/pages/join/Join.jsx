@@ -55,17 +55,18 @@ const Join = () => {
     password: "",
     phone: "",
     cash: 0,
-    follower: 0,
-    following: 0,
+    follower: {},
+    following: {},
     bio: "",
-    collectionGroup: [],
-    product: [],
+    collection: {},
+    product: {},
     nickName: "",
     firstName: "",
     lastName: "",
     active: true,
-    like: [],
-    image: "https://firebasestorage.googleapis.com/v0/b/metapet-a77a3.appspot.com/o/user_img.png?alt=media&token=a936a3e5-8b8d-4d5e-91db-94dc80b3cf31"
+    like: {},
+    image: "https://firebasestorage.googleapis.com/v0/b/metapet-a77a3.appspot.com/o/user_img.png?alt=media&token=a936a3e5-8b8d-4d5e-91db-94dc80b3cf31",
+    cart: {}
   });
 
   console.log(sign);
