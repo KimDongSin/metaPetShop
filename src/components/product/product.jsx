@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import sampleImg from '../../assets/images/common/dog_sample3.png';
-import like from '../../assets/images/common/like_on.png';
+import likeOn from '../../assets/images/common/like_on.png';
+import likeOff from '../../assets/images/common/like_off.png';
 import Tag from "../../pages/home/ui/Tag";
 import { Link } from "react-router-dom";
 
@@ -78,85 +79,57 @@ const ItemTitle = styled.div`
 `;
 
 
-function Product() {
-    
+function Product({ product, userLike, productAll }) {
+    let collectionItem = [];
+
     // Link 이동 방지
     const likeBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
     };
 
+    function filterCollection() {
+        let temp = [];
+
+        productAll?.filter((val, i) => {
+            product?.filter((item, idx) => {
+                if (val.uuid == item) {
+                    console.log(val);
+                    temp.push(val);
+                }
+            })
+        });
+        return temp
+    }
+    collectionItem = filterCollection();
 
     return (
         <Wrapper>
             <ul>
-                <li>
-                    <Item to="/b">
-                        <ItemImg>
-                            <img src={sampleImg} />
-                            <button onClick={likeBtn}>
-                                <img src={like} />
-                            </button>
-                        </ItemImg>
+                {
+                    collectionItem &&
+                    collectionItem.map((item, idx) => {
+                        return (
+                            <li key={idx}>
+                                <Item to={"/detail/" + item.uuid} state={item}>
+                                    <ItemImg>
+                                        <img src={item.image} />
+                                        <button onClick={likeBtn}>
+                                            <img src={(userLike.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
+                                        </button>
+                                    </ItemImg>
 
-                        <ItemInfo>
-                            <ItemTitle>
-                                <span>good monkey</span>
-                                <Tag />
-                            </ItemTitle>
-                        </ItemInfo>
-                    </Item>
-                </li>
-                <li>
-                    <Item to="/b">
-                        <ItemImg>
-                            <img src={sampleImg} />
-                            <button onClick={likeBtn}>
-                                <img src={like} />
-                            </button>
-                        </ItemImg>
+                                    <ItemInfo>
+                                        <ItemTitle>
+                                            <span>{item.productTitle}</span>
+                                            <Tag />
+                                        </ItemTitle>
+                                    </ItemInfo>
+                                </Item>
+                            </li>
 
-                        <ItemInfo>
-                            <ItemTitle>
-                                <span>good monkey</span>
-                                <Tag />
-                            </ItemTitle>
-                        </ItemInfo>
-                    </Item>
-                </li>
-                <li>
-                    <Item to="/b">
-                        <ItemImg>
-                            <img src={sampleImg} />
-                            <button onClick={likeBtn}>
-                                <img src={like} />
-                            </button>
-                        </ItemImg>
-
-                        <ItemInfo>
-                            <ItemTitle>
-                                <span>good monkey</span>
-                                <Tag />
-                            </ItemTitle>
-                        </ItemInfo>
-                    </Item>
-                </li>
-                <li>
-                    <Item to="/b">
-                        <ItemImg>
-                            <img src={sampleImg} />
-                            <button onClick={likeBtn}>
-                                <img src={like} />
-                            </button>
-                        </ItemImg>
-
-                        <ItemInfo>
-                            <ItemTitle>
-                                <span>good monkey</span>
-                                <Tag />
-                            </ItemTitle>
-                        </ItemInfo>
-                    </Item>
-                </li>
+                        )
+                    })
+                }
             </ul>
         </Wrapper>
     )

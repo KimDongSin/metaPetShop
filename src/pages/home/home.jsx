@@ -202,7 +202,7 @@ function Home() {
   // Signup();
 
 
-
+console.log(userLike);
 
 
 
@@ -230,7 +230,7 @@ function Home() {
 
       <Section>
         <More title="Top Collections" type="coll" />
-        <Collection product={coll} />
+        <Collection product={coll} userLike={ userLike} productAll={product} />
       </Section>
 
       <Section>

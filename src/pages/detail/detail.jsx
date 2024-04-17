@@ -66,11 +66,9 @@ const ItemDetail = styled.div`
 function Detail() {
     const location = useLocation();
     const loginUser = useSelector((state) => state.loginUser.user);
-
-    let product = location.state;
-    console.log(product);
-
+    const product = location.state;
     const dispatch = useDispatch();
+    
     useEffect(() => {
         dispatch(menuChange('product'));
     }, [])

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     }
 `;
 
-function Collection({ product }) {
+function Collection({ product,  userLike, productAll}) {
     let temp = product?.slice(0, 5);
 
     return (
@@ -22,14 +22,11 @@ function Collection({ product }) {
                     temp !== undefined ?
                         temp.map((item, idx) => {
                             return (
-                                <CollectionList product={item} key={idx} />
+                                <CollectionList product={item} key={idx} userLike={userLike} productAll={productAll} />
                             )
                         })
                         : null
                 }
-                {/* <CollectionList />
-                <CollectionList />
-                <CollectionList /> */}
             </ul>
 
         </Wrapper>

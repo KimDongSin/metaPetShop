@@ -3,6 +3,7 @@ import sampleImg from '../../../assets/images/common/dog_sample1.png';
 
 import { Link, useLocation } from "react-router-dom";
 import Product from "../../../components/product/Product";
+import { objToArr } from "../../../common/utils/objToArr";
 
 const Wrapper = styled.div`
 
@@ -65,14 +66,16 @@ const CollList = styled.div`
 
 function CollectionDetail() {
     const location = useLocation();
+    const product = location.state.product;
+    const productAll = location.state.productAll;
+    const userLike = location.state.userLike;
+    const productList = objToArr(product.product);
 
-    let product = location.state;
-    console.log(product);
     return (
         <Wrapper>
             <CollInfo>
                 <img src={product.image} />
-                <span>Metaverse Robot</span>
+                <span> {product.title}</span>
                 <UserLink>created by gogogo</UserLink>
 
                 <p>
@@ -81,7 +84,7 @@ function CollectionDetail() {
             </CollInfo>
 
             <CollList>
-                <Product />
+                <Product userLike={userLike} product={productList} productAll={productAll}/> 
             </CollList>
 
 
