@@ -16,6 +16,7 @@ import Basket from "../../pages/basket/Basket";
 import DeliveryAddress from "../../pages/myPage/DeliveryAddress";
 import Detail from "../../pages/detail/Detail";
 import Home from "../../pages/home/Home";
+import CollectionDetail from "../../pages/list/ui/CollectionDetail";
 
 const MainRouter = () => {
   return (
@@ -42,6 +43,8 @@ const MainRouter = () => {
         {/* 장바구니 */}
         <Route path="/basket" element={<Basket />} />
         {/*  */}
+        <Route path="/collection/*" element={<CollectionDetail />} />
+
       </Routes>
     </Suspense>
   );

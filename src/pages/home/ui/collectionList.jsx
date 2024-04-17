@@ -41,9 +41,11 @@ const CollectionLink = styled(Link)`
 `;
 
 function CollectionList({product}) {
+    console.log(product);
+
     return (
         <Wrapper>
-            <CollectionLink to="/">
+            <CollectionLink to={"/collection/" + product.uuid} state={product}>
                 <img src={product.image} />
                 <span>{product.title}</span>
             <Tag />

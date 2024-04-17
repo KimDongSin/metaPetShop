@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import sampleImg from '../../../assets/images/common/dog_sample1.png';
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Product from "../../../components/product/Product";
 
 const Wrapper = styled.div`
@@ -64,16 +64,19 @@ const CollList = styled.div`
 
 
 function CollectionDetail() {
+    const location = useLocation();
 
+    let product = location.state;
+    console.log(product);
     return (
         <Wrapper>
             <CollInfo>
-                <img src={sampleImg} />
+                <img src={product.image} />
                 <span>Metaverse Robot</span>
                 <UserLink>created by gogogo</UserLink>
 
                 <p>
-                    프로젝트를 소개하는 말이 여기에 텍스트로 적히게 됩니다.
+                    {product.bio}
                 </p>
             </CollInfo>
 
