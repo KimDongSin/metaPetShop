@@ -11,6 +11,7 @@ import { ref, remove, update } from "firebase/database";
 import { db } from "../../../common/api/firebase";
 import { loginStateChange } from "../../../store/store";
 import { useNavigate } from "react-router-dom";
+import { numberComma } from "../../../common/utils/numberFormat";
 
 const Wrapper = styled.div`
     margin-bottom: 18px;
@@ -247,8 +248,10 @@ function Price({ product }) {
                         <span>KRW</span>
                     </li>
                     <li>
-                        <span>{product.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} MET</span>
-                        <span>{(product.price * 100 + "").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} 원</span>
+                        {/* <span>{product.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} MET</span> */}
+                        <span>{numberComma(product.price)} MET</span>
+                        {/* <span>{(product.price * 100 + "").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} 원</span> */}
+                        <span>{numberComma(product.price * 100 + "")} 원</span>
                     </li>
                 </Sell>
             </ProductPrice>

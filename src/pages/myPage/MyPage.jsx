@@ -3,9 +3,11 @@ import profile from "../../assets/images/myPage/profile.png";
 import arrow from "../../assets/images/myPage/arrow.png";
 import { Link } from "react-router-dom";
 import { InfoBgBox } from "../../components/myPage/InfoBgBox";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { headerChange, menuChange } from "../../store/store";
 import { useEffect } from "react";
+import { objToArr } from "../../common/utils/objToArr";
+import { numberComma } from "../../common/utils/numberFormat";
 
 const Wrap = styled.div`
   padding: 9px 16px 85px;
@@ -88,25 +90,28 @@ const InfoItem = styled.div`
 `;
 
 const MyPage = () => {
+  const loginUser = useSelector((state) => state.loginUser.user);
+  console.log(loginUser);
+
   const infoTitleText = [
     {
       title: "좋아요",
-      number: 48,
+      number: numberComma(objToArr(loginUser.like).length),
     },
 
     {
       title: "응원한",
-      number: 3,
+      number: numberComma(0),
     },
 
     {
-      title: "최근 본",
-      number: 23,
+      title: "구매 한",
+      number: numberComma(0),
     },
 
     {
       title: "보유한",
-      number: 265,
+      number: numberComma(objToArr(loginUser.product).length),
     },
   ];
 
@@ -125,15 +130,15 @@ const MyPage = () => {
       <InfoBgBox height="123px">
         <div className="mypage__wrap">
           <div className="mypage__wrap__left">
-            <p>Metaverse Robot</p>
+            <p>{loginUser.nickName}</p>
 
             <div className="mypage__wrap__point">
               <span>보유 MET</span>
-              <span>150,000</span>
+              <span>{numberComma(loginUser.cash)}</span>
             </div>
           </div>
 
-          <img className="profile__img" src={profile} />
+          <img className="profile__img" src={loginUser.image} />
         </div>
       </InfoBgBox>
 
