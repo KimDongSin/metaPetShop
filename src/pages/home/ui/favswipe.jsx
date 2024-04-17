@@ -124,7 +124,7 @@ function FavSwipe({ product }) {
                     temp !== undefined ?
                         temp.map((item, idx) => {
                             return (
-                                <SlideItem>
+                                <SlideItem key={idx}>
                                     <Link to={"/detail/" + item.uuid} state={item}>
                                         <ItemImg>
                                             <img src={item.image} />
