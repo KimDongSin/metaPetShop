@@ -17,30 +17,30 @@ const SlideItem = styled(SwiperSlide)`
     height: 277px;
 `;
 
-function NewSwipe({ product }) {
+function NewSwipe({ product, randomProduct }) {
     let temp = product?.slice(0, 5);
-        return(
-            <SwiperWrap
-                slidesPerView={'auto'}
-                spaceBetween={8}
-                className="mySwiper"
-            >
-                {
-                    temp !== undefined ?
-                        temp.map((item, idx) => {
-                            return (
-                                <SlideItem key={idx}>
-                                    <Link to={"/detail/" + item.uuid} state={item} >
-                                        <ItemThumbnail product={item} />
-                                    </Link>
-                                </SlideItem>
-                            )
-                        })
+    return (
+        <SwiperWrap
+            slidesPerView={'auto'}
+            spaceBetween={8}
+            className="mySwiper"
+        >
+            {
+                temp !== undefined ?
+                    temp.map((item, idx) => {
+                        return (
+                            <SlideItem key={idx}>
+                                <Link to={"/detail/" + item.uuid} state={{ item: item, randomProduct: randomProduct }} >
+                                    <ItemThumbnail product={item} />
+                                </Link>
+                            </SlideItem>
+                        )
+                    })
 
-                        : null
-                }
-            </SwiperWrap >
-        )
+                    : null
+            }
+        </SwiperWrap >
+    )
 }
 
 export default NewSwipe;

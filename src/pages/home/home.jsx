@@ -36,12 +36,29 @@ function Home() {
   const loginState = useSelector((state) => state.loginState);
   const [userLike, setUserLike] = useState();
   const [coll, setColl] = useState();
+  const [randomProduct, setRandomProduct] = useState();
 
   // --------------------------------------------------------------------------------------
 
 
 
+  // 데이터 랜덤셔플
+  function shuffleArray(sourceArr) {
+    if (sourceArr) {
 
+      const array = sourceArr.concat();
+      const arrayLength = array.length;
+      for (let i = arrayLength - 1; i >= 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+      }
+      return array;
+    }
+  }
+  // randomProduct = shuffle(product)
+  // randomProduct = shuffle(product)
+
+  console.log(shuffleArray());
   // 헤더설정
   useEffect(() => {
     dispatch(headerChange({
@@ -50,6 +67,14 @@ function Home() {
     }))
     dispatch(menuChange('home'));
   }, [])
+
+  // function shuffle(array) {
+  //   let temp = [];
+  //   if (array == null) {
+  //     array.sort(() => Math.random() - 0.5);
+
+  //   }
+  // }
 
 
   useEffect(() => {
@@ -61,6 +86,7 @@ function Home() {
           if (snapshot.exists()) {
             let temp = objToArr(snapshot.val())
             setProduct(temp);
+            setRandomProduct(shuffleArray(temp));
           } else {
             console.log("No data available");
           }
@@ -138,9 +164,6 @@ function Home() {
 
 
 
-
-
-
   // 로그인 유저 찾기
   useEffect(() => {
     let result = user.filter(e => e.email === loginState.value);
@@ -202,7 +225,7 @@ function Home() {
   // Signup();
 
 
-console.log(userLike);
+  console.log(randomProduct);
 
 
 
@@ -220,17 +243,17 @@ console.log(userLike);
 
       <Section>
         <More title="인기있는 NFT" type="hot" />
-        <FavSwipe product={hotProduct} userLike={userLike} />
+        <FavSwipe product={hotProduct} userLike={userLike} randomProduct={randomProduct} />
       </Section>
 
       <Section>
         <More title="New NFT" type="new" />
-        <NewSwipe product={newProduct} />
+        <NewSwipe product={newProduct} randomProduct={randomProduct} />
       </Section>
 
       <Section>
         <More title="Top Collections" type="coll" />
-        <Collection product={coll} userLike={ userLike} productAll={product} />
+        <Collection product={coll} userLike={userLike} productAll={product} />
       </Section>
 
       <Section>

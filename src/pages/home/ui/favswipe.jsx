@@ -102,7 +102,7 @@ const ItemLike = styled.button`
 `;
 
 
-function FavSwipe({ product, userLike}) {
+function FavSwipe({ product, userLike, randomProduct }) {
     let temp = product?.slice(0, 5);
 
     // Link 이동 방지
@@ -127,7 +127,7 @@ function FavSwipe({ product, userLike}) {
                         temp.map((item, idx) => {
                             return (
                                 <SlideItem key={idx}>
-                                    <Link to={"/detail/" + item.uuid} state={item}>
+                                    <Link to={"/detail/" + item.uuid} state={{ item: item, randomProduct: randomProduct }} >
                                         <ItemImg>
                                             <img src={item.image} />
                                             <span>3일 11시간 23분</span>
@@ -141,7 +141,7 @@ function FavSwipe({ product, userLike}) {
                                             </ItemTitle>
 
                                             <ItemLike>
-                                            {/* <ItemLike onClick={likeBtn}> */}
+                                                {/* <ItemLike onClick={likeBtn}> */}
                                                 <img src={(userLike.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
                                             </ItemLike>
                                         </ItemInfo>

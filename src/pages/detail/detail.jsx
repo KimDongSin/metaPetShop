@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { menuChange } from "../../store/store";
 import DetailCommunity from "./ui/DetailCommunity";
 import NotFound from "../../components/layout/NotFound";
+import { objToArr } from "../../common/utils/objToArr";
 
 const Wrapper = styled.div`
     padding: 0px 16px;
@@ -66,9 +67,12 @@ const ItemDetail = styled.div`
 function Detail() {
     const location = useLocation();
     const loginUser = useSelector((state) => state.loginUser.user);
-    const product = location.state;
+    const product = location.state.item;
+    const randomProduct = location.state.randomProduct;
     const dispatch = useDispatch();
-    
+    console.log(loginUser);
+
+
     useEffect(() => {
         dispatch(menuChange('product'));
     }, [])
@@ -104,7 +108,7 @@ function Detail() {
                                     <DetailCommunity />
                                     : <DetailFollower />
                     }
-                    <DetailRecommend />
+                    <DetailRecommend randomProduct={randomProduct} userLike={objToArr(loginUser.like)} />
                 </Wrapper>
                 : <NotFound />}
         </>

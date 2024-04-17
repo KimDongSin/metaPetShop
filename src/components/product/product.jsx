@@ -79,9 +79,13 @@ const ItemTitle = styled.div`
 `;
 
 
-function Product({ product, userLike, productAll }) {
+function Product({ product, userLike, productAll, randomProduct }) {
     let collectionItem = [];
+    let temp = randomProduct?.slice(0, 4);
 
+    console.log(randomProduct);
+    console.log(collectionItem);
+    console.log(userLike);
     // Link 이동 방지
     const likeBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
@@ -107,29 +111,52 @@ function Product({ product, userLike, productAll }) {
         <Wrapper>
             <ul>
                 {
-                    collectionItem &&
-                    collectionItem.map((item, idx) => {
-                        return (
-                            <li key={idx}>
-                                <Item to={"/detail/" + item.uuid} state={item}>
-                                    <ItemImg>
-                                        <img src={item.image} />
-                                        <button onClick={likeBtn}>
-                                            <img src={(userLike.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
-                                        </button>
-                                    </ItemImg>
+                    collectionItem.length >1 ?
+                        collectionItem.map((item, idx) => {
+                            return (
+                                <li key={idx}>
+                                    <Item to={"/detail/" + item.uuid} state={item}>
+                                        <ItemImg>
+                                            <img src={item.image} />
+                                            <button onClick={likeBtn}>
+                                                <img src={(userLike.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
+                                            </button>
+                                        </ItemImg>
 
-                                    <ItemInfo>
-                                        <ItemTitle>
-                                            <span>{item.productTitle}</span>
-                                            <Tag tag={item.productTag} />
-                                        </ItemTitle>
-                                    </ItemInfo>
-                                </Item>
-                            </li>
+                                        <ItemInfo>
+                                            <ItemTitle>
+                                                <span>{item.productTitle}</span>
+                                                <Tag tag={item.productTag} />
+                                            </ItemTitle>
+                                        </ItemInfo>
+                                    </Item>
+                                </li>
 
-                        )
-                    })
+                            )
+                        })
+                        :
+                        temp.map((item, idx) => {
+                            return (
+                                <li key={idx}>
+                                    <Item to={"/detail/" + item.uuid} state={item}>
+                                        <ItemImg>
+                                            <img src={item.image} />
+                                            <button onClick={likeBtn}>
+                                                <img src={(userLike.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
+                                            </button>
+                                        </ItemImg>
+
+                                        <ItemInfo>
+                                            <ItemTitle>
+                                                <span>{item.productTitle}</span>
+                                                <Tag tag={item.productTag} />
+                                            </ItemTitle>
+                                        </ItemInfo>
+                                    </Item>
+                                </li>
+
+                            )
+                        })
                 }
             </ul>
         </Wrapper>
