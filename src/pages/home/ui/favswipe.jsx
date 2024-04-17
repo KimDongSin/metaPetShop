@@ -127,7 +127,7 @@ function FavSwipe({ product, userLike, randomProduct }) {
                         temp.map((item, idx) => {
                             return (
                                 <SlideItem key={idx}>
-                                    <Link to={"/detail/" + item.uuid} state={{ item: item, randomProduct: randomProduct }} >
+                                    <Link to={"/detail/" + item.uuid} state={{ item: item, randomProduct: randomProduct, productAll: product }} >
                                         <ItemImg>
                                             <img src={item.image} />
                                             <span>3일 11시간 23분</span>

@@ -68,10 +68,10 @@ function Detail() {
     const location = useLocation();
     const loginUser = useSelector((state) => state.loginUser.user);
     const product = location.state.item;
+    const productAll = location.state.productAll;
     const randomProduct = location.state.randomProduct;
     const dispatch = useDispatch();
 
-    
     useEffect(() => {
         dispatch(menuChange('product'));
     }, [])
@@ -107,7 +107,7 @@ function Detail() {
                                     <DetailCommunity />
                                     : <DetailFollower />
                     }
-                    <DetailRecommend randomProduct={randomProduct} userLike={objToArr(loginUser.like)} />
+                    <DetailRecommend randomProduct={randomProduct} userLike={objToArr(loginUser.like)} productAll={productAll} />
                 </Wrapper>
                 : <NotFound />}
         </>

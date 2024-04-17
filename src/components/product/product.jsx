@@ -5,6 +5,8 @@ import likeOn from '../../assets/images/common/like_on.png';
 import likeOff from '../../assets/images/common/like_off.png';
 import Tag from "../../pages/home/ui/Tag";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../../common/utils/scrollToTop";
+import { shuffleArray } from "../../common/utils/shuffleArray";
 
 const Wrapper = styled.div`
     ul {
@@ -82,6 +84,10 @@ const ItemTitle = styled.div`
 function Product({ product, userLike, productAll, randomProduct }) {
     let collectionItem = [];
     let temp = randomProduct?.slice(0, 4);
+    temp = shuffleArray(temp);
+    ScrollToTop()
+
+    // 데이터 랜덤셔플
 
     // Link 이동 방지
     const likeBtn = (e) => {
@@ -94,7 +100,6 @@ function Product({ product, userLike, productAll, randomProduct }) {
         productAll?.filter((val, i) => {
             product?.filter((item, idx) => {
                 if (val.uuid == item) {
-                    console.log(val);
                     temp.push(val);
                 }
             })
@@ -108,11 +113,11 @@ function Product({ product, userLike, productAll, randomProduct }) {
         <Wrapper>
             <ul>
                 {
-                    collectionItem.length >1 ?
+                    collectionItem.length > 1 ?
                         collectionItem.map((item, idx) => {
                             return (
                                 <li key={idx}>
-                                    <Item to={"/detail/" + item.uuid} state={item}>
+                                    <Item to={"/detail/" + item.uuid} state={{ item: item, productAll: productAll, randomProduct: randomProduct }}>
                                         <ItemImg>
                                             <img src={item.image} />
                                             <button onClick={likeBtn}>
@@ -135,7 +140,7 @@ function Product({ product, userLike, productAll, randomProduct }) {
                         temp.map((item, idx) => {
                             return (
                                 <li key={idx}>
-                                    <Item to={"/detail/" + item.uuid} state={item}>
+                                    <Item to={"/detail/" + item.uuid} state={{ item: item, productAll: productAll, randomProduct: randomProduct }}>
                                         <ItemImg>
                                             <img src={item.image} />
                                             <button onClick={likeBtn}>

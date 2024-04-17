@@ -15,6 +15,7 @@ import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
 import Celeb from "./ui/Celeb";
 import { uid } from "uid";
+import { shuffleArray } from "../../common/utils/shuffleArray";
 
 
 const Wrapper = styled.div`
@@ -39,7 +40,7 @@ function Home() {
   const [randomProduct, setRandomProduct] = useState();
 
   // --------------------------------------------------------------------------------------
-  
+
   // 헤더설정
   useEffect(() => {
     dispatch(headerChange({
@@ -50,19 +51,6 @@ function Home() {
   }, [])
 
 
-  // 데이터 랜덤셔플
-  function shuffleArray(sourceArr) {
-    if (sourceArr) {
-
-      const array = sourceArr.concat();
-      const arrayLength = array.length;
-      for (let i = arrayLength - 1; i >= 0; i--) {
-        const randomIndex = Math.floor(Math.random() * (i + 1));
-        [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
-      }
-      return array;
-    }
-  }
 
   useEffect(() => {
     // 제품 데이터
@@ -129,7 +117,6 @@ function Home() {
   // New 정렬 & hot 정렬
   useEffect(() => {
     if (product != null) {
-      console.log(product);
       let resultNew = product.sort((a, b) => a.startDate.toLowerCase() > b.startDate.toLowerCase() ? -1 : 1);
       let resultHot = product.sort((a, b) => objToArr(a.like).length > objToArr(b.like).length ? -1 : 1);
       setNewProduct(resultNew);
@@ -235,7 +222,7 @@ function Home() {
 
       <Section>
         <More title="Top Collections" type="coll" />
-        <Collection product={coll} userLike={userLike} productAll={product} />
+        <Collection product={coll} userLike={userLike} productAll={product} randomProduct={randomProduct} />
       </Section>
 
       <Section>

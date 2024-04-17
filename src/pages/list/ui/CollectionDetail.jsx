@@ -70,6 +70,8 @@ function CollectionDetail() {
     const productAll = location.state.productAll;
     const userLike = location.state.userLike;
     const productList = objToArr(product.product);
+    const randomProduct = location.state.randomProduct;
+
 
     return (
         <Wrapper>
@@ -84,7 +86,7 @@ function CollectionDetail() {
             </CollInfo>
 
             <CollList>
-                <Product userLike={userLike} product={productList} productAll={productAll}/> 
+                <Product userLike={userLike} product={productList} productAll={productAll} randomProduct={randomProduct}/> 
             </CollList>
 
 

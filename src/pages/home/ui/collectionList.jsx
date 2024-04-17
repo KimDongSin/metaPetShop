@@ -40,10 +40,10 @@ const CollectionLink = styled(Link)`
     }
 `;
 
-function CollectionList({ product, userLike, productAll }) {
+function CollectionList({ product, userLike, productAll, randomProduct }) {
     return (
         <Wrapper>
-            <CollectionLink to={"/collection/" + product.uuid} state={{ product: product, userLike: userLike, productAll: productAll }} >
+            <CollectionLink to={"/collection/" + product.uuid} state={{ product: product, userLike: userLike, productAll: productAll, randomProduct: randomProduct }} >
                 <img src={product.image} />
                 <span>{product.title}</span>
                 <Tag tag={product.productTag}/>

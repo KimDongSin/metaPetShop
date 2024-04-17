@@ -12,8 +12,9 @@ const Wrapper = styled.div`
     }
 `;
 
-function Collection({ product,  userLike, productAll}) {
+function Collection({ product,  userLike, productAll, randomProduct}) {
     let temp = product?.slice(0, 5);
+
 
     return (
         <Wrapper>
@@ -22,7 +23,7 @@ function Collection({ product,  userLike, productAll}) {
                     temp !== undefined ?
                         temp.map((item, idx) => {
                             return (
-                                <CollectionList product={item} key={idx} userLike={userLike} productAll={productAll} />
+                                <CollectionList product={item} key={idx} userLike={userLike} productAll={productAll} randomProduct={randomProduct} />
                             )
                         })
                         : null
