@@ -33,6 +33,7 @@ function Home() {
   const [hotProduct, setHotProduct] = useState();
   const [user, setUser] = useState([]);
   const loginState = useSelector((state) => state.loginState);
+  const [userLike, setUserLike] = useState();
 
   // --------------------------------------------------------------------------------------
 
@@ -100,26 +101,39 @@ function Home() {
     }
   }, [product])
 
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
   // 로그인 유저 찾기
   useEffect(() => {
     let result = user.filter(e => e.email === loginState.value);
     let likeTemp = objToArr(result[0]?.like);
+    setUserLike(likeTemp);
     
     let productTemp = objToArr(result[0]?.product);
     let followTemp = objToArr(result[0]?.follow);
     let followingTemp = objToArr(result[0]?.following);
-    
     dispatch(loginUserSet(result[0]));
     dispatch(likeToggle(likeTemp));
 
     console.log(result[0]);
     // objToArr(result[0].like)
 
-    console.log(likeTemp);
+    // console.log(likeTemp);
   }, [user])
 
 
-  // console.log(loginUser);
 
   // product.sort();
 
@@ -180,7 +194,7 @@ function Home() {
 
       <Section>
         <More title="인기있는 NFT" type="hot" />
-        <FavSwipe product={hotProduct} />
+        <FavSwipe product={hotProduct} userLike={userLike} />
       </Section>
 
       <Section>

@@ -100,7 +100,7 @@ const ItemLike = styled.button`
 `;
 
 
-function FavSwipe({ product }) {
+function FavSwipe({ product, userLike}) {
     let temp = product?.slice(0, 5);
 
     // Link 이동 방지
@@ -139,7 +139,7 @@ function FavSwipe({ product }) {
                                             </ItemTitle>
 
                                             <ItemLike onClick={likeBtn}>
-                                                <img src={likeOff} />
+                                                <img src={(userLike.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
                                             </ItemLike>
                                         </ItemInfo>
                                     </Link>
