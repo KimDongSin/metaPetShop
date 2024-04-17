@@ -100,7 +100,8 @@ const ItemLike = styled.button`
 `;
 
 
-function FavSwipe() {
+function FavSwipe({ product }) {
+    let temp = product?.slice(0, 5);
 
     // Link 이동 방지
     const shareBtn = (e) => {
@@ -111,7 +112,6 @@ function FavSwipe() {
         e.preventDefault(); // Link 이동 방지
     };
 
-
     return (
         <>
             <SwiperWrap
@@ -119,69 +119,36 @@ function FavSwipe() {
                 spaceBetween={30}
                 className="mySwiper"
             >
-                <SlideItem>
-                    <Link to="/detail/">
-                        <ItemImg>
-                            <img src={sampleImg} />
-                            <span>3일 11시간 23분</span>
-                            <button onClick={shareBtn}><img src={share} /></button>
-                        </ItemImg>
 
-                        <ItemInfo>
-                            <ItemTitle>
-                                <span>good monkey</span>
-                                <Tag />
-                            </ItemTitle>
+                {
+                    temp !== undefined ?
+                        temp.map((item, idx) => {
+                            return (
+                                <SlideItem>
+                                    <Link to={"/detail/" + item.uuid} state={item}>
+                                        <ItemImg>
+                                            <img src={item.image} />
+                                            <span>3일 11시간 23분</span>
+                                            <button onClick={shareBtn}><img src={share} /></button>
+                                        </ItemImg>
 
-                            <ItemLike onClick={likeBtn}>
-                                <img src={likeOff} />
-                            </ItemLike>
-                        </ItemInfo>
-                    </Link>
+                                        <ItemInfo>
+                                            <ItemTitle>
+                                                <span>{item.productTitle}</span>
+                                                <Tag />
+                                            </ItemTitle>
 
-                </SlideItem>
-                <SlideItem>
-                    <Link to="/a">
-                        <ItemImg>
-                            <img src={sampleImg} />
-                            <span>3일 11시간 23분</span>
-                            <button onClick={shareBtn}><img src={share} /></button>
-                        </ItemImg>
+                                            <ItemLike onClick={likeBtn}>
+                                                <img src={likeOff} />
+                                            </ItemLike>
+                                        </ItemInfo>
+                                    </Link>
 
-                        <ItemInfo>
-                            <ItemTitle>
-                                <span>good monkey</span>
-                                <Tag />
-                            </ItemTitle>
-
-                            <ItemLike onClick={likeBtn}>
-                                <img src={likeOn} />
-                            </ItemLike>
-                        </ItemInfo>
-                    </Link>
-
-                </SlideItem>
-                <SlideItem>
-                    <Link to="/a">
-                        <ItemImg>
-                            <img src={sampleImg} />
-                            <span>3일 11시간 23분</span>
-                            <button onClick={shareBtn}><img src={share} /></button>
-                        </ItemImg>
-
-                        <ItemInfo>
-                            <ItemTitle>
-                                <span>good monkey</span>
-                                <Tag />
-                            </ItemTitle>
-
-                            <ItemLike onClick={likeBtn}>
-                                <img src={likeOn} />
-                            </ItemLike>
-                        </ItemInfo>
-                    </Link>
-
-                </SlideItem>
+                                </SlideItem>
+                            )
+                        })
+                        : null
+                }
             </SwiperWrap>
         </>
     )
