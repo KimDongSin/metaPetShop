@@ -10,6 +10,7 @@ import { arrToObj, objToArr } from "../../../common/utils/objToArr";
 import { ref, remove, update } from "firebase/database";
 import { db } from "../../../common/api/firebase";
 import { loginStateChange } from "../../../store/store";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
     margin-bottom: 18px;
@@ -138,6 +139,7 @@ const ProductCnt = styled.div`
 function Price({ product }) {
     const [dayCnt, setDayCnt] = useState("");
     const loginUser = useSelector((state) => state.loginUser.user);
+    const navigate = useNavigate();
 
     // 현재 날짜 변경
     let date = new Date();
@@ -190,26 +192,33 @@ function Price({ product }) {
 
 
     function likeToggleFn(e) {
-        if (userLike.filter((e) => e == product?.uuid).length > 0) {
-            remove(ref(db, "/user/" + loginUser.uuid + "/like/" + product.uuid));
-            remove(ref(db, "/product/" + product.uuid + "/like/" + loginUser.uuid));
-
-            setProductLike(removeArr(productLike, loginUser.uuid));
-            setUserLike(removeArr(userLike, product.uuid));
+        if (loginUser == null) {
+            console.log("noooooooo");
+            alert("로그인이 필요합니다.");
+            navigate("/login");
         } else {
-            const userToggle = () => {
-                const temp = { [product.uuid]: product.uuid };
-                return update(ref(db, "/user/" + loginUser.uuid + "/like"), temp)
-            };
+            if (userLike.filter((e) => e == product?.uuid).length > 0) {
+                remove(ref(db, "/user/" + loginUser.uuid + "/like/" + product.uuid));
+                remove(ref(db, "/product/" + product.uuid + "/like/" + loginUser.uuid));
 
-            const productToggle = () => {
-                const temp = { [loginUser.uuid]: loginUser.uuid };
-                return update(ref(db, "/product/" + product.uuid + "/like"), temp)
-            };
-            userToggle();
-            productToggle();
-            setUserLike(prev => [...prev, product.uuid]);
-            setProductLike(prev => [...prev, loginUser.uuid]);
+                setProductLike(removeArr(productLike, loginUser.uuid));
+                setUserLike(removeArr(userLike, product.uuid));
+            } else {
+                const userToggle = () => {
+                    const temp = { [product.uuid]: product.uuid };
+                    return update(ref(db, "/user/" + loginUser.uuid + "/like"), temp)
+                };
+
+                const productToggle = () => {
+                    const temp = { [loginUser.uuid]: loginUser.uuid };
+                    return update(ref(db, "/product/" + product.uuid + "/like"), temp)
+                };
+                userToggle();
+                productToggle();
+                setUserLike(prev => [...prev, product.uuid]);
+                setProductLike(prev => [...prev, loginUser.uuid]);
+            }
+
         }
     }
 
