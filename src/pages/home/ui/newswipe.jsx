@@ -28,11 +28,18 @@ function NewSwipe({ product }) {
                 product !== undefined ?
                     product.map((item, idx) => {
                         return (
-                            <SlideItem key={idx}>
-                                <Link to={"/detail/" + item.uuid} state={item} >
-                                    <ItemThumbnail product={item} />
-                                </Link>
-                            </SlideItem>
+                            <>
+                                {
+                                    idx < 5 ?
+                                        <SlideItem key={idx}>
+                                            <Link to={"/detail/" + item.uuid} state={item} >
+                                                <ItemThumbnail product={item} />
+                                            </Link>
+                                        </SlideItem>
+                                        : ""
+                                    
+                                }
+                            </>
                         )
                     })
 
