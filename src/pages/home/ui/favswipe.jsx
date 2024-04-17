@@ -137,7 +137,7 @@ function FavSwipe({ product, userLike}) {
                                         <ItemInfo>
                                             <ItemTitle>
                                                 <span>{item.productTitle}</span>
-                                                <Tag />
+                                                <Tag tag={item.productTag} />
                                             </ItemTitle>
 
                                             <ItemLike>
