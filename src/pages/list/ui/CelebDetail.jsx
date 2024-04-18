@@ -145,12 +145,6 @@ function CelebDetail() {
     const product = useSelector((state) => state.product.product);
     const userLike = useSelector((state) => state.userLike.like);
 
-    console.log(userLike);
-    console.log(product);
-    console.log(userInfo.product);
-    console.log(userInfo);
-
-
     function filterProduct() {
         let temp = [];
 
@@ -163,9 +157,6 @@ function CelebDetail() {
         });
         return temp;
     }
-
-    console.log( filterProduct() );
-
 
     return (
         <Wrapper>
@@ -204,7 +195,6 @@ function CelebDetail() {
             </CelebInfo>
 
             <CollList>
-                {/* <Product /> */}
                 <Product userLike={userLike} productAll={product} randomProduct={filterProduct()}/> 
             </CollList>
 
