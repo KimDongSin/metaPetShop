@@ -84,10 +84,7 @@ function CelebItem({ item, userFollowing }) {
     const loginUser = useSelector((state) => state.loginUser.user);
     const navigation = useNavigate()
     const [followList, setFollowList] = useState(userFollowing);
-    console.log(loginUser.uuid);
-    console.log(item);
-
-    console.log(followList);
+   
     function addFollow() {
         if (loginUser === undefined) {
             alert("로그인 후 이용해주세요");
@@ -108,12 +105,8 @@ function CelebItem({ item, userFollowing }) {
             };
             otherAddFollow()
             setFollowList((prev) => [...prev,  item.uuid]);
-
-            console.log(followList);
-
         }
     }
-
 
     function removeFollow() {
         // 팔로우취소
@@ -126,7 +119,6 @@ function CelebItem({ item, userFollowing }) {
                     temp.push(followList[i]);
                 }
             }
-            console.log(temp);
             return temp;
         }
 
