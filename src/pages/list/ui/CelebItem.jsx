@@ -95,13 +95,6 @@ function CelebItem({ item, userFollowing }) {
                             <button>Follow</button>
                             : null
                 }
-
-
-
-
-
-
-
             </UserFollow>
         </Wrapper>
     )
