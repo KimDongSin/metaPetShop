@@ -4,6 +4,9 @@ import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import { ref, remove, update } from "firebase/database";
+import { db } from "../../../common/api/firebase";
 
 
 const Wrapper = styled.li`
@@ -80,6 +83,11 @@ const UserFollow = styled.div`
 function CelebItem({ item, userFollowing }) {
     const loginUser = useSelector((state) => state.loginUser.user);
     const navigation = useNavigate()
+    const [followList, setFollowList] = useState(userFollowing);
+    console.log(loginUser.uuid);
+    console.log(item);
+
+    console.log(followList);
     function addFollow() {
         if (loginUser === undefined) {
             alert("로그인 후 이용해주세요");
@@ -87,12 +95,42 @@ function CelebItem({ item, userFollowing }) {
         } else {
             // 팔로우
 
+            const myAddFollow = () => {
+                const temp = { [item.uuid]: item.uuid };
+                return update(ref(db, "/user/" + loginUser.uuid + "/following"), temp)
+            };
+
+            myAddFollow()
+
+            const otherAddFollow = () => {
+                const temp = { [loginUser.uuid]: loginUser.uuid };
+                return update(ref(db, "/user/" + item.uuid + "/follower"), temp)
+            };
+            otherAddFollow()
+            setFollowList((prev) => [...prev,  item.uuid]);
+
+            console.log(followList);
+
         }
     }
 
 
     function removeFollow() {
         // 팔로우취소
+        remove(ref(db, "/user/" + loginUser.uuid + "/following/" + item.uuid));
+        remove(ref(db, "/user/" + item.uuid + "/follower/" + loginUser.uuid));
+        function removeFollowArr() {
+            let temp = [];
+            for(let i = 0; i < followList.length; i++) {
+                if (followList[i] !== item.uuid) {
+                    temp.push(followList[i]);
+                }
+            }
+            console.log(temp);
+            return temp;
+        }
+
+        setFollowList(removeFollowArr());
     }
 
     return (
@@ -104,8 +142,8 @@ function CelebItem({ item, userFollowing }) {
             <UserFollow>
                 <span>{item.nickName}</span>
                 {
-                    (userFollowing?.filter((e) => e == item?.uuid).length > 0) ?
-                        <button onClick={(e) => { removeFollow() }}>UnFollow</button>
+                    (followList?.filter((e) => e == item?.uuid).length > 0) ?
+                        <button onClick={(e) => { removeFollow(item?.uuid) }}>UnFollow</button>
                         : (item.uuid !== loginUser?.uuid) ?
                             <button onClick={(e) => { addFollow() }}>Follow</button>
                             : null
