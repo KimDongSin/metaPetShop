@@ -146,9 +146,6 @@ function ListItem({ item, userLike, randomProduct }) {
     };
 
 
-    console.log(item);
-    console.log(userLike);
-
     return (
         <Item>
             <Link to={"/detail/" + item?.uuid} state={{ item: item, randomProduct: randomProduct, userLike: userLike }}>

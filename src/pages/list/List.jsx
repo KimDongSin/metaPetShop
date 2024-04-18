@@ -23,14 +23,10 @@ function List() {
     const type = useSelector((state) => state.listTabType.type);
     const dispatch = useDispatch();
     const location = useLocation();
-    const hotProduct = location.state.product;
+    const product = location.state.product;
     const userLike = location.state.userLike;
     const randomProduct = location.state.randomProduct;
 
-    console.log(hotProduct);
-    console.log(userLike);
-    console.log(randomProduct);
-    console.log(222222);
 
     console.log(type);
     useEffect(() => {
@@ -44,8 +40,8 @@ function List() {
 
             {
                 type === "follow" ? <ListFollow />
-                    : type === "hot" ? <ListHot randomProduct={randomProduct} product={hotProduct} userLike={userLike} />
-                        : type === "new" ? <ListNew></ListNew>
+                    : type === "hot" ? <ListHot randomProduct={randomProduct} product={product} userLike={userLike} />
+                        : type === "new" ? <ListNew randomProduct={randomProduct} product={product} userLike={userLike}></ListNew>
                             : type === "coll" ? <Collection></Collection>
                                 : type === "celeb" ? <ListCeleb></ListCeleb>
                                     : ""

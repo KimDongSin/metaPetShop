@@ -25,11 +25,6 @@ function ListHot({ product, userLike, randomProduct }) {
         }));
     }, []);
 
-    console.log(product);
-    console.log(userLike);
-    console.log(randomProduct);
-    console.log(11111111111);
-
     return (
         <Wrapper>
 

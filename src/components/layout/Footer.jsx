@@ -154,9 +154,6 @@ function Footer() {
   const userLike = useSelector((state) => state.userLike.like);
   const product = useSelector((state) => state.product.product);
 
-  console.log(userLike);
-  console.log(product);
-
   return (
     <Wrapper>
       <FooterInfo>

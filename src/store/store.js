@@ -35,7 +35,8 @@ export let { menuChange } = menuType.actions;
 const listTabType = createSlice({
     name: 'listTabType',
     initialState: {
-        type: 'follow',
+        // type: 'follow',
+        type: 'hot',
     },
     reducers: {
         listTabChange(state, action) {

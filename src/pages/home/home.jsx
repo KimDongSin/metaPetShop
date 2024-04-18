@@ -30,9 +30,9 @@ const Section = styled.div`
 function Home() {
   const dispatch = useDispatch();
 
-  const [product, setProduct] = useState();
-  const [newProduct, setNewProduct] = useState();
-  const [hotProduct, setHotProduct] = useState();
+  const [product, setProduct] = useState(null);
+  const [newProduct, setNewProduct] = useState(null);
+  const [hotProduct, setHotProduct] = useState(null);
   const [user, setUser] = useState([]);
   const loginState = useSelector((state) => state.loginState);
   const [userLike, setUserLike] = useState();
@@ -123,7 +123,7 @@ function Home() {
       setHotProduct(resultHot);
       dispatch(saveProduct(product));
     }
-  }, [product, coll, user])
+  }, [product])
 
 
 
@@ -217,7 +217,7 @@ function Home() {
       </Section>
 
       <Section>
-        <More title="New NFT" type="new" />
+        <More title="New NFT" type="new" product={newProduct}  userLike={userLike} randomProduct={randomProduct} />
         <NewSwipe product={newProduct} randomProduct={randomProduct} />
       </Section>
 

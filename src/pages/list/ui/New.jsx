@@ -52,8 +52,8 @@ const NewList = styled.div`
 
 
 
-function ListNew() {
-    
+function ListNew({ product, userLike, randomProduct }) {
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(headerChange({
@@ -72,6 +72,14 @@ function ListNew() {
 
             <NewList>
                 <ul>
+                    {
+                        product &&
+                        product.map((item, idx) => {
+                            return (
+                                <ListItem item={item} userLike={userLike} randomProduct={randomProduct} key={idx} />
+                            )
+                        })
+                    }
                     <ListItem></ListItem>
                     <ListItem></ListItem>
                     <ListItem></ListItem>
