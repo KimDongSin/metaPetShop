@@ -3,10 +3,12 @@ import sampleImg from '../../../assets/images/common/dog_sample2.png';
 import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const Wrapper = styled.li`
     width: 48%;
+    height: 268px;
     position: relative;
     border-radius: 20px;
     box-shadow: 0 4px 10px 0 #0000000F;
@@ -75,17 +77,23 @@ const UserFollow = styled.div`
 `;
 
 
-function CelebItem() {
+function CelebItem({ item }) {
+    const loginUser = useSelector((state) => state.loginUser.user);
 
     return (
         <Wrapper>
             <img src={sampleImg} />
             <UserLink>
-                <img src={sampleImg2} />
+                <img src={item.image} />
             </UserLink>
             <UserFollow>
-                <span>Metaverse Robot</span>
-                <button>Follow</button>
+                <span>{item.nickName}</span>
+                {
+                    (item.uuid !== loginUser.uuid) ?
+                        <button>Follow</button>
+                    :   null
+
+                }
             </UserFollow>
         </Wrapper>
     )

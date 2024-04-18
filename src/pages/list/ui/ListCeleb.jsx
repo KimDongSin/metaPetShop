@@ -8,7 +8,7 @@ import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link } from "react-router-dom";
 import CelebItem from "./CelebItem";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { headerChange } from "../../../store/store";
 
@@ -30,7 +30,7 @@ const CelobList = styled.div`
 `;
 
 
-function ListCeleb() {
+function ListCeleb({ user, userFollowing }) {
     // init('t2', 'product', 'Celeb');
     const dispatch = useDispatch();
     useEffect(() => {
@@ -47,11 +47,15 @@ function ListCeleb() {
 
             <CelobList>
                 <ul>
-                    <CelebItem />
-                    <CelebItem />
-                    <CelebItem />
-                    <CelebItem />
-                    <CelebItem />
+                    {
+                        user &&
+                        user.map((item, idx) => {
+                            return (
+                                <CelebItem key={idx} item={item} />
+                            )
+
+                        })
+                    }
                 </ul>
             </CelobList>
 
