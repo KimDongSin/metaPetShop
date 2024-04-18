@@ -38,6 +38,8 @@ function Home() {
   const [userLike, setUserLike] = useState();
   const [coll, setColl] = useState();
   const [randomProduct, setRandomProduct] = useState();
+  const [userFollower, setUserFollwer] = useState();
+  const [userFollowing, setUserFollwing] = useState();
 
   // --------------------------------------------------------------------------------------
 
@@ -80,7 +82,10 @@ function Home() {
           if (snapshot.exists()) {
             // 배열로 반환
             let temp = objToArr(snapshot.val())
+            // let tempFollow =
+            // let tempFollowing =
             setUser(temp);
+
           } else {
             console.log("No data available");
           }
@@ -143,11 +148,13 @@ function Home() {
     setUserLike(likeTemp);
 
     let productTemp = objToArr(result[0]?.product);
-    let followTemp = objToArr(result[0]?.follow);
+    let followerTemp = objToArr(result[0]?.follower);
     let followingTemp = objToArr(result[0]?.following);
     dispatch(loginUserSet(result[0]));
     dispatch(likeToggle(likeTemp));
 
+    setUserFollwer(followerTemp);
+    setUserFollwing(followingTemp)
     // objToArr(result[0].like)
 
     // console.log(likeTemp);
@@ -217,7 +224,7 @@ function Home() {
       </Section>
 
       <Section>
-        <More title="New NFT" type="new" product={newProduct}  userLike={userLike} randomProduct={randomProduct} />
+        <More title="New NFT" type="new" product={newProduct} userLike={userLike} randomProduct={randomProduct} />
         <NewSwipe product={newProduct} randomProduct={randomProduct} />
       </Section>
 
@@ -227,7 +234,7 @@ function Home() {
       </Section>
 
       <Section>
-        <More title="Top Celeb" type="celeb" />
+        <More title="Top Celeb" type="celeb" user={user} userFollowing={userFollowing} />
         <Celeb user={user} />
       </Section>
     </Wrapper>

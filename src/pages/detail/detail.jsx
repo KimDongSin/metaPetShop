@@ -113,7 +113,7 @@ function Detail() {
                                     <DetailCommunity />
                                     : <DetailFollower />
                     }
-                    <DetailRecommend randomProduct={randomProduct} userLike={objToArr(loginUser.like)} productAll={productAll} />
+                    <DetailRecommend randomProduct={randomProduct} userLike={objToArr(loginUser?.like)} productAll={productAll} />
                 </Wrapper>
                 : <NotFound />}
         </>
