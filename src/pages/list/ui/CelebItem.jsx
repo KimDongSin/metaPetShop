@@ -89,10 +89,9 @@ function CelebItem({ item }) {
             <UserFollow>
                 <span>{item.nickName}</span>
                 {
-                    (item.uuid !== loginUser.uuid) ?
+                    (item.uuid !== loginUser?.uuid) ?
                         <button>Follow</button>
-                    :   null
-
+                        : null
                 }
             </UserFollow>
         </Wrapper>
