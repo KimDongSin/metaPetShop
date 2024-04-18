@@ -134,7 +134,7 @@ const ItemLike = styled.button`
 `;
 
 
-function ListItem() {
+function ListItem({ item, userLike, randomProduct }) {
 
     // Link 이동 방지
     const shareBtn = (e) => {
@@ -146,22 +146,26 @@ function ListItem() {
     };
 
 
+    console.log(item);
+    console.log(userLike);
+
     return (
         <Item>
-            <Link to="/a">
+            <Link to={"/detail/" + item?.uuid} state={{ item: item, randomProduct: randomProduct, userLike: userLike }}>
                 <ItemImg>
-                    <img src={sampleImg} />
+                    <img src={item?.image} />
                     <button onClick={shareBtn} className="shareBtn"><img src={share} /></button>
                 </ItemImg>
 
                 <ItemInfo>
                     <ItemTitle>
-                        <span>good monkey</span>
+                        <span>{item?.productTitle}</span>
                         <Tag />
                     </ItemTitle>
 
                     <ItemLike onClick={likeBtn} className="likeBtn">
-                        <img src={likeOff} />
+                        {/* <img src={likeOff} /> */}
+                        <img src={(userLike?.filter((e) => e == item?.uuid).length > 0) ? likeOn : likeOff} />
                     </ItemLike>
                 </ItemInfo>
             </Link>

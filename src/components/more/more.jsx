@@ -24,13 +24,15 @@ const Wrapper = styled.div`
 `;
 
 
-function More({ title, type }) {
+function More({ title, type, product, userLike, randomProduct }) {
     const dispatch = useDispatch();
 
     return (
         <Wrapper>
             <span>{title}</span>
-            <Link to="/list" onClick={() => { dispatch(listTabChange(type))}}><img src={moreArrow} /></Link>
+            <Link to="/list" onClick={() => { dispatch(listTabChange(type)) }} state={{ product: product, userLike: userLike, randomProduct: randomProduct }} >
+                <img src={moreArrow} />
+            </Link>
         </Wrapper>
     )
 }

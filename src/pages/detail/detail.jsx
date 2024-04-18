@@ -66,6 +66,9 @@ const ItemDetail = styled.div`
 
 function Detail() {
     const location = useLocation();
+
+    console.log(location);
+
     const loginUser = useSelector((state) => state.loginUser.user);
     const product = location.state.item;
     const productAll = location.state.productAll;
@@ -77,6 +80,9 @@ function Detail() {
     }, [])
 
     const [type, setType] = useState('story');
+
+
+    console.log(product);
 
     return (
         <>

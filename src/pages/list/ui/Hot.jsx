@@ -14,7 +14,7 @@ const HotList = styled.div`
 `;
 
 
-function ListHot() {
+function ListHot({ product, userLike, randomProduct }) {
     // init('t2', 'product', 'Hot');
 
     const dispatch = useDispatch();
@@ -25,6 +25,11 @@ function ListHot() {
         }));
     }, []);
 
+    console.log(product);
+    console.log(userLike);
+    console.log(randomProduct);
+    console.log(11111111111);
+
     return (
         <Wrapper>
 
@@ -32,9 +37,16 @@ function ListHot() {
 
             <HotList>
                 <ul>
-                    <ListItem></ListItem>
-                    <ListItem></ListItem>
-                    <ListItem></ListItem>
+                    {
+                        product &&
+                        product.map((item, idx) => {
+                            return (
+                                <ListItem item={item} userLike={userLike} randomProduct={randomProduct} key={idx} />
+                            )
+                        })
+                    }
+                    {/* <ListItem></ListItem>
+                    <ListItem></ListItem> */}
                 </ul>
             </HotList>
         </Wrapper>

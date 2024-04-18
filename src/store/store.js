@@ -83,6 +83,18 @@ const userLike = createSlice({
 
 export let { likeToggle } = userLike.actions;
 
+const product = createSlice({
+    name: 'product',
+    initialState: { product: null },
+    reducers: {
+        saveProduct(state, action) {
+            state.product = action.payload;
+        }
+    }
+});
+
+export let { saveProduct } = product.actions;
+
 
 export default configureStore({
     reducer: {
@@ -92,5 +104,6 @@ export default configureStore({
         loginState: loginState.reducer,
         loginUser: loginUser.reducer,
         userLike: userLike.reducer,
+        product: product.reducer,
     }
 });

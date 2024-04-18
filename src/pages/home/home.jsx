@@ -9,7 +9,7 @@ import { ref, child, get, update } from "firebase/database";
 import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange } from "../../store/store";
+import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveProduct } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
@@ -121,6 +121,7 @@ function Home() {
       let resultHot = product.sort((a, b) => objToArr(a.like).length > objToArr(b.like).length ? -1 : 1);
       setNewProduct(resultNew);
       setHotProduct(resultHot);
+      dispatch(saveProduct(product));
     }
   }, [product, coll, user])
 
@@ -211,7 +212,7 @@ function Home() {
       />
 
       <Section>
-        <More title="인기있는 NFT" type="hot" />
+        <More title="인기있는 NFT" type="hot" product={hotProduct} userLike={userLike} randomProduct={randomProduct} />
         <FavSwipe product={hotProduct} userLike={userLike} randomProduct={randomProduct} />
       </Section>
 

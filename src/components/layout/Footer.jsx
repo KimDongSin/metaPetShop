@@ -10,16 +10,17 @@ import kakao from "../../assets/images/footer/kakao_icon.png";
 
 // footer menu icon
 import home from "../../assets/images/common/home_icon.png";
-import product from "../../assets/images/common/product_icon.png";
+import productIcon from "../../assets/images/common/product_icon.png";
 import cart from "../../assets/images/common/cart_icon.png";
 import user from "../../assets/images/common/user_icon.png";
 
 import homeOn from "../../assets/images/common/home_on_icon.png";
-import productOn from "../../assets/images/common/product_on_icon.png";
+import productOnIcon from "../../assets/images/common/product_on_icon.png";
 import cartOn from "../../assets/images/common/cart_on_icon.png";
 import userOn from "../../assets/images/common/user_on_icon.png";
 
 import { useSelector } from 'react-redux';
+import { shuffleArray } from "../../common/utils/shuffleArray";
 
 const Wrapper = styled.div`
   padding: 22px 16px 60px;
@@ -150,7 +151,11 @@ const LinkMenu = styled(Link)``;
 function Footer() {
   const menu = useSelector((state) => state.menuType.value);
   const loginState = useSelector((state) => state.loginState);
+  const userLike = useSelector((state) => state.userLike.like);
+  const product = useSelector((state) => state.product.product);
 
+  console.log(userLike);
+  console.log(product);
 
   return (
     <Wrapper>
@@ -232,8 +237,8 @@ function Footer() {
             </LinkMenu>
           </li>
           <li>
-            <LinkMenu to="/list">
-              <img src={menu == 'product' ? productOn : product} />
+            <LinkMenu to="/list" state={{ product: product, userLike: userLike, randomProduct: shuffleArray(product)}}>
+              <img src={menu == 'product' ? productOnIcon : productIcon} />
             </LinkMenu>
           </li>
           <li>
