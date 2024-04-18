@@ -51,7 +51,7 @@ function ListCeleb({ user, userFollowing }) {
                         user &&
                         user.map((item, idx) => {
                             return (
-                                <CelebItem key={idx} item={item} />
+                                <CelebItem key={idx} item={item} userFollowing={userFollowing} />
                             )
 
                         })

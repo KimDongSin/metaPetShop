@@ -77,7 +77,7 @@ const UserFollow = styled.div`
 `;
 
 
-function CelebItem({ item }) {
+function CelebItem({ item, userFollowing }) {
     const loginUser = useSelector((state) => state.loginUser.user);
 
     return (
@@ -89,11 +89,19 @@ function CelebItem({ item }) {
             <UserFollow>
                 <span>{item.nickName}</span>
                 {
-                    (item.uuid !== loginUser.uuid) ?
-                        <button>Follow</button>
-                    :   null
-
+                    (userFollowing?.filter((e) => e == item?.uuid).length > 0) ?
+                        <button>UnFollow</button>
+                        : (item.uuid !== loginUser?.uuid) ?
+                            <button>Follow</button>
+                            : null
                 }
+
+
+
+
+
+
+
             </UserFollow>
         </Wrapper>
     )
