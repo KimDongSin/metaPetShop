@@ -172,10 +172,10 @@ function Price({ product }) {
     // ------------------
     // D-day 카운트다운
     function find_day() {
-        const christmas = new Date(product.endDate);
+        const targetDay = new Date(product.endDate);
         const today = new Date();
 
-        let day_gap = christmas - today;
+        let day_gap = targetDay - today;
 
         const day = Math.floor(day_gap / (1000 * 60 * 60 * 24));
         const hour = Math.floor(day_gap / (1000 * 60 * 60) % 24);
