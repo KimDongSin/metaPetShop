@@ -30,7 +30,7 @@ function More({ title, type, product, userLike, randomProduct, user, userFollowi
     return (
         <Wrapper>
             <span>{title}</span>
-            <Link to="/list" onClick={() => { dispatch(listTabChange(type))}} state={
+            <Link to="/list" onClick={() => { dispatch(listTabChange(type)) }} state={
                 {
                     product: product,
                     userLike: userLike,
