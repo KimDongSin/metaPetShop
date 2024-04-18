@@ -2,7 +2,7 @@ import styled from "styled-components";
 import sampleImg from '../../../assets/images/common/dog_sample2.png';
 import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -79,6 +79,21 @@ const UserFollow = styled.div`
 
 function CelebItem({ item, userFollowing }) {
     const loginUser = useSelector((state) => state.loginUser.user);
+    const navigation = useNavigate()
+    function addFollow() {
+        if (loginUser === undefined) {
+            alert("로그인 후 이용해주세요");
+            navigation("/login")
+        } else {
+            // 팔로우
+
+        }
+    }
+
+
+    function removeFollow() {
+        // 팔로우취소
+    }
 
     return (
         <Wrapper>
@@ -90,9 +105,9 @@ function CelebItem({ item, userFollowing }) {
                 <span>{item.nickName}</span>
                 {
                     (userFollowing?.filter((e) => e == item?.uuid).length > 0) ?
-                        <button>UnFollow</button>
+                        <button onClick={(e) => { removeFollow() }}>UnFollow</button>
                         : (item.uuid !== loginUser?.uuid) ?
-                            <button>Follow</button>
+                            <button onClick={(e) => { addFollow() }}>Follow</button>
                             : null
                 }
             </UserFollow>
