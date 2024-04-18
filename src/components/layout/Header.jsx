@@ -130,7 +130,17 @@ function Header() {
                 <span>{header.title}</span>
               </HeaderTitle>
               <Login>
-                <Link to="/myPage"><img src={userDefault} /></Link>
+                {
+                  loginState.value ?
+                    <Link to="/myPage">
+                      {
+                        loginUser ?
+                          <img src={loginUser?.image} />
+                          : null
+                      }
+                    </Link>
+                    : <HeaderLoginLink to="/login">로그인</HeaderLoginLink>
+                }
               </Login>
             </HeaderContainer>
 
