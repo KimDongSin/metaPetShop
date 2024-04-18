@@ -83,7 +83,7 @@ function CelebItem({ item, userFollowing }) {
     return (
         <Wrapper>
             <img src={sampleImg} />
-            <UserLink>
+            <UserLink to={"/celeb/" + item.uuid} state={{ item: item }}>
                 <img src={item.image} />
             </UserLink>
             <UserFollow>

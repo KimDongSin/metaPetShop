@@ -17,6 +17,7 @@ import DeliveryAddress from "../../pages/myPage/DeliveryAddress";
 import Detail from "../../pages/detail/Detail";
 import Home from "../../pages/home/Home";
 import CollectionDetail from "../../pages/list/ui/CollectionDetail";
+import CelebDetail from "../../pages/list/ui/CelebDetail";
 
 const MainRouter = () => {
   return (
@@ -35,6 +36,7 @@ const MainRouter = () => {
         <Route path="/leave" element={<Leave />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/list" element={<List />} />
+        <Route path="/celeb/*" element={<CelebDetail />} />
         {/* 마이페이지 */}
         <Route path="/myPage" element={<MyPage />} />
         <Route path="/myPage/purchaseList" element={<PurchaseList />} />
