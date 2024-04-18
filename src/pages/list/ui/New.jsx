@@ -80,10 +80,6 @@ function ListNew({ product, userLike, randomProduct }) {
                             )
                         })
                     }
-                    <ListItem></ListItem>
-                    <ListItem></ListItem>
-                    <ListItem></ListItem>
-                    <ListItem></ListItem>
                 </ul>
             </NewList>
         </Wrapper>
