@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { menuChange } from "../../store/store";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import ScrollToTop from "../../common/utils/scrollToTop";
 
 
 const Wrapper = styled.div`
@@ -33,7 +34,8 @@ function List() {
     useEffect(() => {
         dispatch(menuChange('product'));
     }, [])
-
+    
+    ScrollToTop() 
 
     return (
         <Wrapper>
