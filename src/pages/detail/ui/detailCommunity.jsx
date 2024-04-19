@@ -38,10 +38,7 @@ const CommunityTitle = styled.div`
 `;
 
 function DetailCommunity() {
-
   const loginState = useSelector((state) => state.loginState);
-
-  console.log(loginState.value);
 
     return (
         <Wrapper>
@@ -66,16 +63,6 @@ function DetailCommunity() {
 
             }
             <ReplyList> </ReplyList>
-
-
-
-
-
-
-            
-
-
-
 
         </Wrapper>
     )
