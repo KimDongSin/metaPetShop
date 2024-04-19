@@ -5,6 +5,7 @@ import sampleImg from '../../../assets/images/common/dog_sample2.png';
 import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link } from "react-router-dom";
+import { objToArr } from "../../../common/utils/objToArr";
 
 
 
@@ -125,40 +126,62 @@ const GroupImg = styled.div`
 `;
 
 
-function CollectionItem() {
+function CollectionItem({ coll, productAll }) {
+    console.log(coll);
+    console.log(productAll);
+    let product = objToArr(coll.product);
+    let collectionItem;
+
+    function filterCollection() {
+        let temp = [];
+
+        productAll?.filter((val, i) => {
+            product?.filter((item, idx) => {
+                if (val.uuid == item) {
+                    temp.push(val);
+                }
+            })
+        });
+        return temp
+    }
+    collectionItem = filterCollection();
+    // collectionItem  = collectionItem?.slice(0, 4);
+
+    console.log(collectionItem);
+
 
     return (
         <CollItem>
             <UserInfo>
                 <div>
-                    <ImgLink >
-                        <img src={sampleImg} />
+                    <ImgLink to={"/"}>
+                        <img src={coll.userImage} />
                     </ImgLink>
 
-                    <UserLink>
-                        <span>Metaverse Robot</span>
-                        <span>created by gogogo</span>
+                    <UserLink to={"/"}>
+                        <span>{coll.title}</span>
+                        <span>created by {coll.userNickname}</span>
                     </UserLink>
                 </div>
-
-
-                <CollLike>
+                {/* <CollLike>
                     <button><img src={likeOff} /></button>
-                </CollLike>
+                </CollLike> */}
 
             </UserInfo>
 
-
-
-            <CollImg>
+            <CollImg  to={"/"}>
                 <SoloImg>
-                    <img src={sampleImg2} />
+                    <img src={coll.image} />
                 </SoloImg>
                 <GroupImg>
-                    <img src={sampleImg2} />
-                    <img src={sampleImg2} />
-                    <img src={sampleImg2} />
-                    <img src={sampleImg2} />
+                    {
+                        collectionItem &&
+                        collectionItem?.slice(0, 4).map((item, i) => {
+                            return(
+                                <img src={item.image} />
+                            )
+                        })
+                    }
                 </GroupImg>
 
             </CollImg>

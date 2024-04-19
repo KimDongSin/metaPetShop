@@ -26,6 +26,8 @@ function List() {
     const location = useLocation();
     const product = location.state?.product;
     const userLike = location.state?.userLike;
+    const productAll = location.state?.productAll;
+    const coll = location.state?.coll;
     const randomProduct = location.state?.randomProduct;
     const user = location.state?.user;
     const userFollowing = location.state?.userFollowing;
@@ -34,8 +36,8 @@ function List() {
     useEffect(() => {
         dispatch(menuChange('product'));
     }, [])
-    
-    ScrollToTop() 
+
+    ScrollToTop()
 
     return (
         <Wrapper>
@@ -45,7 +47,7 @@ function List() {
                 type === "follow" ? <ListFollow />
                     : type === "hot" ? <ListHot randomProduct={randomProduct} product={product} userLike={userLike} />
                         : type === "new" ? <ListNew randomProduct={randomProduct} product={product} userLike={userLike}></ListNew>
-                            : type === "coll" ? <Collection></Collection>
+                            : type === "coll" ? <Collection coll={coll} productAll={productAll} />
                                 : type === "celeb" ? <ListCeleb user={user} userFollowing={userFollowing}></ListCeleb>
                                     : ""
             }

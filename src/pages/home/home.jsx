@@ -229,7 +229,7 @@ function Home() {
       </Section>
 
       <Section>
-        <More title="Top Collections" type="coll" />
+        <More title="Top Collections" type="coll" productAll={product} coll={coll}/>
         <Collection product={coll} userLike={userLike} productAll={product} randomProduct={randomProduct} />
       </Section>
 
