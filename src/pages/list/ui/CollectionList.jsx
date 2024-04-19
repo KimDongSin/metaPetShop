@@ -127,8 +127,6 @@ const GroupImg = styled.div`
 
 
 function CollectionItem({ coll, productAll }) {
-    console.log(coll);
-    console.log(productAll);
     let product = objToArr(coll.product);
     let collectionItem;
 
@@ -145,10 +143,6 @@ function CollectionItem({ coll, productAll }) {
         return temp
     }
     collectionItem = filterCollection();
-    // collectionItem  = collectionItem?.slice(0, 4);
-
-    console.log(collectionItem);
-
 
     return (
         <CollItem>

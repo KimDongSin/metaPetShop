@@ -30,8 +30,6 @@ const CollectionList = styled.div`
 `;
 
 function Collection({ coll, productAll }) {
-
-    // init('t2', 'product', 'Collection');
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(headerChange({
