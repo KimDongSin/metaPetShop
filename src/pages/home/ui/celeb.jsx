@@ -25,7 +25,6 @@ function Celeb({ user }) {
     }, [user])
 
 
-
     return (
         <Wrapper>
             <ul>
