@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { LoginLink } from "../../../components/styled/UI/link/Link";
 import CommunityReply from "./CommunityReply";
 import ReplyList from "./ReplyList";
+import { useSelector } from "react-redux";
 
 const Wrapper = styled.div`
     margin-bottom: 24px;
@@ -37,6 +38,11 @@ const CommunityTitle = styled.div`
 `;
 
 function DetailCommunity() {
+
+  const loginState = useSelector((state) => state.loginState);
+
+  console.log(loginState.value);
+
     return (
         <Wrapper>
             <CommunityTitle>
@@ -53,14 +59,13 @@ function DetailCommunity() {
                     NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
                 </p>
             </CommunityTitle>
+            {
+                loginState.value === undefined ? 
+                <LoginLink to="/login">로그인 후 댓글 달기</LoginLink>
+                : <CommunityReply />
 
-            <LoginLink to="/login">로그인 후 댓글 달기</LoginLink>
-
-            <CommunityReply />
-
-            <ReplyList>
-
-            </ReplyList>
+            }
+            <ReplyList> </ReplyList>
 
 
 
