@@ -56,7 +56,7 @@ const TabLink = styled(Link)`
 `;
 
 
-function ListTab({type, setType}) {
+function ListTab({type}) {
     const dispatch = useDispatch();
 
     return (

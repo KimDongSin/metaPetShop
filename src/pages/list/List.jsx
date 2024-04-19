@@ -12,6 +12,7 @@ import { menuChange } from "../../store/store";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ScrollToTop from "../../common/utils/scrollToTop";
+import { shuffleArray } from "../../common/utils/shuffleArray";
 
 
 const Wrapper = styled.div`
@@ -21,27 +22,30 @@ const Wrapper = styled.div`
 
 
 function List() {
-    const type = useSelector((state) => state.listTabType.type);
     const dispatch = useDispatch();
     const location = useLocation();
-    const product = location.state?.product;
-    const userLike = location.state?.userLike;
-    const productAll = location.state?.productAll;
-    const coll = location.state?.coll;
-    const randomProduct = location.state?.randomProduct;
-    const user = location.state?.user;
+    const type = useSelector((state) => state.listTabType.type);
+    const storeProduct = useSelector((state) => state.product.product);
+    const storeUserLike = useSelector((state) => state.userLike.userLike);
+    const storeCollection = useSelector((state) => state.collection.collection);
+    const storeCleb = useSelector((state) => state.celeb.celeb);
+    const product = location.state?.product == undefined ? storeProduct : location.state?.product;
+    const userLike = location.state?.userLike == undefined ? storeUserLike : location.state?.userLike;
+    const productAll = location.state?.productAll == undefined ? storeProduct : location.state?.productAll;
+    const coll = location.state?.coll == undefined ? storeCollection : location.state?.coll;;
+    const randomProduct = location.state?.randomProduct == undefined ? shuffleArray(storeProduct) : location.state?.randomProduct;
+    const user = location.state?.user  == undefined ? storeCleb : location.state?.user ;;
     const userFollowing = location.state?.userFollowing;
+    ScrollToTop()
 
-    console.log(type);
     useEffect(() => {
         dispatch(menuChange('product'));
     }, [])
 
-    ScrollToTop()
 
     return (
         <Wrapper>
-            <ListTab type={type}></ListTab>
+            <ListTab type={type} />
 
             {
                 type === "follow" ? <ListFollow />
@@ -51,20 +55,6 @@ function List() {
                                 : type === "celeb" ? <ListCeleb user={user} userFollowing={userFollowing}></ListCeleb>
                                     : ""
             }
-
-            {/* <ListHot></ListHot> */}
-
-            {/* <ListNew></ListNew> */}
-
-            {/* <Collection></Collection> */}
-
-
-            {/* <ListCeleb></ListCeleb> */}
-
-            {/* <CollectionDetail></CollectionDetail> */}
-
-            {/* <CelebDetail></CelebDetail> */}
-
         </Wrapper>
     )
 }

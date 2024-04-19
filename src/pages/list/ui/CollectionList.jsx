@@ -172,7 +172,7 @@ function CollectionItem({ coll, productAll }) {
                         collectionItem &&
                         collectionItem?.slice(0, 4).map((item, i) => {
                             return(
-                                <img src={item.image} />
+                                <img src={item.image} key={i} />
                             )
                         })
                     }

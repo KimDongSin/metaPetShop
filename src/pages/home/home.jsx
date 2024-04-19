@@ -9,7 +9,7 @@ import { ref, child, get, update } from "firebase/database";
 import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveProduct } from "../../store/store";
+import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
@@ -85,6 +85,7 @@ function Home() {
             // let tempFollow =
             // let tempFollowing =
             setUser(temp);
+            dispatch(saveCeleb(temp));
 
           } else {
             console.log("No data available");
@@ -106,6 +107,7 @@ function Home() {
             // 배열로 반환
             let temp = objToArr(snapshot.val())
             setColl(temp);
+            dispatch(saveCollection(temp))
           } else {
             console.log("No data available");
           }
