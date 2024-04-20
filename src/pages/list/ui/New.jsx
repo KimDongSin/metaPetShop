@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ListItem from "./ListItem";
 import Title from "../../../components/title/Title";
 import ListSearch from "./ListSearch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { headerChange } from "../../../store/store";
 import { useDispatch } from "react-redux";
 
@@ -62,19 +62,25 @@ function ListNew({ product, userLike, randomProduct }) {
         }));
     }, []);
 
+    const [searchItem, setSearchItem] = useState(product);
+
+    useEffect(() => {
+        setSearchItem((prev) =>([...prev]))
+    }, [product])
+
     return (
         <Wrapper>
 
             <Title title="새로운 판매 NFT를 만나보세요" sub="마켓플레이스에서 늘 새로운 NFT 업데이트 됩니다."></Title>
 
 
-            <ListSearch />
+            <ListSearch item={product} setSearchItem={setSearchItem} />
 
             <NewList>
                 <ul>
                     {
-                        product &&
-                        product.map((item, idx) => {
+                        searchItem &&
+                        searchItem.map((item, idx) => {
                             return (
                                 <ListItem item={item} userLike={userLike} randomProduct={randomProduct} key={idx} />
                             )
