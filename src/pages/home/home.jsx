@@ -213,7 +213,7 @@ function Home() {
 
 
 
-  console.log(userFollowing);
+  console.log(uid());
 
 
 

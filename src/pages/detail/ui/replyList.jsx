@@ -175,7 +175,14 @@ const Replay = styled.ul`
 
 
 
-function ReplyList() {
+function ReplyList({ allUser, comment, setComment }) {
+
+
+
+
+
+
+
     return (
         <Wrapper>
 
@@ -199,7 +206,7 @@ function ReplyList() {
                             NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
                             NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
                         </p>
-                        <button> 더보기 <img src={moreArrow} /></button>
+                        {/* <button> 더보기 <img src={moreArrow} /></button> */}
                     </CommentText>
 
                     <ReplyInput>

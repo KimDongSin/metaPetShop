@@ -4,6 +4,10 @@ import { LoginLink } from "../../../components/styled/UI/link/Link";
 import CommunityReply from "./CommunityReply";
 import ReplyList from "./ReplyList";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { objToArr } from "../../../common/utils/objToArr";
+import { ref, child, get, update } from "firebase/database";
+import { db } from "../../../common/api/firebase";
 
 const Wrapper = styled.div`
     margin-bottom: 24px;
@@ -38,7 +42,37 @@ const CommunityTitle = styled.div`
 `;
 
 function DetailCommunity() {
-  const loginState = useSelector((state) => state.loginState);
+    const loginState = useSelector((state) => state.loginState);
+    const celeb = useSelector((state) => state.celeb);
+    const [allUser, setAllUser] = useState(objToArr(celeb));
+    const [comment, setComment] = useState();
+
+
+    useEffect(() => {
+        // 댓글 데이터
+        async function getComment() {
+            const dbRef = ref(db);
+            await get(child(dbRef, "/community"))
+                .then(snapshot => {
+                    if (snapshot.exists()) {
+                        // 배열로 반환
+                        console.log(snapshot.val());
+                          let temp = objToArr(snapshot.val())
+                          console.log(temp);
+                          setComment(temp);
+                    } else {
+                        console.log("No data available");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+        getComment();
+
+    }, []);
+
+    console.log(comment);
 
     return (
         <Wrapper>
@@ -57,12 +91,14 @@ function DetailCommunity() {
                 </p>
             </CommunityTitle>
             {
-                loginState.value === undefined ? 
-                <LoginLink to="/login">로그인 후 댓글 달기</LoginLink>
-                : <CommunityReply />
+                loginState.value === undefined ?
+                    <LoginLink to="/login">로그인 후 댓글 달기</LoginLink>
+                    : <CommunityReply />
 
             }
-            <ReplyList> </ReplyList>
+
+
+            <ReplyList allUser={allUser} comment={comment} setComment={setComment}  />
 
         </Wrapper>
     )
