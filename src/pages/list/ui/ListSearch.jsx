@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 function ListSearch({ item, setSearchItem }) {
     function searchFn(value) {
         let temp = [];
-        temp = item.filter((e) => e.productTitle?.includes(value.target.value));
+        temp = item.filter((e) => (e?.title ?? e?.nickName)?.includes(value.target.value));
         return temp;
     }
 

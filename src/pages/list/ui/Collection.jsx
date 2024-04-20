@@ -9,7 +9,7 @@ import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 import { Link } from "react-router-dom";
 import CollectionItem from "./CollectionList";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { headerChange } from "../../../store/store";
 
 const Wrapper = styled.div`
@@ -38,20 +38,23 @@ function Collection({ coll, productAll }) {
         }));
     }, []);
 
+    const [searchItem, setSearchItem] = useState(coll);
+
+    useEffect(() => {
+        setSearchItem((prev) =>([...prev]))
+    }, [coll])
+
     return (
         <Wrapper>
 
             <Title title="다양한 NFT컬렉션을 만나보세요" sub="컬렉션 수집은 NFT가 주는 즐거움이 배가 됩니다"></Title>
-
-
-            <ListSearch />
-
+            <ListSearch item={coll} setSearchItem={setSearchItem} />
             <CollectionList>
                 <ul>
 
                     {
-                        coll &&
-                        coll.map((item, i) => {
+                        searchItem &&
+                        searchItem.map((item, i) => {
                             return (
                                 <CollectionItem coll={item} productAll={productAll} key={i} />
 
