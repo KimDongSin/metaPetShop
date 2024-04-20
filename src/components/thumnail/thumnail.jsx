@@ -63,7 +63,7 @@ function ItemThumbnail({ size, product }) {
                     {
                         product !== undefined ?
                             <>
-                                <span>{product.productTitle}</span>
+                                <span>{product.title}</span>
                                 <Tag tag={product.productTag} />
                                 <p>{product.description}</p>
                             </>

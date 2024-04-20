@@ -18,12 +18,12 @@ function Celeb({ user }) {
     // follower 정렬
     useEffect(() => {
         if (userArr != null) {
-            let result = userArr.sort((a, b) => a.follower.length > b.follower.length ? -1 : 1);
+            let result = Array.isArray(userArr) ? userArr : userArr.sort((a, b) => a.follower.length > b.follower.length ? -1 : 1);
+            // let result = userArr.sort((a, b) => a.follower.length > b.follower.length ? -1 : 1);
             // setNewProduct(result);
             setCeleb(result)
         }
     }, [user])
-
 
 
     return (

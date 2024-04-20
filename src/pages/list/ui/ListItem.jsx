@@ -145,7 +145,6 @@ function ListItem({ item, userLike, randomProduct }) {
         e.preventDefault(); // Link 이동 방지
     };
 
-
     return (
         <Item>
             <Link to={"/detail/" + item?.uuid} state={{ item: item, randomProduct: randomProduct, userLike: userLike }}>
@@ -156,7 +155,7 @@ function ListItem({ item, userLike, randomProduct }) {
 
                 <ItemInfo>
                     <ItemTitle>
-                        <span>{item?.productTitle}</span>
+                        <span>{item?.title}</span>
                         <Tag tag={item.productTag} />
                     </ItemTitle>
 

@@ -3,10 +3,11 @@ import sampleImg from '../../../assets/images/common/dog_sample2.png';
 import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
 
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { ref, remove, update } from "firebase/database";
 import { db } from "../../../common/api/firebase";
+import { saveFollowing } from "../../../store/store";
 
 
 const Wrapper = styled.li`
@@ -84,27 +85,32 @@ function CelebItem({ item, userFollowing }) {
     const loginUser = useSelector((state) => state.loginUser.user);
     const navigation = useNavigate()
     const [followList, setFollowList] = useState(userFollowing);
-   
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(saveFollowing(followList));
+    }, [followList])
+
     function addFollow() {
         if (loginUser === undefined) {
             alert("로그인 후 이용해주세요");
             navigation("/login")
         } else {
             // 팔로우
-
             const myAddFollow = () => {
                 const temp = { [item.uuid]: item.uuid };
                 return update(ref(db, "/user/" + loginUser.uuid + "/following"), temp)
             };
 
-            myAddFollow()
-
             const otherAddFollow = () => {
                 const temp = { [loginUser.uuid]: loginUser.uuid };
                 return update(ref(db, "/user/" + item.uuid + "/follower"), temp)
             };
-            otherAddFollow()
-            setFollowList((prev) => [...prev,  item.uuid]);
+            myAddFollow()
+            otherAddFollow();
+            if (followList) {
+                setFollowList((prev) => [...prev, item.uuid]);
+            }
         }
     }
 
@@ -114,14 +120,13 @@ function CelebItem({ item, userFollowing }) {
         remove(ref(db, "/user/" + item.uuid + "/follower/" + loginUser.uuid));
         function removeFollowArr() {
             let temp = [];
-            for(let i = 0; i < followList.length; i++) {
+            for (let i = 0; i < followList.length; i++) {
                 if (followList[i] !== item.uuid) {
                     temp.push(followList[i]);
                 }
             }
             return temp;
         }
-
         setFollowList(removeFollowArr());
     }
 

@@ -74,7 +74,7 @@ export let { loginUserSet } = loginUser.actions;
 
 const userLike = createSlice({
     name: 'userLike',
-    initialState: { like: [] },
+    initialState: { like: null },
     reducers: {
         likeToggle(state, action) {
             state.like = action.payload;
@@ -96,6 +96,55 @@ const product = createSlice({
 
 export let { saveProduct } = product.actions;
 
+const collection = createSlice({
+    name: 'collection',
+    initialState: { collection: null },
+    reducers: {
+        saveCollection(state, action) {
+            state.collection = action.payload;
+        }
+    }
+});
+
+export let { saveCollection } = collection.actions;
+
+const celeb = createSlice({
+    name: 'celeb',
+    initialState: { celeb: null },
+    reducers: {
+        saveCeleb(state, action) {
+            state.celeb = action.payload;
+        }
+    }
+});
+
+export let { saveCeleb } = celeb.actions;
+
+const follower = createSlice({
+    name: 'follower',
+    initialState: { follower: null },
+    reducers: {
+        saveFollower(state, action) {
+            state.follower = action.payload;
+        }
+    }
+});
+
+export let { saveFollower } = follower.actions;
+
+
+const following = createSlice({
+    name: 'following',
+    initialState: { following: null },
+    reducers: {
+        saveFollowing(state, action) {
+            state.following = action.payload;
+        }
+    }
+});
+
+export let { saveFollowing } = following.actions;
+
 
 export default configureStore({
     reducer: {
@@ -106,5 +155,9 @@ export default configureStore({
         loginUser: loginUser.reducer,
         userLike: userLike.reducer,
         product: product.reducer,
+        collection: collection.reducer,
+        celeb: celeb.reducer,
+        follower: follower.reducer,
+        following: following.reducer,
     }
 });

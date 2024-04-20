@@ -12,6 +12,7 @@ import { menuChange } from "../../store/store";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ScrollToTop from "../../common/utils/scrollToTop";
+import { shuffleArray } from "../../common/utils/shuffleArray";
 
 const Wrapper = styled.div`
   padding: 0 16px;

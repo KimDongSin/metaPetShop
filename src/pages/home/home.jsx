@@ -9,7 +9,7 @@ import { ref, child, get, update } from "firebase/database";
 import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveProduct } from "../../store/store";
+import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb, saveFollowing, saveFollower } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
@@ -85,6 +85,7 @@ function Home() {
             // let tempFollow =
             // let tempFollowing =
             setUser(temp);
+            dispatch(saveCeleb(temp));
 
           } else {
             console.log("No data available");
@@ -106,6 +107,7 @@ function Home() {
             // 배열로 반환
             let temp = objToArr(snapshot.val())
             setColl(temp);
+            dispatch(saveCollection(temp))
           } else {
             console.log("No data available");
           }
@@ -152,9 +154,14 @@ function Home() {
     let followingTemp = objToArr(result[0]?.following);
     dispatch(loginUserSet(result[0]));
     dispatch(likeToggle(likeTemp));
-
+    
     setUserFollwer(followerTemp);
     setUserFollwing(followingTemp)
+
+    dispatch(saveFollower(followerTemp));
+    dispatch(saveFollowing(followingTemp));
+    console.log(followerTemp);
+    console.log(followingTemp);
     // objToArr(result[0].like)
 
     // console.log(likeTemp);
@@ -206,6 +213,8 @@ function Home() {
 
 
 
+  console.log(uid());
+
 
 
 
@@ -229,7 +238,7 @@ function Home() {
       </Section>
 
       <Section>
-        <More title="Top Collections" type="coll" />
+        <More title="Top Collections" type="coll" productAll={product} coll={coll}/>
         <Collection product={coll} userLike={userLike} productAll={product} randomProduct={randomProduct} />
       </Section>
 

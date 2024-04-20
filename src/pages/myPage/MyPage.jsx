@@ -91,7 +91,6 @@ const InfoItem = styled.div`
 
 const MyPage = () => {
   const loginUser = useSelector((state) => state.loginUser.user);
-  console.log(loginUser);
 
   const infoTitleText = [
     {
@@ -118,8 +117,8 @@ const MyPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(headerChange({
-      type: 't1',
-      title: 'home',
+      type: 't2',
+      title: '마이페이지',
     }))
     dispatch(menuChange('user'));
   }, []);
