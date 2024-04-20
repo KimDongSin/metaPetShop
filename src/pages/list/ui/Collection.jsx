@@ -46,7 +46,6 @@ function Collection({ coll, productAll }) {
 
     return (
         <Wrapper>
-
             <Title title="다양한 NFT컬렉션을 만나보세요" sub="컬렉션 수집은 NFT가 주는 즐거움이 배가 됩니다"></Title>
             <ListSearch item={coll} setSearchItem={setSearchItem} />
             <CollectionList>
