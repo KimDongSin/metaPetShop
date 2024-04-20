@@ -9,7 +9,7 @@ import { ref, child, get, update } from "firebase/database";
 import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb } from "../../store/store";
+import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb, saveFollowing, saveFollower } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
@@ -148,16 +148,20 @@ function Home() {
     let result = user.filter(e => e.email === loginState.value);
     let likeTemp = objToArr(result[0]?.like);
     setUserLike(likeTemp);
-    console.log(likeTemp);
 
     let productTemp = objToArr(result[0]?.product);
     let followerTemp = objToArr(result[0]?.follower);
     let followingTemp = objToArr(result[0]?.following);
     dispatch(loginUserSet(result[0]));
     dispatch(likeToggle(likeTemp));
-
+    
     setUserFollwer(followerTemp);
     setUserFollwing(followingTemp)
+
+    dispatch(saveFollower(followerTemp));
+    dispatch(saveFollowing(followingTemp));
+    console.log(followerTemp);
+    console.log(followingTemp);
     // objToArr(result[0].like)
 
     // console.log(likeTemp);
@@ -208,6 +212,8 @@ function Home() {
 
 
 
+
+  console.log(userFollowing);
 
 
 

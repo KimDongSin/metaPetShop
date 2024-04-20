@@ -28,18 +28,18 @@ function List() {
     const storeProduct = useSelector((state) => state.product.product);
     const storeUserLike = useSelector((state) => state.userLike.like);
     const storeCollection = useSelector((state) => state.collection.collection);
+    const storeFollowing = useSelector((state) => state.following.following);
+    const follower = useSelector((state) => state.follower.follower);
     const storeCleb = useSelector((state) => state.celeb.celeb);
     const product = location.state?.product == undefined ? storeProduct : location.state?.product;
     const userLike = location.state?.userLike == undefined ? storeUserLike : location.state?.userLike;
     const productAll = location.state?.productAll == undefined ? storeProduct : location.state?.productAll;
-    const coll = location.state?.coll == undefined ? storeCollection : location.state?.coll;;
+    const coll = location.state?.coll == undefined ? storeCollection : location.state?.coll;
     const randomProduct = location.state?.randomProduct == undefined ? shuffleArray(storeProduct) : location.state?.randomProduct;
-    const user = location.state?.user  == undefined ? storeCleb : location.state?.user ;;
-    const userFollowing = location.state?.userFollowing;
+    const user = location.state?.user  == undefined ? storeCleb : location.state?.user;
+    const userFollowing = location.state?.userFollowing == undefined ? storeFollowing : location.state?.userFollowing;
     
-    
-    
-    ScrollToTop()
+    ScrollToTop();
 
     useEffect(() => {
         dispatch(menuChange('product'));

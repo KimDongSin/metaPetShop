@@ -120,6 +120,31 @@ const celeb = createSlice({
 
 export let { saveCeleb } = celeb.actions;
 
+const follower = createSlice({
+    name: 'follower',
+    initialState: { follower: null },
+    reducers: {
+        saveFollower(state, action) {
+            state.follower = action.payload;
+        }
+    }
+});
+
+export let { saveFollower } = follower.actions;
+
+
+const following = createSlice({
+    name: 'following',
+    initialState: { following: null },
+    reducers: {
+        saveFollowing(state, action) {
+            state.following = action.payload;
+        }
+    }
+});
+
+export let { saveFollowing } = following.actions;
+
 
 export default configureStore({
     reducer: {
@@ -132,5 +157,7 @@ export default configureStore({
         product: product.reducer,
         collection: collection.reducer,
         celeb: celeb.reducer,
+        follower: follower.reducer,
+        following: following.reducer,
     }
 });
