@@ -43,8 +43,16 @@ const LoginAlert = styled(FollowNone)`
 
 
 function ListFollow({ product, userLike }) {
+    const dispatch = useDispatch();
     const loginUser = useSelector((state) => state.loginUser.user);
     let myLikeItem;
+
+    useEffect(() => {
+        dispatch(headerChange({
+            type: 't2',
+            title: 'Follow',
+        }));
+    }, [])
 
     function filterProduct() {
         let temp = [];
@@ -61,45 +69,28 @@ function ListFollow({ product, userLike }) {
     myLikeItem = filterProduct();
 
 
-
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(headerChange({
-            type: 't2',
-            title: 'Follow',
-        }));
-    }, [])
-
-
     return (
         <Wrapper>
-
-
-            {/* <FollowNone>
-                <h1>아직 팔로우가 없네요!</h1>
-                <span>관심있는 작가를 팔로우해볼까요?</span>
-            </FollowNone> */}
-
-
             <FollowList>
                 <ul>
                     {
-                        loginUser !== undefined ?
-                            myLikeItem.map((item, idx) => {
-                                return (
-                                    <ListItem item={item} userLike={userLike} randomProduct={product} key={idx} />
-                                )
-                            })
-                            : <LoginAlert>
+                        loginUser === undefined ?
+                            <LoginAlert>
                                 <h1>로그인 후 이용이 가능합니다.</h1>
                                 <LoginLink to="/login">로그인</LoginLink>
                             </LoginAlert>
-
+                            : loginUser !== undefined && myLikeItem.length === 0 ?
+                                <FollowNone>
+                                    <h1>아직 팔로우가 없네요!</h1>
+                                    <span>관심있는 작가를 팔로우해볼까요?</span>
+                                </FollowNone>
+                                : myLikeItem.map((item, idx) => {
+                                    return (
+                                        <ListItem item={item} userLike={userLike} randomProduct={product} key={idx} />
+                                    )
+                                })
 
                     }
-                    {/* <ListItem></ListItem>
-                    <ListItem></ListItem>
-                    <ListItem></ListItem> */}
                 </ul>
             </FollowList>
         </Wrapper>
