@@ -26,7 +26,7 @@ function List() {
     const location = useLocation();
     const type = useSelector((state) => state.listTabType.type);
     const storeProduct = useSelector((state) => state.product.product);
-    const storeUserLike = useSelector((state) => state.userLike.userLike);
+    const storeUserLike = useSelector((state) => state.userLike.like);
     const storeCollection = useSelector((state) => state.collection.collection);
     const storeCleb = useSelector((state) => state.celeb.celeb);
     const product = location.state?.product == undefined ? storeProduct : location.state?.product;
@@ -36,6 +36,9 @@ function List() {
     const randomProduct = location.state?.randomProduct == undefined ? shuffleArray(storeProduct) : location.state?.randomProduct;
     const user = location.state?.user  == undefined ? storeCleb : location.state?.user ;;
     const userFollowing = location.state?.userFollowing;
+    
+    
+    
     ScrollToTop()
 
     useEffect(() => {
@@ -48,7 +51,7 @@ function List() {
             <ListTab type={type} />
 
             {
-                type === "follow" ? <ListFollow />
+                type === "follow" ? <ListFollow  product={product}  userLike={userLike}  />
                     : type === "hot" ? <ListHot randomProduct={randomProduct} product={product} userLike={userLike} />
                         : type === "new" ? <ListNew randomProduct={randomProduct} product={product} userLike={userLike}></ListNew>
                             : type === "coll" ? <Collection coll={coll} productAll={productAll} />

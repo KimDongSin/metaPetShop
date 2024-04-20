@@ -74,7 +74,7 @@ export let { loginUserSet } = loginUser.actions;
 
 const userLike = createSlice({
     name: 'userLike',
-    initialState: { like: [] },
+    initialState: { like: null },
     reducers: {
         likeToggle(state, action) {
             state.like = action.payload;

@@ -148,6 +148,7 @@ function Home() {
     let result = user.filter(e => e.email === loginState.value);
     let likeTemp = objToArr(result[0]?.like);
     setUserLike(likeTemp);
+    console.log(likeTemp);
 
     let productTemp = objToArr(result[0]?.product);
     let followerTemp = objToArr(result[0]?.follower);
