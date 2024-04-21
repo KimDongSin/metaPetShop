@@ -72,9 +72,11 @@ function Detail() {
     const randomProduct = location.state.randomProduct;
     const dispatch = useDispatch();
     const [type, setType] = useState('story');
+    console.log(type);
 
     useEffect(() => {
         dispatch(menuChange('product'));
+        setType('story')
     }, [])
 
     return (
@@ -106,7 +108,7 @@ function Detail() {
                                     <DetailCommunity product={product} />
                                     : <DetailFollower />
                     }
-                    <DetailRecommend randomProduct={randomProduct} userLike={objToArr(loginUser?.like)} productAll={productAll} />
+                    <DetailRecommend setType={setType} randomProduct={randomProduct} userLike={objToArr(loginUser?.like)} productAll={productAll} />
                 </Wrapper>
                 : <NotFound />}
         </>

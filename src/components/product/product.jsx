@@ -7,6 +7,7 @@ import Tag from "../../pages/home/ui/Tag";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../../common/utils/scrollToTop";
 import { shuffleArray } from "../../common/utils/shuffleArray";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
     ul {
@@ -81,7 +82,7 @@ const ItemTitle = styled.div`
 `;
 
 
-function Product({ product, userLike, productAll, randomProduct }) {
+function Product({ product, userLike, productAll, randomProduct, setType }) {
     let collectionItem = [];
     let temp = shuffleArray(randomProduct);
     temp = temp?.slice(0, 4)
@@ -106,7 +107,6 @@ function Product({ product, userLike, productAll, randomProduct }) {
     }
     collectionItem = filterCollection();
 
-
     return (
         <Wrapper>
             <ul>
@@ -114,7 +114,7 @@ function Product({ product, userLike, productAll, randomProduct }) {
                     collectionItem.length > 1 ?
                         collectionItem.map((item, idx) => {
                             return (
-                                <li key={idx}>
+                                <li key={idx} >
                                     <Item to={"/detail/" + item.uuid} state={{ item: item, productAll: productAll, randomProduct: randomProduct }}>
                                         <ItemImg>
                                             <img src={item.image} />
@@ -137,7 +137,7 @@ function Product({ product, userLike, productAll, randomProduct }) {
                         :
                         temp.map((item, idx) => {
                             return (
-                                <li key={idx}>
+                                <li key={idx} onClick={()=>{setType('story'); console.log(321321);}}>
                                     <Item to={"/detail/" + item.uuid} state={{ item: item, productAll: productAll, randomProduct: randomProduct }}>
                                         <ItemImg>
                                             <img src={item.image} />
