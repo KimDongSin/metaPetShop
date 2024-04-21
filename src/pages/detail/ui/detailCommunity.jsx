@@ -73,6 +73,11 @@ function DetailCommunity({product}) {
 
     }, []);
 
+
+
+
+    console.log(product);
+
     return (
         <Wrapper>
             <CommunityTitle>
@@ -92,7 +97,7 @@ function DetailCommunity({product}) {
             {
                 loginState.value === undefined ?
                     <LoginLink to="/login">로그인 후 댓글 달기</LoginLink>
-                    : <CommunityReply />
+                    : <CommunityReply comment={comment} setComment={setComment} product={product} />
 
             }
 
