@@ -200,25 +200,29 @@ function ReplyList({ allUser, comment, setComment, product }) {
         }
     }, [comment])
 
-
     return (
         <Wrapper>
 
             <ul>
                 {
                     firstComment &&
-                    firstComment.map((item, idx) => {
+                    firstComment.map((comment, idx) => {
                         return (
                             <Comment key={idx}>
-                                <CommentInfo comment={item} allUser={allUser} />
+                                <CommentInfo comment={comment} allUser={allUser} product={product} setComment={setComment} parentUuid={comment.uuid} />
+                                {
+
+                                }
                                 <Reply>
                                     {
-                                        secondComment.map((item, idx) => {
-                                            return (
-                                                <Comment key={idx}>
-                                                    <CommentInfo comment={item} allUser={allUser} />
-                                                </Comment>
-                                            )
+                                        secondComment.map((reply, idx) => {
+                                            if (comment.uuid === reply.parentUuid) {
+                                                return (
+                                                    <Comment key={idx}>
+                                                        <CommentInfo comment={reply} allUser={allUser} setComment={setComment} product={product} parentUuid={comment.uuid} />
+                                                    </Comment>
+                                                )
+                                            } 
                                         })
                                     }
                                 </Reply>

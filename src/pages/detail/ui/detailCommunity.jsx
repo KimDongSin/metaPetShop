@@ -59,7 +59,6 @@ function DetailCommunity({product}) {
                           let temp = objToArr(snapshot.val())
 
                           let commentFilter = temp.filter((item, idx)=> product.uuid== item.productUuid);
-                          console.log(commentFilter);
                           setComment(commentFilter);
                     } else {
                         console.log("No data available");
@@ -73,10 +72,6 @@ function DetailCommunity({product}) {
 
     }, []);
 
-
-
-
-    console.log(product);
 
     return (
         <Wrapper>
@@ -100,10 +95,7 @@ function DetailCommunity({product}) {
                     : <CommunityReply comment={comment} setComment={setComment} product={product} />
 
             }
-
-
             <ReplyList allUser={allUser} comment={comment} setComment={setComment} product={product} />
-
         </Wrapper>
     )
 }

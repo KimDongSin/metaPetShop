@@ -3,7 +3,12 @@ import sampleImg from "../../../assets/images/common/dog_sample1.png"
 import moreArrow from "../../../assets/images/detail/moreArrow.png"
 import replyArrow from "../../../assets/images/detail/replyArrow.png"
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { ref, update } from "firebase/database";
+import { db } from "../../../common/api/firebase";
+import { getFormatDate } from "../../../common/utils/getFormatDate";
+import { uid } from "uid";
 
 
 const User = styled.div`
@@ -119,14 +124,14 @@ const ReplyInput = styled.div`
     align-items: center;
     overflow: hidden;
 
-    & > input {
+    & > textarea {
         width: 100%;
         height: 100%;
         padding: 14px;
         border: none;
         outline: none;
-    background: #F9F9F9;
-
+        background: #F9F9F9;
+        resize: none
     }
 
     & > button {
@@ -145,8 +150,26 @@ const ReplyInput = styled.div`
 
 
 
-function CommentInfo({ comment, allUser }) {
-    let user = allUser?.filter((item, idx) => (item.uuid == comment?.userUuid))
+function CommentInfo({ comment, allUser, product, parentUuid, setComment }) {
+    let user = allUser?.filter((item, idx) => (item.uuid == comment?.userUuid));
+
+    const loginUser = useSelector((state) => state.loginUser.user);
+    const [inputReply, setInputReply] = useState();
+    const date = new Date();
+
+    const addReply = () => {
+        const uuid = uid();
+        const temp = {
+            comment: inputReply,
+            parentUuid: parentUuid,
+            productUuid: product.uuid,
+            userUuid: loginUser.uuid,
+            uuid: uuid,
+            date: getFormatDate(date)
+        };
+        setComment((prev) => [...prev, temp]);
+        return update(ref(db, "/community/" + uuid), temp);
+    };
 
     return (
         <>
@@ -175,8 +198,8 @@ function CommentInfo({ comment, allUser }) {
             {
                 comment.parentUuid === "" ?
                     <ReplyInput>
-                        <input type="text" placeholder="답글 작성하기" />
-                        <button>작성하기</button>
+                        <textarea type="text" placeholder="답글 작성하기" value={inputReply} onChange={(e)=>{setInputReply(e.target.value)}} />
+                        <button onClick={() => { addReply(); setInputReply("")}}>작성하기</button>
                     </ReplyInput>
                     : null
             }
