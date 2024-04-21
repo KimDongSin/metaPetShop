@@ -127,7 +127,7 @@ function Product({ product, userLike, productAll, randomProduct }) {
 
                                         <ItemInfo>
                                             <ItemTitle>
-                                                <span>{item.productTitle}</span>
+                                                <span>{item.title}</span>
                                                 <Tag tag={item.productTag} />
                                             </ItemTitle>
                                         </ItemInfo>
@@ -150,7 +150,7 @@ function Product({ product, userLike, productAll, randomProduct }) {
 
                                         <ItemInfo>
                                             <ItemTitle>
-                                                <span>{item.productTitle}</span>
+                                                <span>{item.title}</span>
                                                 <Tag tag={item.productTag} />
                                             </ItemTitle>
                                         </ItemInfo>

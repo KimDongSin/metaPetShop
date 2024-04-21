@@ -3,6 +3,8 @@ import sampleImg from "../../../assets/images/common/dog_sample1.png"
 import moreArrow from "../../../assets/images/detail/moreArrow.png"
 import replyArrow from "../../../assets/images/detail/replyArrow.png"
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import CommentInfo from "./Comment";
 
 const Wrapper = styled.div`
     margin-bottom: 24px;
@@ -149,7 +151,7 @@ const ReplyInput = styled.div`
 
 `;
 
-const Replay = styled.ul`
+const Reply = styled.ul`
     margin-top: 10px;
     margin-left: 30px;
 
@@ -170,24 +172,76 @@ const Replay = styled.ul`
         }
     }
 
-    
+
 `;
 
 
 
-function ReplyList({ allUser, comment, setComment }) {
+function ReplyList({ allUser, comment, setComment, product }) {
+    const [firstComment, setFirstComment] = useState();
+    const [secondComment, setSecondComment] = useState();
 
+    useEffect(() => {
+        if (comment != null) {
+            let resultNew = comment.sort((a, b) => a.date.toLowerCase() < b.date.toLowerCase() ? -1 : 1);
+            setComment(resultNew);
 
-
-
-
+            let tempFirst = [];
+            let tempSecond = [];
+            for (let i = 0; i < resultNew.length; i++) {
+                if (resultNew[i].parentUuid === "") {
+                    tempFirst.push(resultNew[i]);
+                } else {
+                    tempSecond.push(resultNew[i]);
+                }
+            }
+            setFirstComment(tempFirst)
+            setSecondComment(tempSecond)
+        }
+    }, [comment])
 
 
     return (
         <Wrapper>
 
             <ul>
+                {
+                    firstComment &&
+                    firstComment.map((item, idx) => {
+                        return (
+                            <Comment key={idx}>
+                                <CommentInfo comment={item} allUser={allUser} />
+                                <Reply>
+                                    {
+                                        secondComment.map((item, idx) => {
+                                            return (
+                                                <Comment key={idx}>
+                                                    <CommentInfo comment={item} allUser={allUser} />
+                                                </Comment>
+                                            )
+                                        })
+                                    }
+                                </Reply>
+                            </Comment>
+                        )
+                    })
+                }
+
+
+                {/* 
                 <Comment>
+                    <CommentInfo />
+                    <Reply>
+                        <Comment>
+                            <CommentInfo />
+                        </Comment>
+                    </Reply>
+                </Comment> */}
+
+
+
+
+                {/* <Comment>
                     <User>
                         <UserLink to="/" >
                             <img src={sampleImg} />
@@ -206,7 +260,7 @@ function ReplyList({ allUser, comment, setComment }) {
                             NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
                             NFT 관련 문의 및 전송문의는 메타펫 담당자에게 문의하시면 정확한 답변을 받을 수 있습니다.
                         </p>
-                        {/* <button> 더보기 <img src={moreArrow} /></button> */}
+                        <button> 더보기 <img src={moreArrow} /></button>
                     </CommentText>
 
                     <ReplyInput>
@@ -214,7 +268,7 @@ function ReplyList({ allUser, comment, setComment }) {
                         <button>작성하기</button>
                     </ReplyInput>
 
-                    <Replay>
+                    <Reply>
 
                         <Comment>
                             <User>
@@ -243,8 +297,8 @@ function ReplyList({ allUser, comment, setComment }) {
                                 <button>작성하기</button>
                             </ReplyInput>
                         </Comment>
-                    </Replay>
-                </Comment>
+                    </Reply>
+                </Comment> */}
             </ul>
         </Wrapper>
     )

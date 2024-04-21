@@ -41,9 +41,9 @@ const CommunityTitle = styled.div`
         }
 `;
 
-function DetailCommunity() {
+function DetailCommunity({product}) {
     const loginState = useSelector((state) => state.loginState);
-    const celeb = useSelector((state) => state.celeb);
+    const celeb = useSelector((state) => state.celeb.celeb);
     const [allUser, setAllUser] = useState(objToArr(celeb));
     const [comment, setComment] = useState();
 
@@ -56,10 +56,11 @@ function DetailCommunity() {
                 .then(snapshot => {
                     if (snapshot.exists()) {
                         // 배열로 반환
-                        console.log(snapshot.val());
                           let temp = objToArr(snapshot.val())
-                          console.log(temp);
-                          setComment(temp);
+
+                          let commentFilter = temp.filter((item, idx)=> product.uuid== item.productUuid);
+                          console.log(commentFilter);
+                          setComment(commentFilter);
                     } else {
                         console.log("No data available");
                     }
@@ -71,8 +72,6 @@ function DetailCommunity() {
         getComment();
 
     }, []);
-
-    console.log(comment);
 
     return (
         <Wrapper>
@@ -98,7 +97,7 @@ function DetailCommunity() {
             }
 
 
-            <ReplyList allUser={allUser} comment={comment} setComment={setComment}  />
+            <ReplyList allUser={allUser} comment={comment} setComment={setComment} product={product} />
 
         </Wrapper>
     )

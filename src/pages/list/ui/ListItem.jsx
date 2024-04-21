@@ -155,7 +155,7 @@ function ListItem({ item, userLike, randomProduct }) {
 
                 <ItemInfo>
                     <ItemTitle>
-                        <span>{item?.productTitle}</span>
+                        <span>{item?.title}</span>
                         <Tag tag={item.productTag} />
                     </ItemTitle>
 
