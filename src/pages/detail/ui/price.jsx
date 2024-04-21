@@ -12,6 +12,8 @@ import { db } from "../../../common/api/firebase";
 import { loginStateChange } from "../../../store/store";
 import { useNavigate } from "react-router-dom";
 import { numberComma } from "../../../common/utils/numberFormat";
+import { uid } from "uid";
+import { getFormatDate } from "../../../common/utils/getFormatDate";
 
 const Wrapper = styled.div`
     margin-bottom: 18px;
@@ -139,6 +141,7 @@ const ProductCnt = styled.div`
 
 function Price({ product }) {
     const [dayCnt, setDayCnt] = useState("");
+    const [productCount, setProductCount] = useState(1);
     const loginUser = useSelector((state) => state.loginUser.user);
     const navigate = useNavigate();
 
@@ -182,7 +185,7 @@ function Price({ product }) {
 
         setDayCnt(`${day}일 ${hour}시간 ${min}분 ${sec}초`);
     }
-    setInterval(find_day, 1000);  //초마다 디데이 기능 실행
+    // setInterval(find_day, 1000);  //초마다 디데이 기능 실행
 
     const [userLike, setUserLike] = useState(objToArr(loginUser?.like));
     const [productLike, setProductLike] = useState(objToArr(product?.like));
@@ -228,6 +231,44 @@ function Price({ product }) {
         return temp;
     }
 
+
+    function buyProduct() {
+        if (loginUser) {
+            // 구매
+            let cash = loginUser.cash
+            let total = (product.price * productCount);
+            console.log(total);
+
+            const productToggle = () => {
+                const temp = { cash: cash - total };
+                return update(ref(db, "/user/" + loginUser.uuid), temp)
+            };
+            productToggle()
+
+            const addPurchase = () => {
+                let uuid = uid();
+                const date = new Date();
+
+                const temp = {
+                    uuid: uuid,
+                    count: productCount,
+                    date: getFormatDate(date),
+                    price: product.price * productCount,
+                    productUuid: product.uuid,
+                    userUuid: loginUser.uuid,
+                };
+                return update(ref(db, "/purchase/" + uuid), temp)
+
+            }
+            addPurchase();
+            alert(`${product.title}의 제품을 ${productCount}개 구매했습니다.`);
+            setProductCount(1)
+        } else {
+            alert("로그인 후 구매할 수 있습니다.");
+            navigate("/login");
+        }
+    }
+
     return (
         <Wrapper>
             <ProductPrice>
@@ -255,7 +296,7 @@ function Price({ product }) {
                 (isSameDateAndTime(dateFormat(date), product.startDate)) === true && isSameDateAndTime(product.endDate, dateFormat(date)) === true ?
                     <ProductCnt>
                         <span>총 구매개수</span>
-                        <CntInput product={product} />
+                        <CntInput product={product} setProductCount={setProductCount} productCount={productCount} />
                     </ProductCnt>
                     : null
             }
@@ -287,7 +328,7 @@ function Price({ product }) {
                 (isSameDateAndTime(dateFormat(date), product.startDate)) === true && isSameDateAndTime(product.endDate, dateFormat(date)) === true ?
                     <ProductBtn>
                         <CartBtn><img src={cart} /></CartBtn>
-                        <BuyBtn>구매하기</BuyBtn>
+                        <BuyBtn onClick={() => { buyProduct() }}>구매하기</BuyBtn>
                     </ProductBtn>
                     : (isSameDateAndTime(dateFormat(date), product.startDate)) === true && isSameDateAndTime(product.endDate, dateFormat(date) === false) ?
                         <AfterProduct>
