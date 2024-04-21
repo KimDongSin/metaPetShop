@@ -8,6 +8,7 @@ import 'swiper/css';
 import { Link } from "react-router-dom";
 import Tag from "./Tag";
 import { useState } from "react";
+import { getFormatDate } from "../../../common/utils/getFormatDate";
 
 const SwiperWrap = styled(Swiper)`
     height: 450px;
@@ -43,6 +44,14 @@ const ItemImg = styled.div`
         line-height: 20px;
         color: #FFFFFF;
         padding: 5px 10px;
+
+        &.sell {
+            background: #33C2FF;
+        }
+
+        &.end {
+            background: #3F3F3F;
+        }
     }
 
     button {
@@ -105,53 +114,36 @@ const ItemLike = styled.button`
 
 function FavSwipe({ product, userLike, randomProduct }) {
     let temp = product?.slice(0, 5);
+    const today = new Date();
 
     // Link 이동 방지
     const shareBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
     };
 
-    const [dayCnt, setDayCnt] = useState("");
     let endDate;
 
-    // 현재 날짜 변경
-    let date = new Date();
-    function dateFormat(date) {
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        let hour = date.getHours();
-        let minute = date.getMinutes();
-        let second = date.getSeconds();
-
-        month = month >= 10 ? month : '0' + month;
-        day = day >= 10 ? day : '0' + day;
-        hour = hour >= 10 ? hour : '0' + hour;
-        minute = minute >= 10 ? minute : '0' + minute;
-        second = second >= 10 ? second : '0' + second;
-
-        return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
-    }
-
-    const isSameDateAndTime = (end, now) => {
-        const endDate = new Date(end);
+    const isSameDateAndTime = (now, end) => {
         const nowDate = new Date(now);
+        const endDate = new Date(end);
         return endDate.getTime() > nowDate.getTime();
     }
 
-    function find_day() {
-        const targetDay = new Date(endDate);
-        const today = new Date();
+    // function find_day() {
+    //     const targetDay = new Date(endDate);
+    //     const today = new Date();
 
-        let day_gap = targetDay - today;
+    //     let day_gap = today - targetDay;
+    //     console.log(day_gap);
 
-        const day = Math.floor(day_gap / (1000 * 60 * 60 * 24));
-        const hour = Math.floor(day_gap / (1000 * 60 * 60) % 24);
-        const min = Math.floor(day_gap / (1000 * 60) % 60);
-        const sec = Math.floor(day_gap / 1000 % 60);
+    //     const day = Math.floor(day_gap / (1000 * 60 * 60 * 24));
+    //     const hour = Math.floor(day_gap / (1000 * 60 * 60) % 24);
+    //     const min = Math.floor(day_gap / (1000 * 60) % 60);
+    //     const sec = Math.floor(day_gap / 1000 % 60);
 
-        setDayCnt(`${day}일 ${hour}시간 ${min}분 ${sec}초`);
-    }
-    setInterval(find_day, 1000);  //초마다 디데이 기능 실행
+    //     setDayCnt(`${day}일 ${hour}시간 ${min}분 ${sec}초`);
+    // }
+    // setInterval(find_day, 1000);  //초마다 디데이 기능 실행
 
     return (
         <>
@@ -170,12 +162,12 @@ function FavSwipe({ product, userLike, randomProduct }) {
                                         <ItemImg>
                                             <img src={item.image} />
                                             {
-                                                (isSameDateAndTime(dateFormat(date), item.startDate)) === true && isSameDateAndTime(item.endDate, dateFormat(date)) === true ?
-                                                    <span>{dayCnt}</span>
-                                                    : (isSameDateAndTime(dateFormat(date), item.startDate)) === true && isSameDateAndTime(item.endDate, dateFormat(date) === false) ?
-                                                        <span>판매 종료</span>
-                                                        : (isSameDateAndTime(dateFormat(date), item.startDate)) === false && isSameDateAndTime(item.endDate, dateFormat(date) === false) ?
-                                                            <span>판매 전</span>
+                                                isSameDateAndTime(today, item.startDate) == true ?
+                                                    <span >판매 전</span>
+                                                    : (isSameDateAndTime(today, item.endDate) == false) ?
+                                                        <span className="end">판매 종료</span>
+                                                        :  isSameDateAndTime(today, item.endDate) == true  ?
+                                                            <span className="sell">판매 중</span>
                                                             : null
                                             }
                                             <button onClick={shareBtn}><img src={share} /></button>
