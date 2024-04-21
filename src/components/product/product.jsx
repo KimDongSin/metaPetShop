@@ -83,11 +83,9 @@ const ItemTitle = styled.div`
 
 function Product({ product, userLike, productAll, randomProduct }) {
     let collectionItem = [];
-    let temp = randomProduct?.slice(0, 4);
-    temp = shuffleArray(temp);
+    let temp = shuffleArray(randomProduct);
+    temp = temp?.slice(0, 4)
     ScrollToTop()
-
-    // 데이터 랜덤셔플
 
     // Link 이동 방지
     const likeBtn = (e) => {

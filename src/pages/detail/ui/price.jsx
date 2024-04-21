@@ -167,8 +167,6 @@ function Price({ product }) {
         return endDate.getTime() > nowDate.getTime();
     }
 
-
-
     // ------------------
     // D-day 카운트다운
     function find_day() {
@@ -186,11 +184,8 @@ function Price({ product }) {
     }
     setInterval(find_day, 1000);  //초마다 디데이 기능 실행
 
-
     const [userLike, setUserLike] = useState(objToArr(loginUser?.like));
     const [productLike, setProductLike] = useState(objToArr(product?.like));
-
-
 
     function likeToggleFn(e) {
         if (loginUser == null) {
