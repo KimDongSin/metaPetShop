@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import sampleImg from '../../assets/images/common/dog_sample3.png';
 import Tag from "../../pages/home/ui/Tag";
 
 const Wrapper = styled.div`

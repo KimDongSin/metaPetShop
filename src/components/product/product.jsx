@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import sampleImg from '../../assets/images/common/dog_sample3.png';
 import likeOn from '../../assets/images/common/like_on.png';
 import likeOff from '../../assets/images/common/like_off.png';
 import Tag from "../../pages/home/ui/Tag";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../../common/utils/scrollToTop";
 import { shuffleArray } from "../../common/utils/shuffleArray";
-import { useEffect } from "react";
 
 const Wrapper = styled.div`
     ul {
@@ -87,8 +84,6 @@ function Product({ product, userLike, productAll, randomProduct, setType }) {
     let temp = shuffleArray(randomProduct);
     temp = temp?.slice(0, 4)
     ScrollToTop()
-
-    // Link 이동 방지
     const likeBtn = (e) => {
         e.preventDefault(); // Link 이동 방지
     };

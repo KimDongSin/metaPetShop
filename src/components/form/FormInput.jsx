@@ -65,7 +65,7 @@ const FormInput = ({ title, type, userInput, placeholder, width, setSign, setUse
     }
   }
 
-  
+
   function login(e) {
     if (setUser != undefined) {
       if (type == "email") {

@@ -23,7 +23,6 @@ const Wrapper = styled.div`
     }
 `;
 
-
 function More({ title, type, product, userLike, randomProduct, user, userFollowing, coll, productAll }) {
     const dispatch = useDispatch();
 
