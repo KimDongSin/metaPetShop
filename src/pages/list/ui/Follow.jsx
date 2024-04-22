@@ -3,11 +3,9 @@ import ListItem from "./ListItem";
 import { useDispatch, useSelector } from "react-redux";
 import { headerChange } from "../../../store/store";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { LoginLink } from "../../../components/styled/UI/link/Link";
 
 const Wrapper = styled.div`
-
 `;
 
 const FollowList = styled.div`
@@ -41,7 +39,6 @@ const LoginAlert = styled(FollowNone)`
    }
 `;
 
-
 function ListFollow({ product, userLike }) {
     const dispatch = useDispatch();
     const loginUser = useSelector((state) => state.loginUser.user);
@@ -68,7 +65,6 @@ function ListFollow({ product, userLike }) {
     }
     myLikeItem = filterProduct();
 
-
     return (
         <Wrapper>
             <FollowList>
@@ -89,7 +85,6 @@ function ListFollow({ product, userLike }) {
                                         <ListItem item={item} userLike={userLike} randomProduct={product} key={idx} />
                                     )
                                 })
-
                     }
                 </ul>
             </FollowList>

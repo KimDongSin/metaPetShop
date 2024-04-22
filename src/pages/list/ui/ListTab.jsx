@@ -19,7 +19,6 @@ const Wrapper = styled.div`
             width: 25%;
             height: 100%;
         }
-
    }
 `;
 
@@ -55,10 +54,8 @@ const TabLink = styled(Link)`
     }
 `;
 
-
 function ListTab({ type }) {
     const dispatch = useDispatch();
-
     return (
         <Wrapper>
             <ul>

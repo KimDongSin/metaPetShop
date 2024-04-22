@@ -5,16 +5,13 @@ import Collection from "./ui/Collection";
 import FavSwipe from "./ui/Favswipe";
 import NewSwipe from "./ui/Newswipe";
 import ScrollToTop from "../../common/utils/scrollToTop";
-import { ref, child, get, update } from "firebase/database";
-import { db, firebaseConfig } from "../../common/api/firebase";
+import { ref, child, get } from "firebase/database";
+import { db } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb, saveFollowing, saveFollower, saveUserPurchase } from "../../store/store";
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
-import firebase from "firebase/compat/app";
+import { headerChange, likeToggle, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb, saveFollowing, saveFollower, saveUserPurchase } from "../../store/store";
 import { objToArr } from "../../common/utils/objToArr";
 import Celeb from "./ui/Celeb";
-import { uid } from "uid";
 import { shuffleArray } from "../../common/utils/shuffleArray";
 
 

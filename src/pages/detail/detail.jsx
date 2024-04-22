@@ -104,7 +104,7 @@ function Detail() {
                                 <DetailInfo product={product} />
                                 : type === 'community' ?
                                     <DetailCommunity product={product} />
-                                    : <DetailFollower product={product}/>
+                                    : <DetailFollower product={product} />
                     }
                     <DetailRecommend setType={setType} randomProduct={randomProduct} userLike={objToArr(loginUser?.like)} productAll={productAll} />
                 </Wrapper>

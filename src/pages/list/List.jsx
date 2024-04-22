@@ -31,14 +31,11 @@ function List() {
   const randomProduct = location.state?.randomProduct == undefined ? shuffleArray(storeProduct) : location.state?.randomProduct;
   const user = location.state?.user == undefined ? storeCleb : location.state?.user;;
   const userFollowing = location.state?.userFollowing;
+
   ScrollToTop()
-
-
   useEffect(() => {
     dispatch(menuChange("product"));
   }, []);
-
-  ScrollToTop();
 
   return (
     <Wrapper>

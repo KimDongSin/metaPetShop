@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import Title from "../../../components/title/Title";
 import ListSearch from "./ListSearch";
-import likeOn from '../../../assets/images/common/like_on.png';
-import likeOff from '../../../assets/images/common/like_off.png';
-import sampleImg from '../../../assets/images/common/dog_sample2.png';
-import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
-
-import { Link } from "react-router-dom";
 import CollectionItem from "./CollectionList";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -26,7 +20,6 @@ const CollectionList = styled.div`
         align-items: center;
         flex-direction: column;
     }
-
 `;
 
 function Collection({ coll, productAll }) {

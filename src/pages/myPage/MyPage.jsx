@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import profile from "../../assets/images/myPage/profile.png";
 import arrow from "../../assets/images/myPage/arrow.png";
 import { Link } from "react-router-dom";
 import { InfoBgBox } from "../../components/myPage/InfoBgBox";
@@ -122,7 +121,6 @@ const MyPage = () => {
     }))
     dispatch(menuChange('user'));
   }, []);
-  
 
   return (
     <Wrap>
@@ -214,4 +212,5 @@ const MyPage = () => {
     </Wrap>
   );
 };
+
 export default MyPage;

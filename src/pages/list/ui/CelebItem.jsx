@@ -1,14 +1,11 @@
 import styled from "styled-components";
 import sampleImg from '../../../assets/images/common/dog_sample2.png';
-import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
-
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { ref, remove, update } from "firebase/database";
 import { db } from "../../../common/api/firebase";
 import { saveFollowing } from "../../../store/store";
-
 
 const Wrapper = styled.li`
     width: 48%;
@@ -80,7 +77,6 @@ const UserFollow = styled.div`
     }
 `;
 
-
 function CelebItem({ item, userFollowing }) {
     const loginUser = useSelector((state) => state.loginUser.user);
     const navigation = useNavigate()
@@ -140,9 +136,9 @@ function CelebItem({ item, userFollowing }) {
                 <span>{item.nickName}</span>
                 {
                     (followList?.filter((e) => e == item?.uuid).length > 0) ?
-                        <button onClick={(e) => { removeFollow(item?.uuid) }}>UnFollow</button>
+                        <button onClick={() => { removeFollow(item?.uuid) }}>UnFollow</button>
                         : (item.uuid !== loginUser?.uuid) ?
-                            <button onClick={(e) => { addFollow() }}>Follow</button>
+                            <button onClick={() => { addFollow() }}>Follow</button>
                             : null
                 }
             </UserFollow>

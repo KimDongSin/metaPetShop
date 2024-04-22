@@ -6,7 +6,7 @@ import { LoginBtn, JoinBtn } from "../../components/styled/UI/button/Button";
 import SnsLogin from "./ui/SnsLogin";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword, browserSessionPersistence, setPersistence } from "firebase/auth";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginStateChange } from "../../store/store";
 
 const Wrap = styled.div`
@@ -79,7 +79,6 @@ const Login = () => {
           setUser={setUser}
         />
       </div>
-
       <div className="user__input__wrapper">
         <FormInput
           title="비밀번호"
@@ -89,22 +88,18 @@ const Login = () => {
           setUser={setUser}
         />
       </div>
-
       <div className="user__check__box">
         <FormCheckBox />
         <UserInfoFind to="/infoFind">아이디/비밀번호 찾기</UserInfoFind>
       </div>
-
       <div className="login__btn__wrap">
         <Link to="/login">
           <LoginBtn onClick={() => { login() }}>로그인</LoginBtn>
         </Link>
-
         <Link to="/join">
           <JoinBtn>회원가입</JoinBtn>
         </Link>
       </div>
-
       <SnsLogin />
     </Wrap>
   );

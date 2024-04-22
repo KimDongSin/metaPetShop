@@ -1,9 +1,4 @@
 import styled from "styled-components";
-import likeOn from '../../../assets/images/common/like_on.png';
-import likeOff from '../../../assets/images/common/like_off.png';
-import sampleImg from '../../../assets/images/common/dog_sample2.png';
-import sampleImg2 from '../../../assets/images/common/dog_sample3.png';
-
 import { Link } from "react-router-dom";
 import { objToArr } from "../../../common/utils/objToArr";
 
@@ -65,29 +60,6 @@ const UserLink = styled(Link)`
     }
 `;
 
-const CollLike = styled.div`
-    width: 42px;
-    height: 42px;
-
-    & > button {
-        width: 42px;
-        height: 42px;
-        padding: 0;
-        margin: 0;
-        background: none;
-        border: 1px solid #0000000F;
-        border-radius: 100%;
-        cursor: pointer;
-
-        & > img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 100%;
-        }
-    }
-`;
-
 const CollImg = styled(Link)`
     width: 100%;
     display: flex;
@@ -120,11 +92,8 @@ const GroupImg = styled.div`
         height: 95px;
         object-fit: cover;
         border-radius: 12px;
-
     }
-
 `;
-
 
 function CollectionItem({ coll, productAll }) {
     let product = objToArr(coll.product);
@@ -157,13 +126,8 @@ function CollectionItem({ coll, productAll }) {
                         <span>created by {coll.userNickname}</span>
                     </UserLink>
                 </div>
-                {/* <CollLike>
-                    <button><img src={likeOff} /></button>
-                </CollLike> */}
-
             </UserInfo>
-
-            <CollImg  to={"/"}>
+            <CollImg to={"/"}>
                 <SoloImg>
                     <img src={coll.image} />
                 </SoloImg>
@@ -171,13 +135,12 @@ function CollectionItem({ coll, productAll }) {
                     {
                         collectionItem &&
                         collectionItem?.slice(0, 4).map((item, i) => {
-                            return(
+                            return (
                                 <img src={item.image} key={i} />
                             )
                         })
                     }
                 </GroupImg>
-
             </CollImg>
         </CollItem>
     )
