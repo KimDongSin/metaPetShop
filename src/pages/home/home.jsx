@@ -53,8 +53,6 @@ function Home() {
     dispatch(menuChange('home'));
   }, [])
 
-
-
   useEffect(() => {
     // 제품 데이터
     async function getProduct() {
@@ -81,10 +79,7 @@ function Home() {
       await get(child(dbRef, "/user"))
         .then(snapshot => {
           if (snapshot.exists()) {
-            // 배열로 반환
             let temp = objToArr(snapshot.val())
-            // let tempFollow =
-            // let tempFollowing =
             setUser(temp);
             dispatch(saveCeleb(temp));
 
@@ -97,7 +92,6 @@ function Home() {
         });
     }
     getUser();
-
 
     // 컬렉션 데이터
     async function getCollection() {
@@ -140,10 +134,6 @@ function Home() {
     getUserPurchase();
   }, []);
 
-
-  console.log(userPurchase);
-
-
   // New 정렬 & hot 정렬
   useEffect(() => {
     if (product != null) {
@@ -154,17 +144,6 @@ function Home() {
       dispatch(saveProduct(product));
     }
   }, [product])
-
-
-
-
-
-
-
-
-
-
-
 
   // 로그인 유저 찾기
   useEffect(() => {
@@ -183,62 +162,7 @@ function Home() {
 
     dispatch(saveFollower(followerTemp));
     dispatch(saveFollowing(followingTemp));
-    console.log(followerTemp);
-    console.log(followingTemp);
-    // objToArr(result[0].like)
-
-    // console.log(likeTemp);
   }, [user])
-
-
-
-  // product.sort();
-
-  // let result = product.sort((a, b) => a.startDate.toLowerCase() < b.startDate.toLowerCase() ? -1 : 1);
-  // console.log(result);
-
-
-  // console.log(product);
-
-  // const updateData = () => {
-  //   const temp = {
-  //     amount: 10000
-  //   };
-
-  //   return update(
-  //     ref(db, "/product/0"), temp);
-  // };
-
-  // updateData();
-
-
-  // -**************-
-
-
-  // const Signup = () => {
-  //   async function register(email, password) {
-  //     try {
-  //       const auth = getAuth();
-  //       console.log(auth);
-  //       const user = await createUserWithEmailAndPassword(auth, 'rladudwn0215@naver.com', 'dudwnekt93');
-  //       console.log(user);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   }
-  //   register();
-  // }
-
-
-  // Signup();
-
-
-
-
-
-  console.log(uid());
-
-
 
 
   return (

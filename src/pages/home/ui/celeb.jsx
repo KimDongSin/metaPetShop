@@ -14,13 +14,10 @@ function Celeb({ user }) {
     let userArr = followerArrFn(user);
     const [celeb, setCeleb] = useState();
 
-    console.log();
     // follower 정렬
     useEffect(() => {
         if (userArr != null) {
             let result = Array.isArray(userArr) ? userArr : userArr.sort((a, b) => a.follower.length > b.follower.length ? -1 : 1);
-            // let result = userArr.sort((a, b) => a.follower.length > b.follower.length ? -1 : 1);
-            // setNewProduct(result);
             setCeleb(result)
         }
     }, [user])

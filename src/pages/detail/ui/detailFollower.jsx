@@ -58,16 +58,8 @@ const History = styled.div`
 `;
 
 function DetailFollower({ product }) {
-
     const userPurchase = useSelector((state) => state.userPurchase.userPurchase);
-    console.log(userPurchase);
-    console.log(product);
-
     let temp = userPurchase.filter((item, idx) => (item.productUuid == product.uuid))
-
-    console.log(temp);
-
-
 
     return (
         <Wrapper>
@@ -93,36 +85,7 @@ function DetailFollower({ product }) {
                         )
                     })
                 }
-                {/* <li>
-                    <img src={userSample} />
-                    <History>
-                        <span>good monkey이 NFT를 구매하였습니다.</span>
-                        <span>몇 초 전</span>
-                    </History>
-                </li>
-                <li>
-                    <img src={userSample} />
-                    <History>
-                        <span>good monkey이 NFT를 구매하였습니다.</span>
-                        <span>몇 초 전</span>
-                    </History>
-                </li>
-                <li>
-                    <img src={userSample} />
-                    <History>
-                        <span>good monkey이 NFT를 구매하였습니다.</span>
-                        <span>몇 초 전</span>
-                    </History>
-                </li>
-                <li>
-                    <img src={userSample} />
-                    <History>
-                        <span>good monkey이 NFT를 구매하였습니다.</span>
-                        <span>몇 초 전</span>
-                    </History>
-                </li> */}
             </ul>
-
         </Wrapper>
     )
 }

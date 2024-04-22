@@ -134,8 +134,6 @@ function FavSwipe({ product, userLike, randomProduct }) {
     //     const today = new Date();
 
     //     let day_gap = today - targetDay;
-    //     console.log(day_gap);
-
     //     const day = Math.floor(day_gap / (1000 * 60 * 60 * 24));
     //     const hour = Math.floor(day_gap / (1000 * 60 * 60) % 24);
     //     const min = Math.floor(day_gap / (1000 * 60) % 60);

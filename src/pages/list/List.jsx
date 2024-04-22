@@ -28,7 +28,6 @@ function List() {
   const user = location.state?.user;
   const userFollowing = location.state?.userFollowing;
 
-  console.log(type);
   useEffect(() => {
     dispatch(menuChange("product"));
   }, []);
@@ -54,24 +53,12 @@ function List() {
           userLike={userLike}
         ></ListNew>
       ) : type === "coll" ? (
-        <Collection></Collection>
+        <Collection />
       ) : type === "celeb" ? (
         <ListCeleb user={user} userFollowing={userFollowing}></ListCeleb>
       ) : (
         ""
       )}
-
-      {/* <ListHot></ListHot> */}
-
-      {/* <ListNew></ListNew> */}
-
-      {/* <Collection></Collection> */}
-
-      {/* <ListCeleb></ListCeleb> */}
-
-      {/* <CollectionDetail></CollectionDetail> */}
-
-      {/* <CelebDetail></CelebDetail> */}
     </Wrapper>
   );
 }

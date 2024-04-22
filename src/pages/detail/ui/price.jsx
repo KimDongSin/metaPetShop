@@ -192,7 +192,6 @@ function Price({ product }) {
 
     function likeToggleFn(e) {
         if (loginUser == null) {
-            console.log("noooooooo");
             alert("로그인이 필요합니다.");
             navigate("/login");
         } else {
@@ -237,8 +236,6 @@ function Price({ product }) {
             // 구매
             let cash = loginUser.cash
             let total = (product.price * productCount);
-            console.log(total);
-
             const productToggle = () => {
                 const temp = { cash: cash - total };
                 return update(ref(db, "/user/" + loginUser.uuid), temp)

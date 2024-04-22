@@ -61,7 +61,6 @@ const Share = styled.div`
 `;
 
 const ItemDetail = styled.div`
-
 `;
 
 function Detail() {
@@ -72,7 +71,6 @@ function Detail() {
     const randomProduct = location.state.randomProduct;
     const dispatch = useDispatch();
     const [type, setType] = useState('story');
-    console.log(type);
 
     useEffect(() => {
         dispatch(menuChange('product'));

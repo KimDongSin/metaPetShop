@@ -137,7 +137,7 @@ function Product({ product, userLike, productAll, randomProduct, setType }) {
                         :
                         temp.map((item, idx) => {
                             return (
-                                <li key={idx} onClick={()=>{setType('story'); console.log(321321);}}>
+                                <li key={idx} onClick={() => { setType('story') }}>
                                     <Item to={"/detail/" + item.uuid} state={{ item: item, productAll: productAll, randomProduct: randomProduct }}>
                                         <ItemImg>
                                             <img src={item.image} />

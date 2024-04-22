@@ -41,39 +41,13 @@ const UserInfoFind = styled(Link)`
   font-size: 14px;
 `;
 
-
-
-
 const Login = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [user, setUser] = useState({
     email: '',
     password: ''
   });
-
-
-
-  // function login() {
-  //   const auth = getAuth();
-  //   signInWithEmailAndPassword(auth, user.email, user.password)
-  //     .then((userCredential) => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       dispatch(loginStateChange(user));
-  //       console.log(user);
-  //       navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //     });
-
-  // }
-
-
 
   function login() {
     const auth = getAuth();
@@ -83,7 +57,7 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            dispatch(loginStateChange({value: user.email}));
+            dispatch(loginStateChange({ value: user.email }));
             navigate("/");
           })
           .catch((error) => {
@@ -92,9 +66,6 @@ const Login = () => {
           })
       )
   }
-
-
-
 
 
   return (
