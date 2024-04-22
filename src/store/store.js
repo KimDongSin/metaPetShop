@@ -145,6 +145,18 @@ const following = createSlice({
 
 export let { saveFollowing } = following.actions;
 
+const userPurchase = createSlice({
+    name: 'userPurchase',
+    initialState: { userPurchase: null },
+    reducers: {
+        saveUserPurchase(state, action) {
+            state.userPurchase = action.payload;
+        }
+    }
+});
+
+export let { saveUserPurchase } = userPurchase.actions;
+
 
 export default configureStore({
     reducer: {
@@ -159,5 +171,6 @@ export default configureStore({
         celeb: celeb.reducer,
         follower: follower.reducer,
         following: following.reducer,
+        userPurchase: userPurchase.reducer,
     }
 });

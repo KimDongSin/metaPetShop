@@ -9,7 +9,7 @@ import { ref, child, get, update } from "firebase/database";
 import { db, firebaseConfig } from "../../common/api/firebase";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb, saveFollowing, saveFollower } from "../../store/store";
+import { headerChange, likeToggle, loginStateChange, loginUserSet, menuChange, saveCollection, saveProduct, saveCeleb, saveFollowing, saveFollower, saveUserPurchase } from "../../store/store";
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import firebase from "firebase/compat/app";
 import { objToArr } from "../../common/utils/objToArr";
@@ -40,6 +40,7 @@ function Home() {
   const [randomProduct, setRandomProduct] = useState();
   const [userFollower, setUserFollwer] = useState();
   const [userFollowing, setUserFollwing] = useState();
+  const [userPurchase, setUserPurchase] = useState();
 
   // --------------------------------------------------------------------------------------
 
@@ -117,8 +118,30 @@ function Home() {
         });
     }
     getCollection();
+
+    // 구매자 데이터
+    async function getUserPurchase() {
+      const dbRef = ref(db);
+      await get(child(dbRef, "/purchase"))
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            // 배열로 반환
+            let temp = objToArr(snapshot.val())
+            setUserPurchase(temp);
+            dispatch(saveUserPurchase(temp))
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+    getUserPurchase();
   }, []);
 
+
+  console.log(userPurchase);
 
 
   // New 정렬 & hot 정렬
@@ -154,7 +177,7 @@ function Home() {
     let followingTemp = objToArr(result[0]?.following);
     dispatch(loginUserSet(result[0]));
     dispatch(likeToggle(likeTemp));
-    
+
     setUserFollwer(followerTemp);
     setUserFollwing(followingTemp)
 
@@ -238,7 +261,7 @@ function Home() {
       </Section>
 
       <Section>
-        <More title="Top Collections" type="coll" productAll={product} coll={coll}/>
+        <More title="Top Collections" type="coll" productAll={product} coll={coll} />
         <Collection product={coll} userLike={userLike} productAll={product} randomProduct={randomProduct} />
       </Section>
 

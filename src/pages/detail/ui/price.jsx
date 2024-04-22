@@ -256,6 +256,7 @@ function Price({ product }) {
                     price: product.price * productCount,
                     productUuid: product.uuid,
                     userUuid: loginUser.uuid,
+                    nickName: loginUser.nickName
                 };
                 return update(ref(db, "/purchase/" + uuid), temp)
 
