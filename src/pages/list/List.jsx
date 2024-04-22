@@ -5,8 +5,6 @@ import ListHot from "./ui/Hot";
 import ListNew from "./ui/New";
 import Collection from "./ui/Collection";
 import ListCeleb from "./ui/ListCeleb";
-import CollectionDetail from "./ui/CollectionDetail";
-import CelebDetail from "./ui/CelebDetail";
 import { useDispatch, useSelector } from "react-redux";
 import { menuChange } from "../../store/store";
 import { useEffect } from "react";
@@ -19,14 +17,22 @@ const Wrapper = styled.div`
 `;
 
 function List() {
-  const type = useSelector((state) => state.listTabType.type);
   const dispatch = useDispatch();
   const location = useLocation();
-  const product = location.state?.product;
-  const userLike = location.state?.userLike;
-  const randomProduct = location.state?.randomProduct;
-  const user = location.state?.user;
+  const type = useSelector((state) => state.listTabType.type);
+  const storeProduct = useSelector((state) => state.product.product);
+  const storeUserLike = useSelector((state) => state.userLike.like);
+  const storeCollection = useSelector((state) => state.collection.collection);
+  const storeCleb = useSelector((state) => state.celeb.celeb);
+  const product = location.state?.product == undefined ? storeProduct : location.state?.product;
+  const userLike = location.state?.userLike == undefined ? storeUserLike : location.state?.userLike;
+  const productAll = location.state?.productAll == undefined ? storeProduct : location.state?.productAll;
+  const coll = location.state?.coll == undefined ? storeCollection : location.state?.coll;;
+  const randomProduct = location.state?.randomProduct == undefined ? shuffleArray(storeProduct) : location.state?.randomProduct;
+  const user = location.state?.user == undefined ? storeCleb : location.state?.user;;
   const userFollowing = location.state?.userFollowing;
+  ScrollToTop()
+
 
   useEffect(() => {
     dispatch(menuChange("product"));
@@ -38,27 +44,14 @@ function List() {
     <Wrapper>
       <ListTab type={type}></ListTab>
 
-      {type === "follow" ? (
-        <ListFollow />
-      ) : type === "hot" ? (
-        <ListHot
-          randomProduct={randomProduct}
-          product={product}
-          userLike={userLike}
-        />
-      ) : type === "new" ? (
-        <ListNew
-          randomProduct={randomProduct}
-          product={product}
-          userLike={userLike}
-        ></ListNew>
-      ) : type === "coll" ? (
-        <Collection />
-      ) : type === "celeb" ? (
-        <ListCeleb user={user} userFollowing={userFollowing}></ListCeleb>
-      ) : (
-        ""
-      )}
+      {
+        type === "follow" ? <ListFollow product={product} userLike={userLike} />
+          : type === "hot" ? <ListHot randomProduct={randomProduct} product={product} userLike={userLike} />
+            : type === "new" ? <ListNew randomProduct={randomProduct} product={product} userLike={userLike}></ListNew>
+              : type === "coll" ? <Collection coll={coll} productAll={productAll} />
+                : type === "celeb" ? <ListCeleb user={user} userFollowing={userFollowing}></ListCeleb>
+                  : ""
+      }
     </Wrapper>
   );
 }

@@ -41,7 +41,7 @@ function Collection({ coll, productAll }) {
     const [searchItem, setSearchItem] = useState(coll);
 
     useEffect(() => {
-        setSearchItem((prev) =>([...prev]))
+        setSearchItem((prev) => ([...prev]))
     }, [coll])
 
     return (
@@ -60,10 +60,6 @@ function Collection({ coll, productAll }) {
                             )
                         })
                     }
-
-
-{/* 
-                    <CollectionItem></CollectionItem> */}
                 </ul>
             </CollectionList>
         </Wrapper>

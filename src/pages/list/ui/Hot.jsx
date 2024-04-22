@@ -15,8 +15,6 @@ const HotList = styled.div`
 
 
 function ListHot({ product, userLike, randomProduct }) {
-    // init('t2', 'product', 'Hot');
-
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(headerChange({
@@ -40,8 +38,6 @@ function ListHot({ product, userLike, randomProduct }) {
                             )
                         })
                     }
-                    {/* <ListItem></ListItem>
-                    <ListItem></ListItem> */}
                 </ul>
             </HotList>
         </Wrapper>
